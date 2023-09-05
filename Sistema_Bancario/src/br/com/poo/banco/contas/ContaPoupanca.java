@@ -12,5 +12,14 @@ public class ContaPoupanca extends Conta {
 		super(numConta, numAgencia, titular, saldo);
 		this.rendimento = rendimento;
 	}
+	
+	public double getRendimento() {
+		return rendimento;
+	}
+
+	@Override
+	public String toString() {
+		return "Rendimentos : " + rendimento + "Anuais";
+	}
 }
 
