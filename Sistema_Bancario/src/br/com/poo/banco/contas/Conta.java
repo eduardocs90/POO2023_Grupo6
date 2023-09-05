@@ -17,5 +17,30 @@ public class Conta {
 		this.titular = titular;
 		this.saldo = saldo;
 	}
+	
+	public String getNumConta() {
+		return numConta;	
+	}
+	
+	public int getNumAgencia() {
+		return numAgencia;	
+	}
+	
+	
+	public String getTitular() {
+		return titular;	
+	}
+	
+	public double getSaldo() {
+		return saldo;	
+	}
+
+	@Override
+	public String toString() {
+		return "Conta numConta: " + numConta + "\nnumAgencia: " + numAgencia + "\ntitular: " + titular + "\nsaldo: "
+				+ saldo + "";
+	}
+	
+	
 }
 
