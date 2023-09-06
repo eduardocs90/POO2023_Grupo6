@@ -1,35 +1,34 @@
 package br.com.poo.banco.pessoas;
 
-public class Diretor extends Funcionario{
-	private String areaResponsavel;
-	private int numGerente;
+public class Diretor extends Gerente{
+	private int numFuncionario;
 	
+
 	public Diretor() {
-	}
-
-	public Diretor(String areaResponsavel, int numGerente) {
 		super();
-		this.areaResponsavel = areaResponsavel;
-		this.numGerente = numGerente;
+	
+	}
+	
+	public Diretor(String nome, String cpf, String endereco, String contato, double salario, int id, String setorResponsavel, int numFuncionario) {	
+		super(nome, cpf, endereco, contato, salario, id, setorResponsavel);
+		this.numFuncionario = numFuncionario;
+	
 	}
 
-	public String getAreaResponsavel() {
-		return areaResponsavel;
-	}
-	public int getNumGerente() {
-		return numGerente;
+	public int getNumFuncionario() {
+		return numFuncionario;
 	}
 
-	public void setNumGerente(int numGerente) {
-		this.numGerente = numGerente;
+	public void setNumFuncionario(int numFuncionario) {
+		this.numFuncionario = numFuncionario;
 	}
 
 	@Override
 	public String toString() {
-		return "areaResponsavel: " + areaResponsavel + "\nnumGerente: " + numGerente ;
+		return "Numero de Funcionários: " + numFuncionario;
 	}
-
-
+	
+	
 	
 
 }
