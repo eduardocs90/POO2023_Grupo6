@@ -5,12 +5,14 @@ public class Funcionario extends Cliente {
 	private double salario;
 	private int id;
 	
+
 	public Funcionario() {
-		
-	}
-	
-	public Funcionario(double salario, int id) {
 		super();
+	
+	}
+
+	public Funcionario(String nome, String cpf, String endereco, String contato, double salario, int id) {
+		super(nome, cpf, endereco, contato);
 		this.salario = salario;
 		this.id = id;
 	}

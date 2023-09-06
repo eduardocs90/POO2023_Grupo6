@@ -4,11 +4,14 @@ public class Presidente extends Funcionario {
 	
 	private int numDiretor;
 	
-	public Presidente() {	
+	
+
+	public Presidente() {
+		super();
 	}
 
-	public Presidente(int numDiretor) {
-		super();
+	public Presidente(String nome, String cpf, String endereco, String contato, double salario, int id, int numDiretor) {
+		super(nome, cpf, endereco, contato, salario, id);
 		this.numDiretor = numDiretor;
 	}
 
