@@ -1,6 +1,6 @@
 package br.com.poo.banco.pessoas;
 
-public class Presidente extends Funcionario {
+public class Presidente extends Diretor {
 	
 	private int numDiretor;
 	
@@ -10,22 +10,20 @@ public class Presidente extends Funcionario {
 		super();
 	}
 
-	public Presidente(String nome, String cpf, String endereco, String contato, double salario, int id, int numDiretor) {
-		super(nome, cpf, endereco, contato, salario, id);
-		this.numDiretor = numDiretor;
+
+
+	public Presidente(double salario, String agencia, String cpf, String nome, String senha, String setorResponsavel) {
+		super(salario, agencia, cpf, nome, senha, setorResponsavel);
+		
 	}
+
+
 
 	public int getNumDiretor() {
 		return numDiretor;
 	}
 
-	public void setNumDiretor(int numDiretor) {
-		this.numDiretor = numDiretor;
-	}
-
-	@Override
-	public String toString() {
-		return "Números de Diretores gerenciados:" + numDiretor ;
-	}
+	
+	
 
 }

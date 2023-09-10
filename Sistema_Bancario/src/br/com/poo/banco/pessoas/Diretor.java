@@ -8,25 +8,20 @@ public class Diretor extends Gerente{
 		super();
 	
 	}
-	
-	public Diretor(String nome, String cpf, String endereco, String contato, double salario, int id, String setorResponsavel, int numFuncionario) {	
-		super(nome, cpf, endereco, contato, salario, id, setorResponsavel);
-		this.numFuncionario = numFuncionario;
-	
+
+
+	public Diretor(double salario, String agencia, String cpf, String nome, String senha, String setorResponsavel) {
+		super(salario, agencia, cpf, nome, senha, setorResponsavel);
+		
 	}
+
 
 	public int getNumFuncionario() {
 		return numFuncionario;
 	}
 
-	public void setNumFuncionario(int numFuncionario) {
-		this.numFuncionario = numFuncionario;
-	}
 
-	@Override
-	public String toString() {
-		return "Numero de Funcionários: " + numFuncionario;
-	}
+	
 	
 	
 	

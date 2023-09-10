@@ -1,34 +1,59 @@
 package br.com.poo.banco.pessoas;
 
-public class Funcionario extends Cliente {
+public class Funcionario {
 	
 	private double salario;
-	private int id;
+	private String agencia;
+	private String cpf;
+	private String nome;
+	private String senha;
 	
 
 	public Funcionario() {
-		super();
 	
 	}
 
-	public Funcionario(String nome, String cpf, String endereco, String contato, double salario, int id) {
-		super(nome, cpf, endereco, contato);
+
+	public Funcionario(double salario, String agencia, String cpf, String nome, String senha) {
 		this.salario = salario;
-		this.id = id;
+		this.agencia = agencia;
+		this.cpf = cpf;
+		this.nome = nome;
+		this.senha = senha;
 	}
+
 
 	public double getSalario() {
 		return salario;
 	}
-	
-	public int getId() {
-		return id;
+
+
+	public String getAgencia() {
+		return agencia;
 	}
+
+
+	public String getCpf() {
+		return cpf;
+	}
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+	public String getSenha() {
+		return senha;
+	}
+
 
 	@Override
 	public String toString() {
-		return "Salário: " + salario + "\nID: " + id;
+		return "Funcionario [salario=" + salario + ", agencia=" + agencia + ", cpf=" + cpf + ", nome=" + nome
+				+ ", senha=" + senha + "]";
 	}
+
 	
 	
 }
