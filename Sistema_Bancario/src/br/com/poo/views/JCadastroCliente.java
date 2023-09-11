@@ -119,8 +119,8 @@ public class JCadastroCliente extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\FACC\\Pictures\\debank2.png"));
-		lblNewLabel_2.setBounds(27, 10, 68, 55);
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\devSerratec\\POO\\workspace\\POO2023_Grupo6\\Sistema_Bancario\\src\\br\\com\\poo\\imagens\\100x100.png"));
+		lblNewLabel_2.setBounds(10, 10, 68, 55);
 		contentPane.add(lblNewLabel_2);
 		
 		textField_4 = new JTextField();
