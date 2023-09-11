@@ -39,7 +39,7 @@ public class MenuGerente extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuGerente() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Serratec\\OneDrive\\Documentos\\DéBank.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuGerente.class.getResource("/br/com/poo/imagens/50x50.png")));
 		setTitle("DéBank");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -51,7 +51,7 @@ public class MenuGerente extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(47, 61, 327, 166);
+		panel.setBounds(46, 63, 327, 166);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -59,17 +59,21 @@ public class MenuGerente extends JFrame {
 		btnNewButton.setBounds(90, 59, 141, 23);
 		panel.add(btnNewButton);
 		
-		JLabel lblNewLabel_1 = new JLabel("Seja bem-vindo ao menu Gerente !");
-		lblNewLabel_1.setBounds(80, 11, 178, 27);
+		JLabel lblNewLabel_1 = new JLabel("Menu Gerente");
+		lblNewLabel_1.setBounds(121, 11, 75, 27);
 		panel.add(lblNewLabel_1);
 		
 		JButton btnNewButton_1 = new JButton("Cadastro");
 		btnNewButton_1.setBounds(90, 93, 141, 23);
 		panel.add(btnNewButton_1);
 		
+		JButton btnNewButton_2 = new JButton("Voltar");
+		btnNewButton_2.setBounds(0, 143, 69, 23);
+		panel.add(btnNewButton_2);
+		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Serratec\\Downloads\\DéBank3.png"));
-		lblNewLabel.setBounds(157, 0, 94, 62);
+		lblNewLabel.setIcon(new ImageIcon(MenuGerente.class.getResource("/br/com/poo/imagens/100x100.png")));
+		lblNewLabel.setBounds(159, 0, 94, 62);
 		contentPane.add(lblNewLabel);
 	}
 }
