@@ -40,7 +40,7 @@ public class telaCarregamento extends JFrame {
 	 */
 	public telaCarregamento() {
 		setTitle("DÉ BANK");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\PC\\Downloads\\Design sem nome.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\dev\\ProgOriObj\\workspace\\POO2023_Grupo6\\Imagens\\50x50.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 536);
 		contentPane = new JPanel();
@@ -62,18 +62,18 @@ public class telaCarregamento extends JFrame {
 		iniciando.setForeground(new Color(0, 0, 0));
 		
 		JLabel logo = new JLabel("");
-		logo.setIcon(new ImageIcon("C:\\Users\\PC\\Downloads\\Design sem nome (4).png"));
-		logo.setBounds(57, 38, 236, 166);
+		logo.setIcon(new ImageIcon("C:\\dev\\ProgOriObj\\workspace\\POO2023_Grupo6\\Imagens\\300x300.png"));
+		logo.setBounds(65, 38, 236, 166);
 		contentPane.add(logo);
 		
-		JLabel esferasDoDragao = new JLabel("New label");
-		esferasDoDragao.setIcon(new ImageIcon("C:\\Users\\PC\\Downloads\\image-removebg-preview.png"));
+		JLabel esferasDoDragao = new JLabel("");
+		esferasDoDragao.setIcon(new ImageIcon("C:\\dev\\ProgOriObj\\workspace\\POO2023_Grupo6\\Imagens\\image-removebg-preview.png"));
 		esferasDoDragao.setBounds(-14, 391, 348, 57);
 		contentPane.add(esferasDoDragao);
 		
-		JLabel gokuCorrendo = new JLabel("New label");
-		gokuCorrendo.setIcon(new ImageIcon("C:\\Users\\PC\\Downloads\\Design_sem_nome__7_-removebg-preview.png"));
-		gokuCorrendo.setBounds(324, 408, 55, 57);
+		JLabel gokuCorrendo = new JLabel("");
+		gokuCorrendo.setIcon(new ImageIcon("C:\\dev\\ProgOriObj\\workspace\\POO2023_Grupo6\\Imagens\\goku100x100.png"));
+		gokuCorrendo.setBounds(311, 385, 78, 74);
 		contentPane.add(gokuCorrendo);
 	}
 }
