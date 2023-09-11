@@ -13,8 +13,8 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.UIManager;
 import java.awt.Toolkit;
+import javax.swing.border.LineBorder;
 
 public class MenuCorrente extends JFrame {
 
@@ -44,7 +44,7 @@ public class MenuCorrente extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuCorrente() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\crist\\Downloads\\WhatsApp Image 2023-09-09 at 16.46.41.jpeg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuCorrente.class.getResource("/br/com/poo/imagens/100x100.png")));
 		setTitle("DéBank");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 532);
@@ -73,13 +73,14 @@ public class MenuCorrente extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(UIManager.getColor("Button.background"));
-		panel.setBounds(10, 123, 414, 359);
+		panel.setBorder(new LineBorder(Color.GRAY, 4, true));
+		panel.setBackground(new Color(0, 0, 0));
+		panel.setBounds(10, 123, 414, 296);
 		contentPane.add(panel);
 		
 		JButton btnNewButton = new JButton("Saque");
 		btnNewButton.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Saque118x88.jpg")));
-		btnNewButton.setBounds(22, 28, 104, 88);
+		btnNewButton.setBounds(32, 28, 104, 88);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -89,12 +90,12 @@ public class MenuCorrente extends JFrame {
 		
 		JButton btnDepsito = new JButton("Depósito");
 		btnDepsito.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Deposito.jpg")));
-		btnDepsito.setBounds(148, 28, 104, 88);
+		btnDepsito.setBounds(158, 28, 104, 88);
 		panel.add(btnDepsito);
 		
 		JButton btnTransferncia = new JButton("Transferência\r\n");
 		btnTransferncia.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Transferencia.jpg")));
-		btnTransferncia.setBounds(282, 28, 104, 88);
+		btnTransferncia.setBounds(292, 28, 100, 88);
 		panel.add(btnTransferncia);
 		
 		JButton btnExtrato = new JButton("Extrato");
@@ -104,12 +105,12 @@ public class MenuCorrente extends JFrame {
 		
 		JButton btnNewButton_1_1 = new JButton("Poupança");
 		btnNewButton_1_1.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Poupanca118x88.jpg")));
-		btnNewButton_1_1.setBounds(148, 177, 104, 88);
+		btnNewButton_1_1.setBounds(158, 177, 104, 88);
 		panel.add(btnNewButton_1_1);
 		
 		JButton btnNewButton_2_1 = new JButton("Seguro de Vida");
 		btnNewButton_2_1.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/SeguroVida118x88.jpg")));
-		btnNewButton_2_1.setBounds(282, 177, 104, 88);
+		btnNewButton_2_1.setBounds(292, 177, 100, 88);
 		panel.add(btnNewButton_2_1);
 		
 		JLabel lblNewLabel_3 = new JLabel("Saldo R$");
@@ -138,5 +139,10 @@ public class MenuCorrente extends JFrame {
 		lblNewLabel_6.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/ContaCorrente.jpg")));
 		lblNewLabel_6.setBounds(294, 42, 118, 70);
 		contentPane.add(lblNewLabel_6);
+		
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
+		btnNewButton_1.setBounds(10, 430, 42, 35);
+		contentPane.add(btnNewButton_1);
 	}
 }
