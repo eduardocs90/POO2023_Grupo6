@@ -50,7 +50,7 @@ public class paginaLogin extends JFrame {
 	 */
 	public paginaLogin() {
 		setTitle("DÉ BANK");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\dev\\ProgOriObj\\workspace\\POO2023_Grupo6\\Imagens\\50x50.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(paginaLogin.class.getResource("/br/com/poo/imagens/100x100.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 536);
 		contentPane = new JPanel();
@@ -76,7 +76,7 @@ public class paginaLogin extends JFrame {
 		});
 		buttonExit.setBackground(Color.DARK_GRAY);
 		buttonExit.setFont(new Font("Tahoma", Font.PLAIN, 7));
-		buttonExit.setIcon(new ImageIcon("C:\\dev\\ProgOriObj\\workspace\\POO2023_Grupo6\\Imagens\\SAIR.png"));
+		buttonExit.setIcon(new ImageIcon(paginaLogin.class.getResource("/br/com/poo/imagens/SAIR.png")));
 		buttonExit.setBounds(-17, 446, 64, 51);
 		contentPane.add(buttonExit);
 		
@@ -110,15 +110,15 @@ public class paginaLogin extends JFrame {
 		JButton buttonLogin = new JButton("");
 		buttonLogin.setBounds(194, 374, 67, 71);
 		panel.add(buttonLogin);
-		buttonLogin.setIcon(new ImageIcon("C:\\dev\\ProgOriObj\\workspace\\POO2023_Grupo6\\Imagens\\2.png"));
+		buttonLogin.setIcon(new ImageIcon(paginaLogin.class.getResource("/br/com/poo/imagens/2.png")));
 		buttonLogin.setForeground(Color.DARK_GRAY);
 		buttonLogin.setBackground(new Color(0, 0, 0));
 		buttonLogin.setFont(new Font("Arial", Font.BOLD, 15));
 		
 		JLabel logo = new JLabel("");
-		logo.setBounds(78, 19, 241, 154);
+		logo.setBounds(78, 21, 241, 154);
 		panel.add(logo);
-		logo.setIcon(new ImageIcon("C:\\dev\\ProgOriObj\\workspace\\POO2023_Grupo6\\Imagens\\300x300.png"));
+		logo.setIcon(new ImageIcon(paginaLogin.class.getResource("/br/com/poo/imagens/300x300.png")));
 		
 		textCpf = new JTextField();
 		textCpf.setBounds(128, 242, 191, 27);
