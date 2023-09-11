@@ -71,7 +71,7 @@ public class MenuPoupanca extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\crist\\Downloads\\Poupança.png"));
+		lblNewLabel_1.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Poupanca118x88.jpg")));
 		lblNewLabel_1.setBounds(292, 40, 132, 78);
 		contentPane.add(lblNewLabel_1);
 		
@@ -88,22 +88,22 @@ public class MenuPoupanca extends JFrame {
 		contentPane.add(panel);
 		
 		JButton btnNewButton = new JButton("Saque");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\crist\\Downloads\\Inserir um título.png"));
+		btnNewButton.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Saque118x88.jpg")));
 		btnNewButton.setBounds(64, 37, 103, 88);
 		panel.add(btnNewButton);
 		
 		JButton btnDepsito = new JButton("Depósito");
-		btnDepsito.setIcon(new ImageIcon("C:\\Users\\crist\\Downloads\\Saque (2).png"));
+		btnDepsito.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Deposito.jpg")));
 		btnDepsito.setBounds(255, 37, 103, 88);
 		panel.add(btnDepsito);
 		
 		JButton btnTransferncia = new JButton("Transferência\r\n");
-		btnTransferncia.setIcon(new ImageIcon("C:\\Users\\crist\\Downloads\\Transferencia (1).png"));
+		btnTransferncia.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Transferencia.jpg")));
 		btnTransferncia.setBounds(255, 186, 103, 88);
 		panel.add(btnTransferncia);
 		
 		JButton btnExtrato = new JButton("Extrato");
-		btnExtrato.setIcon(new ImageIcon("C:\\Users\\crist\\Downloads\\Extrato.png"));
+		btnExtrato.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Extrato.jpg")));
 		btnExtrato.setBounds(64, 186, 103, 88);
 		panel.add(btnExtrato);
 		
@@ -114,7 +114,7 @@ public class MenuPoupanca extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setIcon(new ImageIcon("C:\\Users\\crist\\Downloads\\WhatsApp Image 2023-09-09 at 16.46.41.jpeg"));
+		lblNewLabel_4.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/100x100.png")));
 		lblNewLabel_4.setBounds(168, 25, 95, 59);
 		contentPane.add(lblNewLabel_4);
 	}

@@ -2,6 +2,7 @@ package br.com.poo.views;
 
 import java.awt.EventQueue;
 
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -55,7 +56,7 @@ public class MenuCorrente extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\crist\\Downloads\\WhatsApp Image 2023-09-09 at 16.46.41.jpeg"));
+		lblNewLabel_1.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/100x100.png")));
 		lblNewLabel_1.setBounds(167, 9, 82, 71);
 		contentPane.add(lblNewLabel_1);
 		
@@ -77,7 +78,7 @@ public class MenuCorrente extends JFrame {
 		contentPane.add(panel);
 		
 		JButton btnNewButton = new JButton("Saque");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\crist\\Downloads\\Saque.png"));
+		btnNewButton.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Saque118x88.jpg")));
 		btnNewButton.setBounds(22, 28, 104, 88);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -87,27 +88,27 @@ public class MenuCorrente extends JFrame {
 		panel.add(btnNewButton);
 		
 		JButton btnDepsito = new JButton("Depósito");
-		btnDepsito.setIcon(new ImageIcon("C:\\Users\\crist\\Downloads\\Saque (2).png"));
+		btnDepsito.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Deposito.jpg")));
 		btnDepsito.setBounds(148, 28, 104, 88);
 		panel.add(btnDepsito);
 		
 		JButton btnTransferncia = new JButton("Transferência\r\n");
-		btnTransferncia.setIcon(new ImageIcon("C:\\Users\\crist\\Downloads\\Transferencia (1).png"));
+		btnTransferncia.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Transferencia.jpg")));
 		btnTransferncia.setBounds(282, 28, 104, 88);
 		panel.add(btnTransferncia);
 		
 		JButton btnExtrato = new JButton("Extrato");
-		btnExtrato.setIcon(new ImageIcon("C:\\Users\\crist\\Downloads\\Extrato.png"));
+		btnExtrato.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Extrato.jpg")));
 		btnExtrato.setBounds(22, 177, 104, 88);
 		panel.add(btnExtrato);
 		
 		JButton btnNewButton_1_1 = new JButton("Poupança");
-		btnNewButton_1_1.setIcon(new ImageIcon("C:\\Users\\crist\\Downloads\\Poupança.png"));
+		btnNewButton_1_1.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Poupanca118x88.jpg")));
 		btnNewButton_1_1.setBounds(148, 177, 104, 88);
 		panel.add(btnNewButton_1_1);
 		
 		JButton btnNewButton_2_1 = new JButton("Seguro de Vida");
-		btnNewButton_2_1.setIcon(new ImageIcon("C:\\Users\\crist\\Downloads\\Poupança (1).png"));
+		btnNewButton_2_1.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/SeguroVida118x88.jpg")));
 		btnNewButton_2_1.setBounds(282, 177, 104, 88);
 		panel.add(btnNewButton_2_1);
 		
@@ -134,7 +135,7 @@ public class MenuCorrente extends JFrame {
 		contentPane.add(lblNewLabel_4_1);
 		
 		JLabel lblNewLabel_6 = new JLabel("Icon Corrente");
-		lblNewLabel_6.setIcon(new ImageIcon("C:\\Users\\crist\\Downloads\\Poupança (2).png"));
+		lblNewLabel_6.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/ContaCorrente.jpg")));
 		lblNewLabel_6.setBounds(294, 42, 118, 70);
 		contentPane.add(lblNewLabel_6);
 	}
