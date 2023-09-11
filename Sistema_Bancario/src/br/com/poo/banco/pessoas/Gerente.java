@@ -10,19 +10,23 @@ public class Gerente extends Funcionario {
 		super();
 	}
 
-	public Gerente(String nome, String cpf, String endereco, String contato, double salario, int id, String setorResponsavel) {
-		super(nome, cpf, endereco, contato, salario, id);
+
+	public Gerente(double salario, String agencia, String cpf, String nome, String senha, String setorResponsavel) {
+		super(salario, agencia, cpf, nome, senha);
 		this.setorResponsavel = setorResponsavel;
+		
 	}
 
-	
+
 	public String getSetorResponsavel() {
 		return setorResponsavel;
 	}
 
+
 	@Override
 	public String toString() {
-		return "\nSetor Responsável: " + setorResponsavel;
+		return "Gerente [setorResponsavel=" + setorResponsavel + "]";
 	}
+	
 
-}
+}	

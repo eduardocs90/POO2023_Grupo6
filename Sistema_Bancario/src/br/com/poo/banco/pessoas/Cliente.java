@@ -6,16 +6,18 @@ public class Cliente {
 	private String cpf;
 	private String endereco;
 	private String contato;
+	private String senha;
 	
 	public Cliente() {
 		
 	}
 	
-	public Cliente(String nome, String cpf, String endereco, String contato) {
+	public Cliente(String nome, String cpf, String endereco, String contato, String senha) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.endereco = endereco;
 		this.contato = contato;
+		this.senha = senha;
 	}
 	
 	public String getNome() {
@@ -32,6 +34,10 @@ public class Cliente {
 	
 	public String getContato() {
 		return contato;
+	}
+	
+	public String getSenha() {
+		return senha;
 	}
 	
 	public void setEndereco(String endereco) {
