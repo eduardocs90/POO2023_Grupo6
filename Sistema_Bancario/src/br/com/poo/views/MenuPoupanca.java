@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import javax.swing.JButton;
 import java.awt.Toolkit;
+import javax.swing.border.LineBorder;
 
 public class MenuPoupanca extends JFrame {
 
@@ -41,7 +42,7 @@ public class MenuPoupanca extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuPoupanca() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\crist\\Downloads\\WhatsApp Image 2023-09-09 at 16.46.41.jpeg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPoupanca.class.getResource("/br/com/poo/imagens/100x100.png")));
 		setTitle("DéBank");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 532);
@@ -82,30 +83,36 @@ public class MenuPoupanca extends JFrame {
 		contentPane.add(lblNewLabel_3_1);
 		
 		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(Color.GRAY, 4));
 		panel.setLayout(null);
-		panel.setBackground(UIManager.getColor("Button.background"));
-		panel.setBounds(10, 123, 414, 359);
+		panel.setBackground(Color.BLACK);
+		panel.setBounds(10, 123, 414, 306);
 		contentPane.add(panel);
 		
 		JButton btnNewButton = new JButton("Saque");
 		btnNewButton.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Saque118x88.jpg")));
-		btnNewButton.setBounds(64, 37, 103, 88);
+		btnNewButton.setBounds(44, 37, 103, 88);
 		panel.add(btnNewButton);
 		
 		JButton btnDepsito = new JButton("Depósito");
 		btnDepsito.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Deposito.jpg")));
-		btnDepsito.setBounds(255, 37, 103, 88);
+		btnDepsito.setBounds(157, 37, 103, 88);
 		panel.add(btnDepsito);
 		
 		JButton btnTransferncia = new JButton("Transferência\r\n");
 		btnTransferncia.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Transferencia.jpg")));
-		btnTransferncia.setBounds(255, 186, 103, 88);
+		btnTransferncia.setBounds(236, 184, 100, 87);
 		panel.add(btnTransferncia);
 		
 		JButton btnExtrato = new JButton("Extrato");
 		btnExtrato.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Extrato.jpg")));
-		btnExtrato.setBounds(64, 186, 103, 88);
+		btnExtrato.setBounds(96, 184, 103, 88);
 		panel.add(btnExtrato);
+		
+		JButton btnNewButton_2 = new JButton("Conta Corrente");
+		btnNewButton_2.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/ContaCorrente.jpg")));
+		btnNewButton_2.setBounds(275, 37, 95, 88);
+		panel.add(btnNewButton_2);
 		
 		JLabel lblNewLabel_2 = new JLabel("Ag 0000 Conta 000000-0");
 		lblNewLabel_2.setForeground(Color.WHITE);
@@ -117,6 +124,11 @@ public class MenuPoupanca extends JFrame {
 		lblNewLabel_4.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/100x100.png")));
 		lblNewLabel_4.setBounds(168, 25, 95, 59);
 		contentPane.add(lblNewLabel_4);
+		
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
+		btnNewButton_1.setBounds(10, 440, 42, 35);
+		contentPane.add(btnNewButton_1);
 	}
 
 }
