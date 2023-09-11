@@ -15,6 +15,7 @@ import javax.swing.UIManager;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
+import javax.swing.JPasswordField;
 
 public class JCadastroCliente extends JFrame {
 
@@ -22,10 +23,10 @@ public class JCadastroCliente extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	private JPasswordField passwordField;
+	private JPasswordField passwordField_1;
 
 	/**
 	 * Launch the application.
@@ -48,7 +49,7 @@ public class JCadastroCliente extends JFrame {
 	 */
 	public JCadastroCliente() {
 		setTitle("DéBank");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\FACC\\Pictures\\debank1.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(JCadastroCliente.class.getResource("/br/com/poo/imagens/50x50.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 451, 380);
 		contentPane = new JPanel();
@@ -74,16 +75,6 @@ public class JCadastroCliente extends JFrame {
 		textField_1.setColumns(10);
 		textField_1.setBounds(127, 106, 224, 19);
 		contentPane.add(textField_1);
-		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(127, 223, 224, 19);
-		contentPane.add(textField_2);
-		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(127, 264, 224, 19);
-		contentPane.add(textField_3);
 		
 		JLabel lblNewLabel_1 = new JLabel("NOME:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -119,8 +110,8 @@ public class JCadastroCliente extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\devSerratec\\POO\\workspace\\POO2023_Grupo6\\Sistema_Bancario\\src\\br\\com\\poo\\imagens\\100x100.png"));
-		lblNewLabel_2.setBounds(10, 10, 68, 55);
+		lblNewLabel_2.setIcon(new ImageIcon(JCadastroCliente.class.getResource("/br/com/poo/imagens/100x100.png")));
+		lblNewLabel_2.setBounds(10, 0, 85, 55);
 		contentPane.add(lblNewLabel_2);
 		
 		textField_4 = new JTextField();
@@ -144,5 +135,13 @@ public class JCadastroCliente extends JFrame {
 		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_1_1_1.setBounds(36, 188, 85, 13);
 		contentPane.add(lblNewLabel_1_1_1);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(127, 223, 224, 19);
+		contentPane.add(passwordField);
+		
+		passwordField_1 = new JPasswordField();
+		passwordField_1.setBounds(127, 264, 224, 19);
+		contentPane.add(passwordField_1);
 	}
 }

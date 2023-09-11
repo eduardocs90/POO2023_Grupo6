@@ -42,9 +42,9 @@ public class JRelatorioCliente extends JFrame {
 	 */
 	public JRelatorioCliente() {
 		setTitle("DéBank");
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\FACC\\Pictures\\debank1.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(JRelatorioCliente.class.getResource("/br/com/poo/imagens/50x50.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 340);
+		setBounds(100, 100, 450, 394);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -67,12 +67,13 @@ public class JRelatorioCliente extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\FACC\\Pictures\\debank2.png"));
-		lblNewLabel.setBounds(32, 10, 53, 29);
+		lblNewLabel.setIcon(new ImageIcon(JRelatorioCliente.class.getResource("/br/com/poo/imagens/50x50.png")));
+		lblNewLabel.setBounds(32, 10, 51, 29);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Gerar Relatório");
-		btnNewButton.setBounds(282, 272, 127, 21);
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setIcon(new ImageIcon(JRelatorioCliente.class.getResource("/br/com/poo/imagens/Extrato.jpg")));
+		btnNewButton.setBounds(159, 251, 118, 88);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("Relatórios");
