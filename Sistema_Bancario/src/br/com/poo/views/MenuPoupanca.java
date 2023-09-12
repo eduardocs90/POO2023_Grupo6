@@ -9,7 +9,6 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.ImageIcon;
-import javax.swing.UIManager;
 import javax.swing.JButton;
 import java.awt.Toolkit;
 import javax.swing.border.LineBorder;
