@@ -8,8 +8,8 @@ public class ContaPoupanca extends Conta {
 		super();
 	}
 	
-	public ContaPoupanca(String tipoConta,String numConta, String numAgencia, String titular, Double saldo) {
-		super(tipoConta,numConta, numAgencia, titular, saldo);
+	public ContaPoupanca(String tipoConta,String numConta, String numAgencia, String cpf, Double saldo) {
+		super(tipoConta,numConta, numAgencia, cpf, saldo);
 	}
 	
 	public Double getRendimento() {
