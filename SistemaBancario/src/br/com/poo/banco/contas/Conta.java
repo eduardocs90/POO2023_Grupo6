@@ -2,42 +2,48 @@ package br.com.poo.banco.contas;
 
 public class Conta {
 	
+	private String tipoConta;
 	private String numConta;
-	private int numAgencia;
-	private String titular;
-	private double saldo;
+	private String numAgencia;
+	private String cpf;
+	private Double saldo;
 	
 	public Conta() {
 		
 	}
 	
-	public Conta(String numConta, int numAgencia, String titular, double saldo) {
+	public Conta(String tipoConta, String numConta, String numAgencia, String cpf, Double saldo) {
+		this.tipoConta = tipoConta;
 		this.numConta = numConta;
 		this.numAgencia = numAgencia;
-		this.titular = titular;
+		this.cpf = cpf;
 		this.saldo = saldo;
+	}
+	
+	public String getTipoConta() {
+		return tipoConta;
 	}
 	
 	public String getNumConta() {
 		return numConta;	
 	}
 	
-	public int getNumAgencia() {
+	public String getNumAgencia() {
 		return numAgencia;	
 	}
 	
 	
-	public String getTitular() {
-		return titular;	
+	public String getCpf() {
+		return cpf;	
 	}
 	
-	public double getSaldo() {
+	public Double getSaldo() {
 		return saldo;	
 	}
 
 	@Override
 	public String toString() {
-		return "Conta numConta: " + numConta + "\nnumAgencia: " + numAgencia + "\ntitular: " + titular + "\nsaldo: "
+		return "Tipo Conta: " + tipoConta + "Conta numConta: " + numConta + "\nnumAgencia: " + numAgencia + "\ncpf: " + cpf + "\nsaldo: "
 				+ saldo + "";
 	}
 	
