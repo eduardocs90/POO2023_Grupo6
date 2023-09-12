@@ -11,8 +11,8 @@ public class Gerente extends Funcionario {
 	}
 
 
-	public Gerente(double salario, String agencia, String cpf, String nome, String senha, String setorResponsavel) {
-		super(salario, agencia, cpf, nome, senha);
+	public Gerente(String tipoFuncionario, Double salario, String agencia, String cpf, String nome, String senha, String setorResponsavel) {
+		super(tipoFuncionario, salario, agencia, cpf, nome, senha);
 		this.setorResponsavel = setorResponsavel;
 		
 	}

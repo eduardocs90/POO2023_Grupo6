@@ -12,8 +12,8 @@ public class Presidente extends Diretor {
 
 
 
-	public Presidente(double salario, String agencia, String cpf, String nome, String senha, String setorResponsavel) {
-		super(salario, agencia, cpf, nome, senha, setorResponsavel);
+	public Presidente(String tipoFuncionario, Double salario, String agencia, String cpf, String nome, String senha, String setorResponsavel) {
+		super(tipoFuncionario, salario, agencia, cpf, nome, senha, setorResponsavel);
 		
 	}
 

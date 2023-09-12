@@ -2,7 +2,8 @@ package br.com.poo.banco.pessoas;
 
 public class Funcionario {
 	
-	private double salario;
+	private String tipoFuncionario;
+	private Double salario;
 	private String agencia;
 	private String cpf;
 	private String nome;
@@ -14,16 +15,20 @@ public class Funcionario {
 	}
 
 
-	public Funcionario(double salario, String agencia, String cpf, String nome, String senha) {
+	public Funcionario(String tipoFuncionario, Double salario, String agencia, String cpf, String nome, String senha) {
+		this.tipoFuncionario = tipoFuncionario;
 		this.salario = salario;
 		this.agencia = agencia;
 		this.cpf = cpf;
 		this.nome = nome;
 		this.senha = senha;
 	}
+	
+	public String getTipoFuncionario() {
+		return tipoFuncionario;
+	}
 
-
-	public double getSalario() {
+	public Double getSalario() {
 		return salario;
 	}
 
@@ -50,8 +55,8 @@ public class Funcionario {
 
 	@Override
 	public String toString() {
-		return "Funcionario [salario=" + salario + ", agencia=" + agencia + ", cpf=" + cpf + ", nome=" + nome
-				+ ", senha=" + senha + "]";
+		return "Funcionario [tipoFuncionario=" + tipoFuncionario + ", salario=" + salario + ", agencia=" + agencia
+				+ ", cpf=" + cpf + ", nome=" + nome + ", senha=" + senha + "]";
 	}
 
 	
