@@ -23,6 +23,8 @@
 hs_err_pid*
 replay_pid*
 
-*.classpath
-*.project
-*.settings
+/Sistema_Bancario/.classpath
+/Sistema_Bancario/.project
+/Sistema_Bancario/.gitignore
+/Sistema_Bancario/.settings
+/Sistema_Bancario/bin
