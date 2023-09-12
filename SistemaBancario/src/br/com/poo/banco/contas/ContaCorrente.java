@@ -2,25 +2,24 @@ package br.com.poo.banco.contas;
 
 public class ContaCorrente extends Conta {
 
-	private double chequeEspecial;
-	private double tarifa;
+	private Double chequeEspecial;
+	private Double tarifa;
 	
 	
 	public ContaCorrente() {
 		super();
 	}
 
-	public ContaCorrente(String numConta, int numAgencia, String titular, double saldo, double chequeEspecial, double tarifa) {
-		super(numConta, numAgencia, titular, saldo);
+	public ContaCorrente(String tipoConta,String numConta, String numAgencia, String cpf, Double saldo, Double chequeEspecial) {
+		super(tipoConta,numConta, numAgencia, cpf, saldo);
 		this.chequeEspecial = chequeEspecial;
-		this.tarifa = tarifa;
 	}
 
-	public double getChequeEspecial() {
+	public Double getChequeEspecial() {
 		return chequeEspecial;
 	}
 	
-	public double getTarifa() {
+	public Double getTarifa() {
 		return tarifa;
 	}
 	
