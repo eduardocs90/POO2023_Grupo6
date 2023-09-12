@@ -80,7 +80,7 @@ public class MenuCorrente extends JFrame {
 		
 		JButton btnNewButton = new JButton("Saque");
 		btnNewButton.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Saque118x88.jpg")));
-		btnNewButton.setBounds(32, 28, 104, 88);
+		btnNewButton.setBounds(22, 28, 104, 88);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -119,9 +119,9 @@ public class MenuCorrente extends JFrame {
 		lblNewLabel_3.setBounds(10, 69, 67, 14);
 		contentPane.add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_4 = new JLabel("Saldo + cheque Especial R$");
+		JLabel lblNewLabel_4 = new JLabel("Saldo + cheque esp R$");
 		lblNewLabel_4.setForeground(new Color(255, 255, 255));
-		lblNewLabel_4.setBounds(10, 94, 145, 14);
+		lblNewLabel_4.setBounds(10, 94, 132, 14);
 		contentPane.add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("0.000,00");
@@ -132,7 +132,7 @@ public class MenuCorrente extends JFrame {
 		
 		JLabel lblNewLabel_4_1 = new JLabel("0.000,00");
 		lblNewLabel_4_1.setForeground(Color.WHITE);
-		lblNewLabel_4_1.setBounds(145, 94, 145, 14);
+		lblNewLabel_4_1.setBounds(145, 94, 76, 14);
 		contentPane.add(lblNewLabel_4_1);
 		
 		JLabel lblNewLabel_6 = new JLabel("Icon Corrente");
