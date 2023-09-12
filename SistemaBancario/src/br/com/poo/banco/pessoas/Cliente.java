@@ -1,5 +1,8 @@
 package br.com.poo.banco.pessoas;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Cliente {
 	
 	private String nome;
@@ -7,6 +10,8 @@ public class Cliente {
 	private String endereco;
 	private String contato;
 	private String senha;
+	
+	public static Map<String, Cliente> mapaClientes = new HashMap<>();
 	
 	public Cliente() {
 		

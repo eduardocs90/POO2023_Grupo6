@@ -1,5 +1,8 @@
 package br.com.poo.banco.pessoas;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Funcionario {
 	
 	private String tipoFuncionario;
@@ -9,6 +12,7 @@ public class Funcionario {
 	private String nome;
 	private String senha;
 	
+	public static Map<String, Funcionario> mapaFuncionario = new HashMap<>();
 
 	public Funcionario() {
 	

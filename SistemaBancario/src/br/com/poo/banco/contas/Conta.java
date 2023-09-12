@@ -1,5 +1,8 @@
 package br.com.poo.banco.contas;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Conta {
 	
 	private String tipoConta;
@@ -7,6 +10,8 @@ public class Conta {
 	private String numAgencia;
 	private String cpf;
 	private Double saldo;
+	
+	public static Map<String, Conta> mapaContas = new HashMap<>();
 	
 	public Conta() {
 		
