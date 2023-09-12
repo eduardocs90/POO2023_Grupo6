@@ -10,8 +10,8 @@ public class Diretor extends Gerente{
 	}
 
 
-	public Diretor(double salario, String agencia, String cpf, String nome, String senha, String setorResponsavel) {
-		super(salario, agencia, cpf, nome, senha, setorResponsavel);
+	public Diretor(String tipoFuncionario, Double salario, String agencia, String cpf, String nome, String senha, String setorResponsavel) {
+		super(tipoFuncionario, salario, agencia, cpf, nome, senha, setorResponsavel);
 		
 	}
 
