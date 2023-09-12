@@ -74,7 +74,7 @@ public class JMenuDiretor extends JFrame {
 		});
 		btnCadastrarGerente.setBackground(Color.GRAY);
 		btnCadastrarGerente.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnCadastrarGerente.setBounds(260, 39, 100, 100);
+		btnCadastrarGerente.setBounds(259, 50, 100, 100);
 		panel.add(btnCadastrarGerente);
 		
 		JButton btnGerarRelatrio = new JButton("");
