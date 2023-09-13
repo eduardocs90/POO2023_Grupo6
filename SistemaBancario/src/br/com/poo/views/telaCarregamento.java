@@ -50,30 +50,19 @@ public class telaCarregamento extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(128, 128, 128));
-		panel.setBounds(-34, 459, 505, 143);
-		contentPane.add(panel);
-		
-		JLabel iniciando = new JLabel("Iniciando");
-		panel.add(iniciando);
-		iniciando.setToolTipText("");
-		iniciando.setFont(new Font("Arial Narrow", Font.BOLD, 15));
-		iniciando.setForeground(new Color(0, 0, 0));
-		
-		JLabel logo = new JLabel("");
-		logo.setIcon(new ImageIcon(telaCarregamento.class.getResource("/br/com/poo/imagens/300x300.png")));
-		logo.setBounds(65, 38, 236, 166);
-		contentPane.add(logo);
-		
-		JLabel esferasDoDragao = new JLabel("");
-		esferasDoDragao.setIcon(new ImageIcon(telaCarregamento.class.getResource("/br/com/poo/imagens/image-removebg-preview.png")));
-		esferasDoDragao.setBounds(-18, 380, 348, 57);
-		contentPane.add(esferasDoDragao);
-		
 		JLabel gokuCorrendo = new JLabel("");
-		gokuCorrendo.setIcon(new ImageIcon(telaCarregamento.class.getResource("/br/com/poo/imagens/goku100x100.png")));
-		gokuCorrendo.setBounds(313, 380, 78, 74);
+		gokuCorrendo.setIcon(new ImageIcon(telaCarregamento.class.getResource("/br/com/poo/imagens/300x300.gif")));
+		gokuCorrendo.setBounds(64, 98, 300, 334);
 		contentPane.add(gokuCorrendo);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(0, 433, 434, 64);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Carregando......");
+		lblNewLabel.setFont(new Font("Agency FB", Font.BOLD, 20));
+		lblNewLabel.setBounds(178, 11, 100, 36);
+		panel.add(lblNewLabel);
 	}
 }
