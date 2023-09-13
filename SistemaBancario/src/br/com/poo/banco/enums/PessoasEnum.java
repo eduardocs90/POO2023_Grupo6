@@ -3,9 +3,10 @@ package br.com.poo.banco.enums;
 public enum PessoasEnum {
 	
 	CLIENTE("Cliente",1),
-	FUNCIONARIO("Funcionario",2),
+	FUNCIONARIO("Funcionário",2),
 	GERENTE("Gerente",3),
-	PRESIDENTE("Presidente",4);
+	DIRETOR("Diretor",4),
+	PRESIDENTE("Presidente",5);
 	
 	private String tipoPessoas;
 	private int id;
