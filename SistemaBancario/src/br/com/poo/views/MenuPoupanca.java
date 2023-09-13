@@ -85,33 +85,28 @@ public class MenuPoupanca extends JFrame {
 		panel.setBorder(new LineBorder(Color.GRAY, 4));
 		panel.setLayout(null);
 		panel.setBackground(Color.BLACK);
-		panel.setBounds(10, 123, 414, 306);
+		panel.setBounds(37, 120, 359, 306);
 		contentPane.add(panel);
-		
-		JButton btnNewButton = new JButton("Saque");
-		btnNewButton.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Saque118x88.jpg")));
-		btnNewButton.setBounds(44, 37, 103, 88);
-		panel.add(btnNewButton);
-		
-		JButton btnDepsito = new JButton("Depósito");
-		btnDepsito.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Deposito.jpg")));
-		btnDepsito.setBounds(157, 37, 103, 88);
-		panel.add(btnDepsito);
-		
-		JButton btnTransferncia = new JButton("Transferência\r\n");
-		btnTransferncia.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Transferencia.jpg")));
-		btnTransferncia.setBounds(236, 184, 100, 87);
-		panel.add(btnTransferncia);
 		
 		JButton btnExtrato = new JButton("Extrato");
 		btnExtrato.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Extrato.jpg")));
-		btnExtrato.setBounds(96, 184, 103, 88);
+		btnExtrato.setBounds(42, 184, 95, 88);
 		panel.add(btnExtrato);
 		
 		JButton btnNewButton_2 = new JButton("Conta Corrente");
 		btnNewButton_2.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/ContaCorrente.jpg")));
-		btnNewButton_2.setBounds(275, 37, 95, 88);
+		btnNewButton_2.setBounds(230, 184, 95, 88);
 		panel.add(btnNewButton_2);
+		
+		JButton btnNewButton = new JButton("Transações Bancárias");
+		btnNewButton.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Transações Bancárias.png")));
+		btnNewButton.setBounds(42, 46, 91, 88);
+		panel.add(btnNewButton);
+		
+		JButton btnNewButton_3 = new JButton("Rendimentos");
+		btnNewButton_3.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Rendimentos.png")));
+		btnNewButton_3.setBounds(224, 46, 95, 83);
+		panel.add(btnNewButton_3);
 		
 		JLabel lblNewLabel_2 = new JLabel("Ag 0000 Conta 000000-0");
 		lblNewLabel_2.setForeground(Color.WHITE);

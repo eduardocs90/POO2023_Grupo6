@@ -11,8 +11,6 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import javax.swing.border.LineBorder;
 
@@ -75,43 +73,29 @@ public class MenuCorrente extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(Color.GRAY, 4, true));
 		panel.setBackground(new Color(0, 0, 0));
-		panel.setBounds(10, 123, 414, 296);
+		panel.setBounds(41, 119, 371, 296);
 		contentPane.add(panel);
-		
-		JButton btnNewButton = new JButton("Saque");
-		btnNewButton.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Saque118x88.jpg")));
-		btnNewButton.setBounds(22, 28, 104, 88);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
 		panel.setLayout(null);
-		panel.add(btnNewButton);
-		
-		JButton btnDepsito = new JButton("Depósito");
-		btnDepsito.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Deposito.jpg")));
-		btnDepsito.setBounds(158, 28, 104, 88);
-		panel.add(btnDepsito);
-		
-		JButton btnTransferncia = new JButton("Transferência\r\n");
-		btnTransferncia.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Transferencia.jpg")));
-		btnTransferncia.setBounds(292, 28, 100, 88);
-		panel.add(btnTransferncia);
 		
 		JButton btnExtrato = new JButton("Extrato");
 		btnExtrato.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Extrato.jpg")));
-		btnExtrato.setBounds(22, 177, 104, 88);
+		btnExtrato.setBounds(235, 27, 91, 88);
 		panel.add(btnExtrato);
 		
 		JButton btnNewButton_1_1 = new JButton("Poupança");
 		btnNewButton_1_1.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Poupanca118x88.jpg")));
-		btnNewButton_1_1.setBounds(158, 177, 104, 88);
+		btnNewButton_1_1.setBounds(43, 177, 100, 88);
 		panel.add(btnNewButton_1_1);
 		
 		JButton btnNewButton_2_1 = new JButton("Seguro de Vida");
 		btnNewButton_2_1.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/SeguroVida118x88.jpg")));
-		btnNewButton_2_1.setBounds(292, 177, 100, 88);
+		btnNewButton_2_1.setBounds(226, 177, 100, 88);
 		panel.add(btnNewButton_2_1);
+		
+		JButton btnNewButton = new JButton("Transações Bancárias");
+		btnNewButton.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Transações Bancárias.png")));
+		btnNewButton.setBounds(43, 27, 91, 88);
+		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel_3 = new JLabel("Saldo R$");
 		lblNewLabel_3.setForeground(new Color(255, 255, 255));
