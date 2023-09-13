@@ -3,7 +3,7 @@ package br.com.poo.banco.enums;
 public enum ContaEnum {
 
 	CORRENTE("Corrente", 1),
-	POUPANCA("Poupanca", 2);
+	POUPANCA("Poupança", 2);
 	
 	private String TipoConta;
 	private int id;

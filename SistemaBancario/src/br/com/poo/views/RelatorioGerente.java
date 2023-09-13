@@ -68,7 +68,7 @@ public class RelatorioGerente extends JFrame {
 		contentPane.add(btnNewButton_1_1);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(52, 59, 327, 195);
+		scrollPane.setBounds(36, 58, 327, 195);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
