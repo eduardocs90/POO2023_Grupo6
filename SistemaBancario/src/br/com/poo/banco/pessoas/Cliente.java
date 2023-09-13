@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class Cliente {
 	
+	private final String TIPO_PESSOA = "CLIENTE";
 	private String nome;
 	private String cpf;
 	private String endereco;
@@ -17,7 +18,7 @@ public class Cliente {
 		
 	}
 	
-	public Cliente(String nome, String cpf, String endereco, String contato, String senha) {
+	public Cliente(String TIPO_PESSOA,String nome, String cpf, String endereco, String contato, String senha) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.endereco = endereco;
@@ -43,6 +44,10 @@ public class Cliente {
 	
 	public String getSenha() {
 		return senha;
+	}
+	
+	public String getTIPO_PESSOA() {
+		return TIPO_PESSOA;
 	}
 	
 	public void setEndereco(String endereco) {

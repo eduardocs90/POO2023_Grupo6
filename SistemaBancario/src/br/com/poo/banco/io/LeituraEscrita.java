@@ -5,6 +5,8 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 import br.com.poo.banco.contas.Conta;
@@ -39,9 +41,9 @@ public class LeituraEscrita {
 					Conta.mapaContas.put(dados[3], cc);
 					
 				} else if(dados[0].equalsIgnoreCase("CLIENTE")) {
-					// String nome, String cpf, String endereco, String contato, String senha
-					Cliente c = new Cliente(dados[0],dados[1],dados[2],dados[3],dados[4]);
-					Cliente.mapaClientes.put(dados[1], c);
+					// String TIPO_PESSOA,String nome, String cpf, String endereco, String contato, String senha
+					Cliente c = new Cliente(dados[0],dados[1],dados[2],dados[3],dados[4],dados[5]);
+					Cliente.mapaClientes.put(dados[2], c);
 					
 				} else if(dados[0].equalsIgnoreCase("GERENTE")) {
 					// String tipoFuncionario, Double salario, String agencia, String cpf, String nome, String senha, String setorResponsavel
@@ -77,5 +79,41 @@ public class LeituraEscrita {
 		buffWriter.append(dado + "\n");
 		sc.close();
 		buffWriter.close();
+	}
+	
+	public static void comprovanteSaque(Conta conta, Double valor) throws IOException {
+		String path = conta.getTipoConta() + "_" + conta.getCpf();
+		BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO,true));
+		
+		String linha = "------------------ SAQUE ------------------";
+		buffWriter.append(linha + "\n");
+		
+		linha = "CPF: " + conta.getCpf();
+		buffWriter.append(linha + "\n");
+		
+		linha = "Conta: " + conta.getTipoConta();
+		buffWriter.append(linha + "\n");
+		
+		linha = "Valor do Saque: " + valor;
+		buffWriter.append(linha + "\n");
+		
+		LocalDateTime dataHora = LocalDateTime.now();
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+		
+		linha = "Operação realizada em: " + dtf.format(dataHora);
+		buffWriter.append(linha + "\n");
+		
+		linha = "------------------  FIM  ------------------";
+		buffWriter.append(linha + "\n");
+		
+		buffWriter.close();
+		
+		/* ou
+		buffWriter.append("------------------ SAQUE ------------------\n");
+		buffWriter.append("CPF: "+ conta.getCpf() + "\n");
+		etc...
+		*/
+		
+		// desafio = inserir o nome do cliente, tem que conectar o cpf da conta com o do cliente
 	}
 }
