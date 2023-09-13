@@ -4,7 +4,38 @@ public class ContaCorrente extends Conta {
 
 	private Double chequeEspecial;
 	private Double tarifa;
+
+	@Override
+	public boolean sacar(double valor) {
+		tarifa = 0.10;
+		if(getSaldo() < valor) {
+			return false;
+		}
+		else if(valor <= 0.0) {
+			return false;
+		}
+		else {
+			double result = getSaldo() - valor - tarifa; 
+			setSaldo(result); 
+			return true;
+		}
+	}
 	
+	@Override
+    public boolean transferir(double valor, Conta conta) {
+		if(getSaldo() < valor) {
+			return false;
+		}
+		else if(valor <= 0.0) {
+			return false;
+		}
+		else {
+			tarifa = 0.20;
+			double result = getSaldo() - valor - tarifa;
+			setSaldo(result);
+			return true;
+		}
+    } 
 	
 	public ContaCorrente() {
 		super();
