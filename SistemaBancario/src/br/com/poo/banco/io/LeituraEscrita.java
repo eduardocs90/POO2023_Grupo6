@@ -109,7 +109,60 @@ public class LeituraEscrita {
 		buffWriter.append(linha + "\n");
 		
 		buffWriter.close();}
-		
+	
+	
+	public static void comprovanteDeposito(Conta conta, Double valor) throws IOException {
+	    String path = conta.getTipoConta() + "_" + conta.getCpf();
+	    BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));
+
+	    String linha = "------------------ DEPÓSITO ------------------";
+	    buffWriter.append(linha + "\n");
+
+	    linha = "CPF: " + conta.getCpf();
+	    buffWriter.append(linha + "\n");
+
+	    linha = "Conta: " + conta.getTipoConta();
+	    buffWriter.append(linha + "\n");
+
+	    linha = "Valor do Depósito: " + valor;
+	    buffWriter.append(linha + "\n");
+
+	    LocalDateTime dataHora = LocalDateTime.now();
+	    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+	    linha = "Operação realizada em: " + dtf.format(dataHora);
+	    buffWriter.append(linha + "\n");
+
+	    linha = "------------------  FIM  ------------------";
+	    buffWriter.append(linha + "\n");
+
+	    buffWriter.close();
+	}
+
+//	public static void HistoricoTransacoes(Conta conta) throws IOException {
+//	    String path = conta.getTipoConta() + "_" + conta.getCpf();
+//	    BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));
+//
+//	    String linha = "------------------ HISTÓRICO DE TRANSAÇÕES ------------------";
+//	    buffWriter.append(linha + "\n");
+//
+//	    linha = "CPF: " + conta.getCpf();
+//	    buffWriter.append(linha + "\n");
+//
+//	    linha = "Conta: " + conta.getTipoConta();
+//	    buffWriter.append(linha + "\n");
+//
+//	    linha = "Saldo Atual: " + conta.getSaldo();
+//	    buffWriter.append(linha + "\n");
+//
+//	    linha = "Últimas Transações:";
+//	    buffWriter.append(linha + "\n");
+//
+//	    for (String transacao : conta.getTransacoes()) {
+//	        buffWriter.append(transacao + "\n");
+//	    }
+
+	
 		
 		/* ou
 		buffWriter.append("------------------ SAQUE ------------------\n");
