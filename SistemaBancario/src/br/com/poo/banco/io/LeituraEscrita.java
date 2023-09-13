@@ -87,56 +87,30 @@ public class LeituraEscrita {
 		String path = conta.getTipoConta() + "_" + conta.getCpf();
 		BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO,true));
 		
-		String linha = "------------------ SAQUE ------------------";
-		buffWriter.append(linha + "\n");
-		
-		linha = "CPF: " + conta.getCpf();
-		buffWriter.append(linha + "\n");
-		
-		linha = "Conta: " + conta.getTipoConta();
-		buffWriter.append(linha + "\n");
-		
-		linha = "Valor do Saque: " + valor;
-		buffWriter.append(linha + "\n");
-		
+		buffWriter.append("------------------ SAQUE ------------------\n");
+		buffWriter.append("CPF: " + conta.getCpf() + "\n");
+		buffWriter.append("Conta: " + conta.getNumConta() + "\n");
+		buffWriter.append("Valor do Saque: " + valor + "\n");
 		LocalDateTime dataHora = LocalDateTime.now();
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-		
-		linha = "Operação realizada em: " + dtf.format(dataHora);
-		buffWriter.append(linha + "\n");
-		
-		linha = "------------------  FIM  ------------------";
-		buffWriter.append(linha + "\n");
-		
-		buffWriter.close();}
-	
+		buffWriter.append("Operação realizada em: "+ dtf.format(dataHora));
+		buffWriter.append("------------------ FIM SAQUE ------------------\n");
+		buffWriter.close();
+	}
 	
 	public static void comprovanteDeposito(Conta conta, Double valor) throws IOException {
 	    String path = conta.getTipoConta() + "_" + conta.getCpf();
 	    BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));
 
-	    String linha = "------------------ DEPÓSITO ------------------";
-	    buffWriter.append(linha + "\n");
-
-	    linha = "CPF: " + conta.getCpf();
-	    buffWriter.append(linha + "\n");
-
-	    linha = "Conta: " + conta.getTipoConta();
-	    buffWriter.append(linha + "\n");
-
-	    linha = "Valor do Depósito: " + valor;
-	    buffWriter.append(linha + "\n");
-
-	    LocalDateTime dataHora = LocalDateTime.now();
-	    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-
-	    linha = "Operação realizada em: " + dtf.format(dataHora);
-	    buffWriter.append(linha + "\n");
-
-	    linha = "------------------  FIM  ------------------";
-	    buffWriter.append(linha + "\n");
-
-	    buffWriter.close();
+	    buffWriter.append("------------------ Depósito ------------------\n");
+		buffWriter.append("CPF: " + conta.getCpf() + "\n");
+		buffWriter.append("Conta: " + conta.getNumConta() + "\n");
+		buffWriter.append("Valor do Depósito: " + valor + "\n");
+		LocalDateTime dataHora = LocalDateTime.now();
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+		buffWriter.append("Operação realizada em: "+ dtf.format(dataHora));
+		buffWriter.append("------------------ FIM Depósito ------------------\n");
+		buffWriter.close();
 	}
 
 //	public static void HistoricoTransacoes(Conta conta) throws IOException {
