@@ -32,7 +32,7 @@ public class LeituraEscrita {
 			linha = buffRead.readLine();
 			if(linha!=null) {
 				String[] dados = linha.split(";");
-				if(dados[0].equalsIgnoreCase(ContaEnum.POUPANCA.getTipoConta())) {
+				if(dados[0].equalsIgnoreCase(ContaEnum.POUPANCA.name())) {
 					// String tipoConta,String numConta, String numAgencia, String cpf, Double saldo
 					ContaPoupanca cp = new ContaPoupanca(dados[0], dados[1], dados[2], dados[3],Double.parseDouble(dados[4]));
 					Conta.mapaContas.put(dados[3], cp); // identificador unico, o cpf da conta dados[3]
@@ -49,17 +49,17 @@ public class LeituraEscrita {
 					
 				} else if(dados[0].equalsIgnoreCase(PessoasEnum.GERENTE.getTipoPessoas())) {
 					// String tipoFuncionario, Double salario, String agencia, String cpf, String nome, String senha, String setorResponsavel
-					Gerente g = new Gerente(dados[0], Double.parseDouble(dados[1]),dados[2],dados[3],dados[4],dados[5],dados[6]);
+					Gerente g = new Gerente(dados[0], Double.parseDouble(dados[1]),dados[2],dados[3],dados[4],dados[5]);
 					Gerente.mapaFuncionario.put(dados[3], g);
 					
 				} else if(dados[0].equalsIgnoreCase(PessoasEnum.DIRETOR.getTipoPessoas())) {
 					// String tipoFuncionario, Double salario, String agencia, String cpf, String nome, String senha, String setorResponsavel
-					Diretor d = new Diretor(dados[0], Double.parseDouble(dados[1]),dados[2],dados[3],dados[4],dados[5],dados[6]);
+					Diretor d = new Diretor(dados[0], Double.parseDouble(dados[1]),dados[2],dados[3],dados[4],dados[5]);
 					Diretor.mapaFuncionario.put(dados[3], d);
 					
 				} else if(dados[0].equalsIgnoreCase(PessoasEnum.PRESIDENTE.getTipoPessoas())) {
 					// String tipoFuncionario, Double salario, String agencia, String cpf, String nome, String senha, String setorResponsavel
-					Presidente p = new Presidente(dados[0], Double.parseDouble(dados[1]),dados[2],dados[3],dados[4],dados[5],dados[6]);
+					Presidente p = new Presidente(dados[0], Double.parseDouble(dados[1]),dados[2],dados[3],dados[4],dados[5]);
 					Presidente.mapaFuncionario.put(dados[3], p);
 				}
 			}

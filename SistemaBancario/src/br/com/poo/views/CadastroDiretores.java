@@ -15,7 +15,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import java.awt.Toolkit;
 
-public class cadastroDiretores extends JFrame {
+public class CadastroDiretores extends JFrame {
 
 	/**
 	 * 
@@ -35,7 +35,7 @@ public class cadastroDiretores extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					cadastroDiretores frame = new cadastroDiretores();
+					CadastroDiretores frame = new CadastroDiretores();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,8 +47,8 @@ public class cadastroDiretores extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public cadastroDiretores() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(cadastroDiretores.class.getResource("/br/com/poo/imagens/100x100.png")));
+	public CadastroDiretores() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(CadastroDiretores.class.getResource("/br/com/poo/imagens/100x100.png")));
 		setTitle("DÉ BANK");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 532);
@@ -119,17 +119,17 @@ public class cadastroDiretores extends JFrame {
 		panel.add(textAgencia);
 		
 		JButton seguir = new JButton("");
-		seguir.setIcon(new ImageIcon(cadastroDiretores.class.getResource("/br/com/poo/imagens/1.png")));
+		seguir.setIcon(new ImageIcon(CadastroDiretores.class.getResource("/br/com/poo/imagens/1.png")));
 		seguir.setBounds(373, 442, 38, 40);
 		contentPane.add(seguir);
 		
 		JButton sair = new JButton("");
-		sair.setIcon(new ImageIcon(cadastroDiretores.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
+		sair.setIcon(new ImageIcon(CadastroDiretores.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
 		sair.setBounds(10, 436, 45, 46);
 		contentPane.add(sair);
 		
 		JLabel logo = new JLabel("");
-		logo.setIcon(new ImageIcon(cadastroDiretores.class.getResource("/br/com/poo/imagens/100x100.png")));
+		logo.setIcon(new ImageIcon(CadastroDiretores.class.getResource("/br/com/poo/imagens/100x100.png")));
 		logo.setBounds(43, 8, 100, 61);
 		contentPane.add(logo);
 		

@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 
-public class menupresidente extends JFrame {
+public class MenuPresidente extends JFrame {
 
 	/**
 	 * 
@@ -31,7 +31,7 @@ public class menupresidente extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					menupresidente frame = new menupresidente();
+					MenuPresidente frame = new MenuPresidente();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,8 +43,8 @@ public class menupresidente extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public menupresidente() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(menupresidente.class.getResource("/br/com/poo/imagens/100x100.png")));
+	public MenuPresidente() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPresidente.class.getResource("/br/com/poo/imagens/100x100.png")));
 		setTitle("DÉ BANK");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 537);
@@ -57,7 +57,7 @@ public class menupresidente extends JFrame {
 		
 		JLabel logo = new JLabel("");
 		logo.setBackground(SystemColor.inactiveCaptionBorder);
-		logo.setIcon(new ImageIcon(menupresidente.class.getResource("/br/com/poo/imagens/100x100.png")));
+		logo.setIcon(new ImageIcon(MenuPresidente.class.getResource("/br/com/poo/imagens/100x100.png")));
 		logo.setBounds(10, 4, 111, 77);
 		contentPane.add(logo);
 		
@@ -85,22 +85,22 @@ public class menupresidente extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		cadastroDiretor.setIcon(new ImageIcon(menupresidente.class.getResource("/br/com/poo/imagens/relatorioDiretor.png")));
+		cadastroDiretor.setIcon(new ImageIcon(MenuPresidente.class.getResource("/br/com/poo/imagens/relatorioDiretor.png")));
 		cadastroDiretor.setBounds(161, 63, 110, 109);
 		panel.add(cadastroDiretor);
 		
 		JButton cadastroGerente = new JButton("");
-		cadastroGerente.setIcon(new ImageIcon(menupresidente.class.getResource("/br/com/poo/imagens/cadastroGerente.png")));
+		cadastroGerente.setIcon(new ImageIcon(MenuPresidente.class.getResource("/br/com/poo/imagens/cadastroGerente.png")));
 		cadastroGerente.setBounds(294, 63, 110, 109);
 		panel.add(cadastroGerente);
 		
 		JButton cadastroCliente = new JButton("");
-		cadastroCliente.setIcon(new ImageIcon(menupresidente.class.getResource("/br/com/poo/imagens/cadastroCliente.png")));
+		cadastroCliente.setIcon(new ImageIcon(MenuPresidente.class.getResource("/br/com/poo/imagens/cadastroCliente.png")));
 		cadastroCliente.setBounds(74, 206, 110, 109);
 		panel.add(cadastroCliente);
 		
 		JButton jurosAnuais = new JButton("");
-		jurosAnuais.setIcon(new ImageIcon(menupresidente.class.getResource("/br/com/poo/imagens/jurosAnual.png")));
+		jurosAnuais.setIcon(new ImageIcon(MenuPresidente.class.getResource("/br/com/poo/imagens/jurosAnual.png")));
 		jurosAnuais.setBounds(234, 206, 110, 109);
 		panel.add(jurosAnuais);
 		
@@ -108,7 +108,7 @@ public class menupresidente extends JFrame {
 		relatorioPresidente.setBounds(27, 63, 110, 109);
 		panel.add(relatorioPresidente);
 		relatorioPresidente.setBackground(Color.WHITE);
-		relatorioPresidente.setIcon(new ImageIcon(menupresidente.class.getResource("/br/com/poo/imagens/relatorioPresidente.png")));
+		relatorioPresidente.setIcon(new ImageIcon(MenuPresidente.class.getResource("/br/com/poo/imagens/relatorioPresidente.png")));
 		
 		JLabel lblNewLabel = new JLabel("MENU");
 		lblNewLabel.setBounds(177, 11, 63, 28);
@@ -118,7 +118,7 @@ public class menupresidente extends JFrame {
 		lblNewLabel.setForeground(SystemColor.inactiveCaptionBorder);
 		
 		JButton sair = new JButton("");
-		sair.setIcon(new ImageIcon(menupresidente.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
+		sair.setIcon(new ImageIcon(MenuPresidente.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
 		sair.setBounds(10, 441, 43, 46);
 		contentPane.add(sair);
 	}

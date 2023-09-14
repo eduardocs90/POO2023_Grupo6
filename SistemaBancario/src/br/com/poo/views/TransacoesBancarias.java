@@ -13,7 +13,6 @@ import java.awt.Font;
 import javax.swing.border.LineBorder;
 import java.awt.SystemColor;
 import javax.swing.JComboBox;
-import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
@@ -24,7 +23,6 @@ public class TransacoesBancarias extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JPasswordField passwordField;
 	private JTextField textValorSaque;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -97,16 +95,6 @@ public class TransacoesBancarias extends JFrame {
 		lblValorDeDepsito.setFont(new Font("Arial", Font.BOLD, 15));
 		lblValorDeDepsito.setBounds(48, 128, 153, 13);
 		panel.add(lblValorDeDepsito);
-		
-		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setFont(new Font("Arial", Font.BOLD, 15));
-		lblSenha.setBounds(64, 300, 54, 13);
-		panel.add(lblSenha);
-		
-		passwordField = new JPasswordField();
-		passwordField.setFont(new Font("Arial", Font.BOLD, 15));
-		passwordField.setBounds(121, 293, 185, 30);
-		panel.add(passwordField);
 		
 		textValorSaque = new JTextField();
 		textValorSaque.setFont(new Font("Arial", Font.BOLD, 15));
