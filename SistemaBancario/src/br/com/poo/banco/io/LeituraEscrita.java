@@ -9,6 +9,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
 import br.com.poo.banco.contas.Conta;
 import br.com.poo.banco.contas.ContaCorrente;
 import br.com.poo.banco.contas.ContaPoupanca;
@@ -84,6 +87,17 @@ public class LeituraEscrita {
 		sc.close();
 		buffWriter.close();
 	}
+	
+	public static void cadastrarCliente(String path, String nome, String cpf, String contato, String endereco, String senha, String confSenha, JButton botao) {
+		try{
+			BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO+path+EXTENSAO,true));
+			buffWriter.append(nome + ";" + cpf + ";" + contato + ";" + endereco + ";" + senha + ";");
+			buffWriter.close();
+		} catch(IOException e) {
+			JOptionPane.showInputDialog(botao,"Erro ao salvar o cadastro.");
+			e.printStackTrace();
+		}
+ 	}
 	
 	public static void comprovanteSaque(Conta conta, Double valor) throws IOException {
 		String path = conta.getTipoConta() + "_" + conta.getCpf();
