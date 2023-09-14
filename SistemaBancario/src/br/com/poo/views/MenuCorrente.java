@@ -12,6 +12,8 @@ import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.Toolkit;
+import java.text.DecimalFormat;
+
 import javax.swing.border.LineBorder;
 
 public class MenuCorrente extends JFrame {
@@ -21,27 +23,11 @@ public class MenuCorrente extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MenuCorrente frame = new MenuCorrente();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
+	
 	/**
 	 * Create the frame.
 	 */
-	public MenuCorrente() {
+	public MenuCorrente(String nome, String agencia, String conta, Double saldo, Double chequeEspecial) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuCorrente.class.getResource("/br/com/poo/imagens/100x100.png")));
 		setTitle("DéBank");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,17 +44,17 @@ public class MenuCorrente extends JFrame {
 		lblNewLabel_1.setBounds(167, 9, 82, 71);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel = new JLabel("Olá, Usuário");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBounds(22, 9, 95, 29);
-		contentPane.add(lblNewLabel);
+		JLabel labelUsuario = new JLabel("Olá, " + nome);
+		labelUsuario.setFont(new Font("Tahoma", Font.BOLD, 13));
+		labelUsuario.setForeground(new Color(255, 255, 255));
+		labelUsuario.setBounds(22, 9, 95, 29);
+		contentPane.add(labelUsuario);
 		
-		JLabel lblNewLabel_2 = new JLabel("Ag 0000 Conta 000000-0");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		lblNewLabel_2.setBounds(284, 17, 161, 14);
-		contentPane.add(lblNewLabel_2);
+		JLabel labelAgencia = new JLabel("Ag " + agencia + " Conta " + conta);
+		labelAgencia.setFont(new Font("Tahoma", Font.BOLD, 11));
+		labelAgencia.setForeground(new Color(255, 255, 255));
+		labelAgencia.setBounds(284, 17, 161, 14);
+		contentPane.add(labelAgencia);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(Color.GRAY, 4, true));
@@ -77,47 +63,54 @@ public class MenuCorrente extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JButton btnExtrato = new JButton("Extrato");
-		btnExtrato.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Extrato.jpg")));
-		btnExtrato.setBounds(235, 27, 91, 88);
-		panel.add(btnExtrato);
+		JButton buttonExtrato = new JButton("Extrato");
+		buttonExtrato.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Extrato.jpg")));
+		buttonExtrato.setBounds(235, 27, 91, 88);
+		panel.add(buttonExtrato);
 		
-		JButton btnNewButton_1_1 = new JButton("Poupança");
-		btnNewButton_1_1.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Poupanca118x88.jpg")));
-		btnNewButton_1_1.setBounds(43, 177, 100, 88);
-		panel.add(btnNewButton_1_1);
+		JButton buttonPoupanca = new JButton("Poupança");
+		buttonPoupanca.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Poupanca118x88.jpg")));
+		buttonPoupanca.setBounds(43, 177, 100, 88);
+		panel.add(buttonPoupanca);
 		
-		JButton btnNewButton_2_1 = new JButton("Seguro de Vida");
-		btnNewButton_2_1.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/SeguroVida118x88.jpg")));
-		btnNewButton_2_1.setBounds(226, 177, 100, 88);
-		panel.add(btnNewButton_2_1);
+		JButton buttonSegVida = new JButton("Seguro de Vida");
+		buttonSegVida.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/SeguroVida118x88.jpg")));
+		buttonSegVida.setBounds(226, 177, 100, 88);
+		panel.add(buttonSegVida);
 		
-		JButton btnNewButton = new JButton("Transações Bancárias");
-		btnNewButton.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Transações Bancárias.png")));
-		btnNewButton.setBounds(43, 27, 91, 88);
-		panel.add(btnNewButton);
+		JButton buttonTransacoes = new JButton("Transações Bancárias");
+		buttonTransacoes.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Transações Bancárias.png")));
+		buttonTransacoes.setBounds(43, 27, 91, 88);
+		panel.add(buttonTransacoes);
 		
 		JLabel lblNewLabel_3 = new JLabel("Saldo R$");
 		lblNewLabel_3.setForeground(new Color(255, 255, 255));
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_3.setBounds(10, 69, 67, 14);
+		lblNewLabel_3.setBounds(10, 69, 68, 14);
 		contentPane.add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_4 = new JLabel("Saldo + cheque esp R$");
+		JLabel lblNewLabel_4 = new JLabel("Saldo + cheque");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lblNewLabel_4.setForeground(new Color(255, 255, 255));
-		lblNewLabel_4.setBounds(10, 94, 132, 14);
+		lblNewLabel_4.setBounds(10, 95, 95, 14);
 		contentPane.add(lblNewLabel_4);
 		
-		JLabel lblNewLabel_5 = new JLabel("0.000,00");
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_5.setForeground(new Color(255, 255, 255));
-		lblNewLabel_5.setBounds(87, 69, 86, 14);
-		contentPane.add(lblNewLabel_5);
+		DecimalFormat formatoSaldo = new DecimalFormat("#,###.00");
+		Double total = saldo + chequeEspecial;
+		String saldoFormatado = formatoSaldo.format(saldo);
+		String saldoFormatadoCheque = formatoSaldo.format(total);
 		
-		JLabel lblNewLabel_4_1 = new JLabel("0.000,00");
-		lblNewLabel_4_1.setForeground(Color.WHITE);
-		lblNewLabel_4_1.setBounds(145, 94, 76, 14);
-		contentPane.add(lblNewLabel_4_1);
+		JLabel labelSaldo = new JLabel(saldoFormatado);
+		labelSaldo.setFont(new Font("Tahoma", Font.BOLD, 15));
+		labelSaldo.setForeground(new Color(255, 255, 255));
+		labelSaldo.setBounds(88, 69, 86, 14);
+		contentPane.add(labelSaldo);
+		
+		JLabel labelSaldoCheque = new JLabel(saldoFormatadoCheque);
+		labelSaldoCheque.setFont(new Font("Tahoma", Font.BOLD, 15));
+		labelSaldoCheque.setForeground(Color.WHITE);
+		labelSaldoCheque.setBounds(115, 95, 82, 14);
+		contentPane.add(labelSaldoCheque);
 		
 		JLabel lblNewLabel_6 = new JLabel("Icon Corrente");
 		lblNewLabel_6.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/ContaCorrente.jpg")));
