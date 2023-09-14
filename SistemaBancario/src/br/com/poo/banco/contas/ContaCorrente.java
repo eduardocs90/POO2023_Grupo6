@@ -33,6 +33,7 @@ public class ContaCorrente extends Conta {
 			tarifa = 0.20;
 			double result = getSaldo() - valor - tarifa;
 			setSaldo(result);
+			conta.depositar(valor);
 			return true;
 		}
     } 
