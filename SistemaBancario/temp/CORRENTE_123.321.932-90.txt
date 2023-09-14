@@ -7,3 +7,21 @@ Conta de Destino: POUPANCA
 Saldo do Remetente: 399.8
 Operação realizada em: 14/09/2023 16:50:00
 ------------------ FIM Transferência -------------------
+--------------------- Transferência ---------------------
+CPF do Remetente: 123.321.932-90
+Conta do Remetente: CORRENTE
+Valor Transferido: 500.0
+CPF do Destinatário: 908.221.321-11
+Conta de Destino: POUPANCA
+Saldo do Remetente: 399.8
+Operação realizada em: 14/09/2023 17:06:33
+------------------ FIM Transferência --------------------
+--------------------- Transferência ---------------------
+CPF do Remetente: 123.321.932-90
+Conta do Remetente: CORRENTE
+Valor Transferido: 500.0
+CPF do Destinatário: 908.221.321-11
+Conta de Destino: POUPANCA
+Saldo do Remetente: 399.8
+Operação realizada em: 14/09/2023 17:19:54
+------------------ FIM Transferência --------------------
