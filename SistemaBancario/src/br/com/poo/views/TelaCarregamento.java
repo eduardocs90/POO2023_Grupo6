@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 
-public class telaCarregamento extends JFrame {
+public class TelaCarregamento extends JFrame {
 
 	/**
 	 * 
@@ -26,7 +26,7 @@ public class telaCarregamento extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					telaCarregamento frame = new telaCarregamento();
+					TelaCarregamento frame = new TelaCarregamento();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,9 +38,9 @@ public class telaCarregamento extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public telaCarregamento() {
+	public TelaCarregamento() {
 		setTitle("DÉ BANK");
-		setIconImage(Toolkit.getDefaultToolkit().getImage(telaCarregamento.class.getResource("/br/com/poo/imagens/100x100.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(TelaCarregamento.class.getResource("/br/com/poo/imagens/100x100.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 536);
 		contentPane = new JPanel();
@@ -51,7 +51,7 @@ public class telaCarregamento extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel gokuCorrendo = new JLabel("");
-		gokuCorrendo.setIcon(new ImageIcon(telaCarregamento.class.getResource("/br/com/poo/imagens/300x300.gif")));
+		gokuCorrendo.setIcon(new ImageIcon(TelaCarregamento.class.getResource("/br/com/poo/imagens/300x300.gif")));
 		gokuCorrendo.setBounds(64, 98, 300, 334);
 		contentPane.add(gokuCorrendo);
 		

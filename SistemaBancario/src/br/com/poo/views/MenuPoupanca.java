@@ -1,7 +1,5 @@
 package br.com.poo.views;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -22,25 +20,9 @@ public class MenuPoupanca extends JFrame {
 	private JPanel contentPane;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MenuPoupanca frame = new MenuPoupanca();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
-	public MenuPoupanca() {
+	public MenuPoupanca(String nome, String agencia, String conta, Double saldo) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPoupanca.class.getResource("/br/com/poo/imagens/100x100.png")));
 		setTitle("DéBank");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -58,17 +40,17 @@ public class MenuPoupanca extends JFrame {
 		lblNewLabel_3.setBounds(10, 70, 161, 14);
 		contentPane.add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_5 = new JLabel("0.000,00");
-		lblNewLabel_5.setForeground(Color.WHITE);
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_5.setBounds(69, 95, 117, 14);
-		contentPane.add(lblNewLabel_5);
+		JLabel labelSaldo = new JLabel("0.000,00");
+		labelSaldo.setForeground(Color.WHITE);
+		labelSaldo.setFont(new Font("Tahoma", Font.BOLD, 15));
+		labelSaldo.setBounds(69, 95, 117, 14);
+		contentPane.add(labelSaldo);
 		
-		JLabel lblNewLabel = new JLabel("Olá, Usuário");
-		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNewLabel.setBounds(10, 11, 95, 29);
-		contentPane.add(lblNewLabel);
+		JLabel labelUsuario = new JLabel("Olá, " + nome);
+		labelUsuario.setForeground(Color.WHITE);
+		labelUsuario.setFont(new Font("Tahoma", Font.BOLD, 13));
+		labelUsuario.setBounds(10, 11, 148, 29);
+		contentPane.add(labelUsuario);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Poupanca118x88.jpg")));
@@ -108,7 +90,7 @@ public class MenuPoupanca extends JFrame {
 		btnNewButton_3.setBounds(224, 46, 95, 83);
 		panel.add(btnNewButton_3);
 		
-		JLabel lblNewLabel_2 = new JLabel("Ag 0000 Conta 000000-0");
+		JLabel lblNewLabel_2 = new JLabel("Ag " + agencia + " Conta " + conta);
 		lblNewLabel_2.setForeground(Color.WHITE);
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblNewLabel_2.setBounds(284, 19, 161, 14);
