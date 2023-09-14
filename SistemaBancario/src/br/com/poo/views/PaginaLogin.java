@@ -130,8 +130,7 @@ public class PaginaLogin extends JFrame {
 				Funcionario f = Funcionario.mapaFuncionario.get(cpf);
 				Conta conta = Conta.mapaContas.get(cpf);
 				
-				if ((c.getCpf().equals(cpf) && c.getSenha().equals(senha))
-						|| (f.getCpf().equals(cpf) && f.getSenha().equals(senha))) {
+				if ((c.getCpf().equals(cpf) && c.getSenha().equals(senha)) || (f.getCpf().equals(cpf) && f.getSenha().equals(senha))) {
 					// cliente
 					if (comboBox.getSelectedItem().toString().equals(PessoasEnum.CLIENTE.getTipoPessoas())) {
 						if(conta.getTipoConta().equalsIgnoreCase(ContaEnum.CORRENTE.getTipoConta())) {

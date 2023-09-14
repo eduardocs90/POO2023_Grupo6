@@ -3,7 +3,7 @@ package br.com.poo.banco.pessoas;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Funcionario {
+public abstract class Funcionario {
 	
 	private String tipoFuncionario;
 	private Double salario;
