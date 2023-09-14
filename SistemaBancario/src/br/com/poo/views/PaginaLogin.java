@@ -138,7 +138,9 @@ public class PaginaLogin extends JFrame {
 				            // Lógica para cliente com conta corrente
 				        } else if (conta.getTipoConta().equalsIgnoreCase(ContaEnum.POUPANCA.name())) {
 				            // Lógica para cliente com conta poupança
-				        } 
+				        } else {
+                            JOptionPane.showMessageDialog(buttonLogin, "Há campos inválidos. Por favor, tente novamente! ","Aviso!", JOptionPane.WARNING_MESSAGE);
+                        }
 				    } 
 				} else if (f != null && f.getCpf().equals(cpf) && f.getSenha().equals(senha)) {
 				    // Autenticado como Funcionário
@@ -149,7 +151,9 @@ public class PaginaLogin extends JFrame {
 				            MenuGerente menuGerente = new MenuGerente();
 				            menuGerente.setLocationRelativeTo(menuGerente);
 				            menuGerente.setVisible(true);
-				        } 
+				        } else {
+                           JOptionPane.showMessageDialog(buttonLogin, "Há campos inválidos. Por favor, tente novamente! ","Aviso!", JOptionPane.WARNING_MESSAGE);
+				        }
 				    } else if (comboBox.getSelectedItem().toString().equals(PessoasEnum.DIRETOR.getTipoPessoas())) {
 				        if (f.getTipoFuncionario().equals(PessoasEnum.DIRETOR.getTipoPessoas())) {
 				            // Autenticado como diretor
@@ -157,7 +161,9 @@ public class PaginaLogin extends JFrame {
 				            JMenuDiretor jMenuDiretor = new JMenuDiretor();
 				            jMenuDiretor.setLocationRelativeTo(jMenuDiretor);
 				            jMenuDiretor.setVisible(true);
-				        } 
+				        } else {
+	                           JOptionPane.showMessageDialog(buttonLogin, "Há campos inválidos. Por favor, tente novamente!","Aviso!", JOptionPane.WARNING_MESSAGE);
+					        }
 				    } else if (comboBox.getSelectedItem().toString().equals(PessoasEnum.PRESIDENTE.getTipoPessoas())) {
 				        if (f.getTipoFuncionario().equals(PessoasEnum.PRESIDENTE.getTipoPessoas())) {
 				            // Autenticado como presidente
@@ -165,10 +171,15 @@ public class PaginaLogin extends JFrame {
 				            MenuPresidente menuPresidente = new MenuPresidente();
 				            menuPresidente.setLocationRelativeTo(menuPresidente);
 				            menuPresidente.setVisible(true);
-				        } 
+				        } else {
+	                           JOptionPane.showMessageDialog(buttonLogin, "Há campos inválidos. Por favor, tente novamente! ","Aviso!", JOptionPane.WARNING_MESSAGE);
+					        }
+				        
 				    }
 				
-				}
+				}else {
+                    JOptionPane.showMessageDialog(buttonLogin, "Há campos inválidos. Por favor, tente novamente! ","Aviso!", JOptionPane.WARNING_MESSAGE);
+			        }
 			}
 		});
 	}
