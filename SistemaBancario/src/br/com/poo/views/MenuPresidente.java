@@ -86,12 +86,12 @@ public class MenuPresidente extends JFrame {
 			}
 		});
 		cadastroDiretor.setIcon(new ImageIcon(MenuPresidente.class.getResource("/br/com/poo/imagens/relatorioDiretor.png")));
-		cadastroDiretor.setBounds(161, 63, 110, 109);
+		cadastroDiretor.setBounds(245, 63, 110, 109);
 		panel.add(cadastroDiretor);
 		
 		JButton cadastroGerente = new JButton("");
 		cadastroGerente.setIcon(new ImageIcon(MenuPresidente.class.getResource("/br/com/poo/imagens/cadastroGerente.png")));
-		cadastroGerente.setBounds(294, 63, 110, 109);
+		cadastroGerente.setBounds(245, 206, 110, 109);
 		panel.add(cadastroGerente);
 		
 		JButton cadastroCliente = new JButton("");
@@ -99,13 +99,8 @@ public class MenuPresidente extends JFrame {
 		cadastroCliente.setBounds(74, 206, 110, 109);
 		panel.add(cadastroCliente);
 		
-		JButton jurosAnuais = new JButton("");
-		jurosAnuais.setIcon(new ImageIcon(MenuPresidente.class.getResource("/br/com/poo/imagens/jurosAnual.png")));
-		jurosAnuais.setBounds(234, 206, 110, 109);
-		panel.add(jurosAnuais);
-		
 		JButton relatorioPresidente = new JButton("");
-		relatorioPresidente.setBounds(27, 63, 110, 109);
+		relatorioPresidente.setBounds(74, 63, 110, 109);
 		panel.add(relatorioPresidente);
 		relatorioPresidente.setBackground(Color.WHITE);
 		relatorioPresidente.setIcon(new ImageIcon(MenuPresidente.class.getResource("/br/com/poo/imagens/relatorioPresidente.png")));
