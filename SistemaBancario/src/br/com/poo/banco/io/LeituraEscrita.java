@@ -16,6 +16,7 @@ import br.com.poo.banco.enums.ContaEnum;
 import br.com.poo.banco.enums.PessoasEnum;
 import br.com.poo.banco.pessoas.Cliente;
 import br.com.poo.banco.pessoas.Diretor;
+import br.com.poo.banco.pessoas.Funcionario;
 import br.com.poo.banco.pessoas.Gerente;
 import br.com.poo.banco.pessoas.Presidente;
 
@@ -48,19 +49,19 @@ public class LeituraEscrita {
 					Cliente.mapaClientes.put(dados[2], c);
 					
 				} else if(dados[0].equalsIgnoreCase(PessoasEnum.GERENTE.getTipoPessoas())) {
-					// String tipoFuncionario, Double salario, String agencia, String cpf, String nome, String senha, String setorResponsavel
+					// String tipoFuncionario, Double salario, String agencia, String cpf, String nome, String senha
 					Gerente g = new Gerente(dados[0], Double.parseDouble(dados[1]),dados[2],dados[3],dados[4],dados[5]);
-					Gerente.mapaFuncionario.put(dados[3], g);
+					Funcionario.mapaFuncionario.put(dados[3], g);
 					
 				} else if(dados[0].equalsIgnoreCase(PessoasEnum.DIRETOR.getTipoPessoas())) {
-					// String tipoFuncionario, Double salario, String agencia, String cpf, String nome, String senha, String setorResponsavel
+					// String tipoFuncionario, Double salario, String agencia, String cpf, String nome, String senha
 					Diretor d = new Diretor(dados[0], Double.parseDouble(dados[1]),dados[2],dados[3],dados[4],dados[5]);
-					Diretor.mapaFuncionario.put(dados[3], d);
+					Funcionario.mapaFuncionario.put(dados[3], d);
 					
 				} else if(dados[0].equalsIgnoreCase(PessoasEnum.PRESIDENTE.getTipoPessoas())) {
-					// String tipoFuncionario, Double salario, String agencia, String cpf, String nome, String senha, String setorResponsavel
+					// String tipoFuncionario, Double salario, String agencia, String cpf, String nome, String senha
 					Presidente p = new Presidente(dados[0], Double.parseDouble(dados[1]),dados[2],dados[3],dados[4],dados[5]);
-					Presidente.mapaFuncionario.put(dados[3], p);
+					Funcionario.mapaFuncionario.put(dados[3], p);
 				}
 			}
 			else {
@@ -68,6 +69,7 @@ public class LeituraEscrita {
 			}
 		}
 		System.out.println(Conta.mapaContas);
+		System.out.println(Funcionario.mapaFuncionario);
 		buffRead.close();
 	}
 	

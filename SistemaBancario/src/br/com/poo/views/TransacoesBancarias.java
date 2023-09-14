@@ -78,13 +78,13 @@ public class TransacoesBancarias extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBackground(new Color(255, 255, 255));
-		comboBox.setForeground(SystemColor.controlText);
-		comboBox.setToolTipText("Opção");
-		comboBox.setFont(new Font("Agency FB", Font.PLAIN, 10));
-		comboBox.setBounds(149, 11, 123, 22);
-		panel.add(comboBox);
+		JComboBox cbTransacoes = new JComboBox();
+		cbTransacoes.setBackground(new Color(255, 255, 255));
+		cbTransacoes.setForeground(SystemColor.controlText);
+		cbTransacoes.setToolTipText("Opção");
+		cbTransacoes.setFont(new Font("Agency FB", Font.PLAIN, 10));
+		cbTransacoes.setBounds(149, 11, 123, 22);
+		panel.add(cbTransacoes);
 		
 		JLabel lblValorDeSaque = new JLabel("Valor de Saque: R$");
 		lblValorDeSaque.setFont(new Font("Arial", Font.BOLD, 15));
