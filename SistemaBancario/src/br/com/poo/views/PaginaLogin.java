@@ -129,31 +129,31 @@ public class PaginaLogin extends JFrame {
 				Cliente c = Cliente.mapaClientes.get(cpf);
 				Funcionario f = Funcionario.mapaFuncionario.get(cpf);
 				Conta conta = Conta.mapaContas.get(cpf);
-				
-				if ((c.getCpf().equals(cpf) && c.getSenha().equals(senha)) || (f.getCpf().equals(cpf) && f.getSenha().equals(senha))) {
-					// cliente
+
+				if (c != null && c.getCpf().equals(cpf) && c.getSenha().equals(senha)) {
+					// Autenticado como Cliente
 					if (comboBox.getSelectedItem().toString().equals(PessoasEnum.CLIENTE.getTipoPessoas())) {
-						if(conta.getTipoConta().equalsIgnoreCase(ContaEnum.CORRENTE.getTipoConta())) {
+						if (conta.getTipoConta().equalsIgnoreCase(ContaEnum.CORRENTE.getTipoConta())) {
 							dispose();
 							MenuCorrente menuCorrente = new MenuCorrente();
 							menuCorrente.setLocationRelativeTo(menuCorrente);
 							menuCorrente.setVisible(true);
-						} else if(conta.getTipoConta().equalsIgnoreCase(ContaEnum.POUPANCA.name())) {
+						} else if (conta.getTipoConta().equalsIgnoreCase(ContaEnum.POUPANCA.name())) {
 							dispose();
-							MenuPoupanca menuPoupanca = new MenuPoupanca(c.getNome(), conta.getNumAgencia(),conta.getNumConta(),conta.getSaldo());
+							MenuPoupanca menuPoupanca = new MenuPoupanca(c.getNome(), conta.getNumAgencia(),
+									conta.getNumConta(), conta.getSaldo());
 							menuPoupanca.setLocationRelativeTo(menuPoupanca);
 							menuPoupanca.setVisible(true);
 						}
 					}
-					// gerente
-					else if (comboBox.getSelectedItem().toString().equals(PessoasEnum.GERENTE.getTipoPessoas())) {
+				} else if (f != null && f.getCpf().equals(cpf) && f.getSenha().equals(senha)) {
+					// Autenticado como Funcionário
+					if (comboBox.getSelectedItem().toString().equals(PessoasEnum.GERENTE.getTipoPessoas())) {
 						dispose();
 						MenuGerente menuGerente = new MenuGerente();
 						menuGerente.setLocationRelativeTo(menuGerente);
 						menuGerente.setVisible(true);
-					}
-					// diretor
-					else if (comboBox.getSelectedItem().toString().equals(PessoasEnum.DIRETOR.getTipoPessoas())) {
+					} else if (comboBox.getSelectedItem().toString().equals(PessoasEnum.DIRETOR.getTipoPessoas())) {
 						dispose();
 						JMenuDiretor jMenuDiretor = new JMenuDiretor();
 						jMenuDiretor.setLocationRelativeTo(jMenuDiretor);
