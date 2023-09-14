@@ -1,14 +1,16 @@
 package br.com.poo.views;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Toolkit;
+import java.text.DecimalFormat;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.Toolkit;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 public class MenuPoupanca extends JFrame {
@@ -34,16 +36,20 @@ public class MenuPoupanca extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel_3 = new JLabel("Saldo + rendimentos");
+		
+		JLabel lblNewLabel_3 = new JLabel("Saldo: ");
 		lblNewLabel_3.setForeground(Color.WHITE);
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblNewLabel_3.setBounds(10, 70, 161, 14);
+		lblNewLabel_3.setBounds(40, 71, 53, 14);
 		contentPane.add(lblNewLabel_3);
 		
-		JLabel labelSaldo = new JLabel("0.000,00");
+		DecimalFormat formatoSaldo = new DecimalFormat("#,###.00");
+		String saldoFormatado = formatoSaldo.format(saldo);
+		
+		JLabel labelSaldo = new JLabel(saldoFormatado);
 		labelSaldo.setForeground(Color.WHITE);
 		labelSaldo.setFont(new Font("Tahoma", Font.BOLD, 15));
-		labelSaldo.setBounds(69, 95, 117, 14);
+		labelSaldo.setBounds(69, 95, 101, 14);
 		contentPane.add(labelSaldo);
 		
 		JLabel labelUsuario = new JLabel("Olá, " + nome);
@@ -70,25 +76,25 @@ public class MenuPoupanca extends JFrame {
 		panel.setBounds(37, 120, 359, 306);
 		contentPane.add(panel);
 		
-		JButton btnExtrato = new JButton("Extrato");
-		btnExtrato.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Extrato.jpg")));
-		btnExtrato.setBounds(42, 184, 95, 88);
-		panel.add(btnExtrato);
+		JButton buttonExtrato = new JButton("Extrato");
+		buttonExtrato.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Extrato.jpg")));
+		buttonExtrato.setBounds(42, 184, 95, 88);
+		panel.add(buttonExtrato);
 		
-		JButton btnNewButton_2 = new JButton("Conta Corrente");
-		btnNewButton_2.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/ContaCorrente.jpg")));
-		btnNewButton_2.setBounds(230, 184, 95, 88);
-		panel.add(btnNewButton_2);
+		JButton buttonContaC = new JButton("Conta Corrente");
+		buttonContaC.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/ContaCorrente.jpg")));
+		buttonContaC.setBounds(230, 184, 95, 88);
+		panel.add(buttonContaC);
 		
-		JButton btnNewButton = new JButton("Transações Bancárias");
-		btnNewButton.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Transações Bancárias.png")));
-		btnNewButton.setBounds(42, 46, 91, 88);
-		panel.add(btnNewButton);
+		JButton buttonTransacoes = new JButton("Transações Bancárias");
+		buttonTransacoes.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Transações Bancárias.png")));
+		buttonTransacoes.setBounds(42, 46, 91, 88);
+		panel.add(buttonTransacoes);
 		
-		JButton btnNewButton_3 = new JButton("Rendimentos");
-		btnNewButton_3.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Rendimentos.png")));
-		btnNewButton_3.setBounds(224, 46, 95, 83);
-		panel.add(btnNewButton_3);
+		JButton buttonRendimentos = new JButton("Rendimentos");
+		buttonRendimentos.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Rendimentos.png")));
+		buttonRendimentos.setBounds(224, 46, 95, 83);
+		panel.add(buttonRendimentos);
 		
 		JLabel lblNewLabel_2 = new JLabel("Ag " + agencia + " Conta " + conta);
 		lblNewLabel_2.setForeground(Color.WHITE);
