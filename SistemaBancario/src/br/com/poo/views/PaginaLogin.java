@@ -1,15 +1,24 @@
 package br.com.poo.views;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import java.awt.Color;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
+import java.awt.Font;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import br.com.poo.banco.contas.Conta;
@@ -17,14 +26,6 @@ import br.com.poo.banco.enums.ContaEnum;
 import br.com.poo.banco.enums.PessoasEnum;
 import br.com.poo.banco.pessoas.Cliente;
 import br.com.poo.banco.pessoas.Funcionario;
-
-import java.awt.Toolkit;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import java.awt.Font;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 
 public class PaginaLogin extends JFrame {
 
@@ -131,41 +132,42 @@ public class PaginaLogin extends JFrame {
 				Conta conta = Conta.mapaContas.get(cpf);
 
 				if (c != null && c.getCpf().equals(cpf) && c.getSenha().equals(senha)) {
-					// Autenticado como Cliente
-					if (comboBox.getSelectedItem().toString().equals(PessoasEnum.CLIENTE.getTipoPessoas())) {
-						if (conta.getTipoConta().equalsIgnoreCase(ContaEnum.CORRENTE.getTipoConta())) {
-							dispose();
-							MenuCorrente menuCorrente = new MenuCorrente();
-							menuCorrente.setLocationRelativeTo(menuCorrente);
-							menuCorrente.setVisible(true);
-						} else if (conta.getTipoConta().equalsIgnoreCase(ContaEnum.POUPANCA.name())) {
-							dispose();
-							MenuPoupanca menuPoupanca = new MenuPoupanca(c.getNome(), conta.getNumAgencia(),
-									conta.getNumConta(), conta.getSaldo());
-							menuPoupanca.setLocationRelativeTo(menuPoupanca);
-							menuPoupanca.setVisible(true);
-						}
-					}
+				    // Autenticado como Cliente
+				    if (comboBox.getSelectedItem().toString().equals(PessoasEnum.CLIENTE.getTipoPessoas())) {
+				        if (conta.getTipoConta().equalsIgnoreCase(ContaEnum.CORRENTE.getTipoConta())) {
+				            // Lógica para cliente com conta corrente
+				        } else if (conta.getTipoConta().equalsIgnoreCase(ContaEnum.POUPANCA.name())) {
+				            // Lógica para cliente com conta poupança
+				        } 
+				    } 
 				} else if (f != null && f.getCpf().equals(cpf) && f.getSenha().equals(senha)) {
-					// Autenticado como Funcionário
-					if (comboBox.getSelectedItem().toString().equals(PessoasEnum.GERENTE.getTipoPessoas())) {
-						dispose();
-						MenuGerente menuGerente = new MenuGerente();
-						menuGerente.setLocationRelativeTo(menuGerente);
-						menuGerente.setVisible(true);
-					} else if (comboBox.getSelectedItem().toString().equals(PessoasEnum.DIRETOR.getTipoPessoas())) {
-						dispose();
-						JMenuDiretor jMenuDiretor = new JMenuDiretor();
-						jMenuDiretor.setLocationRelativeTo(jMenuDiretor);
-						jMenuDiretor.setVisible(true);
-					}
-					// presidente
-					else if (comboBox.getSelectedItem().toString().equals(PessoasEnum.PRESIDENTE.getTipoPessoas())) {
-						dispose();
-						MenuPresidente menuPresidente = new MenuPresidente();
-						menuPresidente.setLocationRelativeTo(menuPresidente);
-						menuPresidente.setVisible(true);
-					}
+				    // Autenticado como Funcionário
+				    if (comboBox.getSelectedItem().toString().equals(PessoasEnum.GERENTE.getTipoPessoas())) {
+				        if (f.getTipoFuncionario().equals(PessoasEnum.GERENTE.getTipoPessoas())) {
+				            // Autenticado como gerente
+				            dispose();
+				            MenuGerente menuGerente = new MenuGerente();
+				            menuGerente.setLocationRelativeTo(menuGerente);
+				            menuGerente.setVisible(true);
+				        } 
+				    } else if (comboBox.getSelectedItem().toString().equals(PessoasEnum.DIRETOR.getTipoPessoas())) {
+				        if (f.getTipoFuncionario().equals(PessoasEnum.DIRETOR.getTipoPessoas())) {
+				            // Autenticado como diretor
+				            dispose();
+				            JMenuDiretor jMenuDiretor = new JMenuDiretor();
+				            jMenuDiretor.setLocationRelativeTo(jMenuDiretor);
+				            jMenuDiretor.setVisible(true);
+				        } 
+				    } else if (comboBox.getSelectedItem().toString().equals(PessoasEnum.PRESIDENTE.getTipoPessoas())) {
+				        if (f.getTipoFuncionario().equals(PessoasEnum.PRESIDENTE.getTipoPessoas())) {
+				            // Autenticado como presidente
+				            dispose();
+				            MenuPresidente menuPresidente = new MenuPresidente();
+				            menuPresidente.setLocationRelativeTo(menuPresidente);
+				            menuPresidente.setVisible(true);
+				        } 
+				    }
+				
 				}
 			}
 		});
