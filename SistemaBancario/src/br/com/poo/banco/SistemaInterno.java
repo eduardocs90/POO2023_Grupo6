@@ -3,16 +3,21 @@ package br.com.poo.banco;
 import java.io.IOException;
 
 import br.com.poo.banco.io.LeituraEscrita;
+import br.com.poo.views.JCadastroCliente;
 import br.com.poo.views.PaginaLogin;
 
 public class SistemaInterno {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		LeituraEscrita.leitor("banco");
-		PaginaLogin pl = new PaginaLogin();
-		pl.setLocationRelativeTo(pl);
-		pl.setVisible(true);
+		JCadastroCliente jc = new JCadastroCliente();
+		jc.setLocationRelativeTo(jc);
+		jc.setVisible(true);
+		
+//		LeituraEscrita.leitor("banco");
+//		PaginaLogin pl = new PaginaLogin();
+//		pl.setLocationRelativeTo(pl);
+//		pl.setVisible(true);
 //		Funcionario f = new Funcionario();
 //		System.out.println(f);
 //		
