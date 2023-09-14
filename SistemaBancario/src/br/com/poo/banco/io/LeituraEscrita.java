@@ -128,6 +128,24 @@ public class LeituraEscrita {
 		buffWriter.append("------------------ FIM Depósito ------------------\n");
 		buffWriter.close();
 	}
+	
+	public static void comprovanteTransferencia(Conta remetente, Conta destinatario, Double valor) throws IOException {
+	    String path = remetente.getTipoConta() + "_" + remetente.getCpf();
+	    BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));
+	    LocalDateTime dataHora = LocalDateTime.now();
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+		
+	    buffWriter.append("--------------------- Transferência ---------------------\n");
+		buffWriter.append("CPF do Remetente: " + remetente.getCpf() + "\n");
+		buffWriter.append("Conta do Remetente: " + remetente.getTipoConta() + "\n");
+		buffWriter.append("Valor Transferido: " + valor + "\n");
+		buffWriter.append("CPF do Destinatário: " + destinatario.getCpf() + "\n");
+		buffWriter.append("Conta de Destino: " + destinatario.getTipoConta() + "\n");
+		buffWriter.append("Saldo do Remetente: " + remetente.getSaldo() + "\n");
+		buffWriter.append("Operação realizada em: "+ dtf.format(dataHora) + "\n");
+		buffWriter.append("------------------ FIM Transferência --------------------\n");
+		buffWriter.close();
+	}
 
 //	public static void HistoricoTransacoes(Conta conta) throws IOException {
 //	    String path = conta.getTipoConta() + "_" + conta.getCpf();
