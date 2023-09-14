@@ -27,6 +27,7 @@ public class LeituraEscrita {
 	
 	static final String PATH_BASICO = "./temp/";
 	static final String EXTENSAO = ".txt";
+	static int contador = 0;
 	
 	public static void leitor(String path) throws IOException {
 		BufferedReader buffRead = new BufferedReader(new FileReader(PATH_BASICO+path+EXTENSAO));
@@ -35,6 +36,7 @@ public class LeituraEscrita {
 		while(true) {
 			linha = buffRead.readLine();
 			if(linha!=null) {
+				contador++;
 				String[] dados = linha.split(";");
 				if(dados[0].equalsIgnoreCase(ContaEnum.POUPANCA.name())) {
 					// String tipoConta,String numConta, String numAgencia, String cpf, Double saldo
@@ -76,16 +78,20 @@ public class LeituraEscrita {
 		buffRead.close();
 	}
 	
-	public static void escritor(String path) throws IOException {
-		Scanner sc = new Scanner(System.in);
-		BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO+path+EXTENSAO,true));
-		String dado;
+	public static void escritor(String path, String cliente, String conta) throws IOException {
 		
-		System.out.println("Escreva algo: ");
-		dado = sc.nextLine();
-		buffWriter.append(dado + "\n");
-		sc.close();
-		buffWriter.close();
+		try (BufferedReader buffRead = new BufferedReader(new FileReader(PATH_BASICO+path+EXTENSAO))) {
+			String dado = "";
+			for(int i = 0; i < contador+1; i++) {
+				dado = buffRead.readLine();
+				if(dado == null) {
+					try (BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO+path+EXTENSAO,true))) {
+						buffWriter.append(cliente);
+						buffWriter.append(conta);
+					}
+				}
+			}
+		} 
 	}
 	
 	public static void cadastrarCliente(String path, String nome, String cpf, String contato, String endereco, String senha, String confSenha, JButton botao) {
