@@ -32,7 +32,8 @@
   <li><b><i>Gerente, Diretor e Presidente</i></b> que herda de Funcionario.</li>
 
 <h2>Diagrama de Classes UML</h2>
-<img src="https://github.com/eduardocs90/POO2023_Grupo6/assets/141193350/c1910980-ce2a-4665-b294-ac1785136e39"alt="Diagrama de Classes">
+<img src="https://github.com/eduardocs90/POO2023_Grupo6/assets/141193350/fb4ea8c4-112b-4655-863a-2dfc0ba6db65"alt="Diagrama de Classes UML">
+
 
 
 <h2>Funcionalidades por Tipo de Usuário</h2>
