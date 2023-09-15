@@ -67,6 +67,7 @@ public class PaginaLogin extends JFrame {
 		buttonExit.setHorizontalAlignment(SwingConstants.LEFT);
 		buttonExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 			}
 		});
 		buttonExit.setBackground(Color.DARK_GRAY);
@@ -164,7 +165,7 @@ public class PaginaLogin extends JFrame {
 				        if (f.getTipoFuncionario().equals(PessoasEnum.GERENTE.getTipoPessoas())) {
 				            // Autenticado como gerente
 				            dispose();
-				            MenuGerente menuGerente = new MenuGerente();
+				            MenuGerente menuGerente = new MenuGerente(f.getNome());
 				            menuGerente.setLocationRelativeTo(menuGerente);
 				            menuGerente.setVisible(true);
 				        } 
@@ -172,7 +173,7 @@ public class PaginaLogin extends JFrame {
 				        if (f.getTipoFuncionario().equals(PessoasEnum.DIRETOR.getTipoPessoas())) {
 				            // Autenticado como diretor
 				            dispose();
-				            JMenuDiretor jMenuDiretor = new JMenuDiretor();
+				            JMenuDiretor jMenuDiretor = new JMenuDiretor(f.getNome());
 				            jMenuDiretor.setLocationRelativeTo(jMenuDiretor);
 				            jMenuDiretor.setVisible(true);
 				        } 
@@ -180,7 +181,7 @@ public class PaginaLogin extends JFrame {
 				        if (f.getTipoFuncionario().equals(PessoasEnum.PRESIDENTE.getTipoPessoas())) {
 				            // Autenticado como presidente
 				            dispose();
-				            MenuPresidente menuPresidente = new MenuPresidente();
+				            MenuPresidente menuPresidente = new MenuPresidente(f.getNome());
 				            menuPresidente.setLocationRelativeTo(menuPresidente);
 				            menuPresidente.setVisible(true);
 				        }

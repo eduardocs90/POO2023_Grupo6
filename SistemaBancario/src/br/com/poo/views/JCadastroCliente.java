@@ -162,22 +162,18 @@ public class JCadastroCliente extends JFrame {
 						ContaCorrente cc = new ContaCorrente(tipoConta, numConta, agencia, cpf,
 								Double.parseDouble(saldo), Double.parseDouble(chequeEspecial));
 						Conta.mapaContas.put(cpf, cc);
-						conta = "\n" + ContaEnum.CORRENTE.getTipoConta() + ";" + numConta + ";" + agencia + ";"
-								+ cpf + ";" + saldo + ";" + chequeEspecial + ";";
+						conta = "\n" + ContaEnum.CORRENTE.getTipoConta() + ";" + numConta + ";" + agencia + ";" + cpf
+								+ ";" + saldo + ";" + chequeEspecial + ";";
 					} else if (tipoConta.equalsIgnoreCase(ContaEnum.POUPANCA.getTipoConta())) {
 						ContaPoupanca cp = new ContaPoupanca(tipoConta, numConta, agencia, cpf,
 								Double.parseDouble(saldo));
 						Conta.mapaContas.put(cpf, cp);
-						conta = "\n" + ContaEnum.POUPANCA.getTipoConta() + ";" + numConta + ";" + agencia + ";"
-								+ cpf + ";" + saldo + ";";
+						conta = "\n" + ContaEnum.POUPANCA.getTipoConta() + ";" + numConta + ";" + agencia + ";" + cpf
+								+ ";" + saldo + ";";
 					}
 					JOptionPane.showMessageDialog(buttonContinuar, "Cliente cadastrado com sucesso!");
 					try {
-						LeituraEscrita.escritor("banco", cliente,conta);
-						dispose();
-						MenuGerente menu = new MenuGerente();
-						menu.setLocationRelativeTo(menu);
-						menu.setVisible(true);
+						LeituraEscrita.escritor("banco", cliente, conta);
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -216,6 +212,9 @@ public class JCadastroCliente extends JFrame {
 		buttonVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				PaginaLogin pl = new PaginaLogin();
+				pl.setLocationRelativeTo(pl);
+				pl.setVisible(true);
 			}
 		});
 		buttonVoltar.setIcon(new ImageIcon(JCadastroCliente.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
