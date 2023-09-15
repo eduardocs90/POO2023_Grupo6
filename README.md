@@ -33,17 +33,21 @@
 
 <h2>Funcionalidades por Tipo de Usuário</h2>
   <li>Cliente</li>
-  <p>1.1 Movimentações da Conta: Saque, Depósito e Transferência.</p>
-  <p>1.2 Relatórios: Saldo e Tributações.</p>
+  1.1 Movimentações da Conta: Saque, Depósito e Transferência.
+  <br>
+  1.2 Relatórios: Saldo e Tributações.</p>
   <li>Gerente</li>
-  <p>1.1 Relatórios: Total de contas da mesma agência.</p>
-  <p>1.2 Cadastro de Clientes: Cadastrar conta.</p>
+  1.1 Relatórios: Total de contas da mesma agência.
+  <br>
+  1.2 Cadastro de Clientes: Cadastrar conta.</p>
   <li>Diretor</li>
-  <p>1.1 Relatórios: Lista de clientes das agências sob sua coordenação.</p>
-  <p>1.2 Cadastro de Clientes e Cadastro de Gerentes.</p>
+  1.1 Relatórios: Lista de clientes das agências sob sua coordenação.
+  <br>
+  1.2 Cadastro de Clientes e Cadastro de Gerentes.</p>
   <li>Presidente</li>
-  <p>1.1 Relatórios: Lista de diretores.</p>
-  <p>1.2 Cadastro de Clientes, Cadastro de Gerentes e Cadastros de Diretores.</p>
+  1.1 Relatórios: Lista de diretores.
+  <br>
+  1.2 Cadastro de Clientes, Cadastro de Gerentes e Cadastros de Diretores.
 
 <h2>Tecnologias Utilizadas</h2>
   <li><img src="https://github.com/eduardocs90/POO2023_Grupo6/assets/141193350/6d79ba45-3a11-4d34-9d5f-5f63bcce3abf" height="40" width="40"> <a href="https://www.oracle.com/br/java/technologies/javase/jdk11-archive-downloads.html">Java 11 e JFrame</a></li>
