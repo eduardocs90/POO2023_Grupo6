@@ -1,20 +1,26 @@
 package br.com.poo.views;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import java.awt.Toolkit;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.border.LineBorder;
 import java.awt.SystemColor;
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
+import java.awt.Toolkit;
+import java.util.Arrays;
+import java.util.List;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+
+import br.com.poo.banco.enums.TransacoesEnum;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TransacoesBancarias extends JFrame {
 
@@ -23,10 +29,10 @@ public class TransacoesBancarias extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField textValorSaque;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField;
+	private JTextField textSaque;
+	private JTextField textDeposito;
+	private JTextField textTransferencia;
+	private JTextField textNumConta;
 
 	/**
 	 * Launch the application.
@@ -78,67 +84,83 @@ public class TransacoesBancarias extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JComboBox cbTransacoes = new JComboBox();
-		cbTransacoes.setBackground(new Color(255, 255, 255));
-		cbTransacoes.setForeground(SystemColor.controlText);
-		cbTransacoes.setToolTipText("Opção");
-		cbTransacoes.setFont(new Font("Agency FB", Font.PLAIN, 10));
-		cbTransacoes.setBounds(149, 11, 123, 22);
-		panel.add(cbTransacoes);
+		JComboBox<String> comboBox = new JComboBox<>();
+		List<TransacoesEnum> listaTrans = Arrays.asList(TransacoesEnum.values());
+		comboBox.addItem("Selecione uma opção");
+		for (TransacoesEnum p : listaTrans) {
+			comboBox.addItem(p.getTipoTransferencia());
+		}
+		comboBox.setBackground(new Color(255, 255, 255));
+		comboBox.setForeground(SystemColor.controlText);
+		comboBox.setToolTipText("Opção");
+		comboBox.setFont(new Font("Agency FB", Font.PLAIN, 10));
+		comboBox.setBounds(149, 11, 123, 22);
+		panel.add(comboBox);
 		
-		JLabel lblValorDeSaque = new JLabel("Valor de Saque: R$");
+		JLabel lblValorDeSaque = new JLabel("Valor de Saque:");
 		lblValorDeSaque.setFont(new Font("Arial", Font.BOLD, 15));
-		lblValorDeSaque.setBounds(67, 77, 134, 13);
+		lblValorDeSaque.setBounds(21, 78, 142, 13);
 		panel.add(lblValorDeSaque);
 		
-		JLabel lblValorDeDepsito = new JLabel("Valor de Depósito: R$");
+		JLabel lblValorDeDepsito = new JLabel("Valor de Depósito:");
 		lblValorDeDepsito.setFont(new Font("Arial", Font.BOLD, 15));
-		lblValorDeDepsito.setBounds(48, 128, 153, 13);
+		lblValorDeDepsito.setBounds(21, 129, 169, 13);
 		panel.add(lblValorDeDepsito);
 		
-		textValorSaque = new JTextField();
-		textValorSaque.setFont(new Font("Arial", Font.BOLD, 15));
-		textValorSaque.setColumns(10);
-		textValorSaque.setBounds(216, 69, 185, 30);
-		panel.add(textValorSaque);
+		textSaque = new JTextField();
+		textSaque.setFont(new Font("Arial", Font.BOLD, 15));
+		textSaque.setColumns(10);
+		textSaque.setBounds(216, 69, 185, 30);
+		panel.add(textSaque);
 		
-		textField_1 = new JTextField();
-		textField_1.setFont(new Font("Arial", Font.BOLD, 15));
-		textField_1.setColumns(10);
-		textField_1.setBounds(216, 120, 185, 30);
-		panel.add(textField_1);
+		textDeposito = new JTextField();
+		textDeposito.setFont(new Font("Arial", Font.BOLD, 15));
+		textDeposito.setColumns(10);
+		textDeposito.setBounds(216, 120, 185, 30);
+		panel.add(textDeposito);
 		
-		textField_2 = new JTextField();
-		textField_2.setFont(new Font("Arial", Font.BOLD, 15));
-		textField_2.setColumns(10);
-		textField_2.setBounds(216, 179, 185, 30);
-		panel.add(textField_2);
+		textTransferencia = new JTextField();
+		textTransferencia.setFont(new Font("Arial", Font.BOLD, 15));
+		textTransferencia.setColumns(10);
+		textTransferencia.setBounds(216, 179, 185, 30);
+		panel.add(textTransferencia);
 		
-		JLabel lblValorDaTransferncia = new JLabel("Valor da Transferência: R$");
+		textNumConta = new JTextField();
+		textNumConta.setFont(new Font("Arial", Font.BOLD, 15));
+		textNumConta.setColumns(10);
+		textNumConta.setBounds(216, 233, 185, 30);
+		panel.add(textNumConta);
+		
+		JLabel lblValorDaTransferncia = new JLabel("Valor da Transferência:");
 		lblValorDaTransferncia.setFont(new Font("Arial", Font.BOLD, 15));
-		lblValorDaTransferncia.setBounds(14, 187, 187, 13);
+		lblValorDaTransferncia.setBounds(21, 188, 180, 13);
 		panel.add(lblValorDaTransferncia);
 		
-		JLabel lblCpfParaTransferncia = new JLabel("Cpf para Transferência:");
+		JLabel lblCpfParaTransferncia = new JLabel("Número da Conta:");
 		lblCpfParaTransferncia.setFont(new Font("Arial", Font.BOLD, 15));
-		lblCpfParaTransferncia.setBounds(34, 241, 167, 13);
+		lblCpfParaTransferncia.setBounds(21, 242, 134, 13);
 		panel.add(lblCpfParaTransferncia);
 		
-		textField = new JTextField();
-		textField.setFont(new Font("Arial", Font.BOLD, 15));
-		textField.setColumns(10);
-		textField.setBounds(216, 233, 185, 30);
-		panel.add(textField);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon(TransacoesBancarias.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
-		btnNewButton.setBounds(11, 439, 47, 34);
-		contentPane.add(btnNewButton);
+		JButton buttonVoltar = new JButton("");
+		buttonVoltar.setIcon(new ImageIcon(TransacoesBancarias.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
+		buttonVoltar.setBounds(11, 439, 47, 34);
+		contentPane.add(buttonVoltar);
 		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon(TransacoesBancarias.class.getResource("/br/com/poo/imagens/1.png")));
-		btnNewButton_1.setBounds(373, 445, 40, 34);
-		contentPane.add(btnNewButton_1);
+		JButton buttonContinuar = new JButton("");
+		buttonContinuar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String saque = textSaque.getText();
+				String deposito = textDeposito.getText();
+				String transferencia = textTransferencia.getText();
+				String numConta = textNumConta.getText();
+				
+				//if()
+			}
+		});
+		buttonContinuar.setIcon(new ImageIcon(TransacoesBancarias.class.getResource("/br/com/poo/imagens/1.png")));
+		buttonContinuar.setBounds(373, 445, 40, 34);
+		contentPane.add(buttonContinuar);
 	}
 
 }
