@@ -1,15 +1,18 @@
 package br.com.poo.views;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import java.awt.Toolkit;
-import javax.swing.JLabel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import br.com.poo.banco.pessoas.Funcionario;
 
 public class MenuGerente extends JFrame {
 
@@ -19,7 +22,7 @@ public class MenuGerente extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	public MenuGerente(String nome) {
+	public MenuGerente(Funcionario f) {
 		setIconImage(
 				Toolkit.getDefaultToolkit().getImage(MenuGerente.class.getResource("/br/com/poo/imagens/50x50.png")));
 		setTitle("DéBank");
@@ -38,14 +41,29 @@ public class MenuGerente extends JFrame {
 		panel.setLayout(null);
 
 		JButton btnNewButton = new JButton("Relatórios");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				RelatorioGerente rg = new RelatorioGerente(f);
+				rg.setLocationRelativeTo(rg);
+				rg.setVisible(true);
+			}
+		});
 		btnNewButton.setBounds(90, 59, 141, 23);
 		panel.add(btnNewButton);
 
-		JLabel lblNewLabel_1 = new JLabel("Olá Gerente " + nome);
+		JLabel lblNewLabel_1 = new JLabel("Olá Gerente " + f.getNome());
 		lblNewLabel_1.setBounds(74, 11, 197, 27);
 		panel.add(lblNewLabel_1);
 
 		JButton btnNewButton_1 = new JButton("Cadastro");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				JCadastroCliente jcc = new JCadastroCliente();
+				jcc.setLocationRelativeTo(jcc);
+				jcc.setVisible(true);
+			}
+		});
 		btnNewButton_1.setBounds(90, 93, 141, 23);
 		panel.add(btnNewButton_1);
 

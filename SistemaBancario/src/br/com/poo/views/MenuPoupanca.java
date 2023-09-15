@@ -3,17 +3,21 @@ package br.com.poo.views;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+import br.com.poo.banco.contas.Conta;
+import br.com.poo.banco.pessoas.Cliente;
 
 public class MenuPoupanca extends JFrame {
 
@@ -26,7 +30,7 @@ public class MenuPoupanca extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MenuPoupanca(String nome, String agencia, String conta, Double saldo) {
+	public MenuPoupanca(Conta conta, Cliente c) {
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(MenuPoupanca.class.getResource("/br/com/poo/imagens/100x100.png")));
 		setTitle("DéBank");
@@ -46,7 +50,7 @@ public class MenuPoupanca extends JFrame {
 		contentPane.add(lblNewLabel_3);
 
 		DecimalFormat formatoSaldo = new DecimalFormat("#,###.00");
-		String saldoFormatado = formatoSaldo.format(saldo);
+		String saldoFormatado = formatoSaldo.format(conta.getSaldo());
 
 		JLabel labelSaldo = new JLabel(saldoFormatado);
 		labelSaldo.setForeground(Color.WHITE);
@@ -54,7 +58,7 @@ public class MenuPoupanca extends JFrame {
 		labelSaldo.setBounds(69, 95, 101, 14);
 		contentPane.add(labelSaldo);
 
-		JLabel labelUsuario = new JLabel("Olá, " + nome);
+		JLabel labelUsuario = new JLabel("Olá, " + c.getNome());
 		labelUsuario.setForeground(Color.WHITE);
 		labelUsuario.setFont(new Font("Tahoma", Font.BOLD, 13));
 		labelUsuario.setBounds(10, 11, 148, 29);
@@ -95,9 +99,7 @@ public class MenuPoupanca extends JFrame {
 		buttonContaC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-//				MenuCorrente co = new MenuCorrente();
-//				co.setLocationRelativeTo(co);
-//				co.setVisible(true);
+				JOptionPane.showMessageDialog(buttonContaC, "Ainda não implementamos esse método :( Volte em outra versão");
 			}
 		});
 		buttonContaC.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/ContaCorrente.jpg")));
@@ -108,7 +110,7 @@ public class MenuPoupanca extends JFrame {
 		buttonTransacoes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				TransacoesBancarias tb = new TransacoesBancarias();
+				TransacoesBancarias tb = new TransacoesBancarias(conta,c);
 				tb.setLocationRelativeTo(tb);
 				tb.setVisible(true);
 			}
@@ -131,7 +133,7 @@ public class MenuPoupanca extends JFrame {
 		buttonRendimentos.setBounds(224, 46, 95, 83);
 		panel.add(buttonRendimentos);
 
-		JLabel labelAgConta = new JLabel("Ag " + agencia + " Conta " + conta);
+		JLabel labelAgConta = new JLabel("Ag " + conta.getNumAgencia() + " Conta " + conta.getNumConta());
 		labelAgConta.setForeground(Color.WHITE);
 		labelAgConta.setFont(new Font("Tahoma", Font.BOLD, 11));
 		labelAgConta.setBounds(284, 19, 161, 14);

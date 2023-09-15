@@ -1,17 +1,20 @@
 package br.com.poo.views;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import java.awt.Toolkit;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JTextField;
+import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 public class JRendimentos extends JFrame {
@@ -64,11 +67,24 @@ public class JRendimentos extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JButton buttonVoltar = new JButton("");
+		buttonVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				PaginaLogin pl = new PaginaLogin();
+				pl.setLocationRelativeTo(pl);
+				pl.setVisible(true);
+			}
+		});
 		buttonVoltar.setIcon(new ImageIcon(JRendimentos.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
 		buttonVoltar.setBounds(30, 411, 50, 50);
 		contentPane.add(buttonVoltar);
 		
 		JButton buttonContinuar = new JButton("");
+		buttonContinuar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(buttonContinuar, "Ainda não implementamos esse método :( Volte em outra versão");
+			}
+		});
 		buttonContinuar.setIcon(new ImageIcon(JRendimentos.class.getResource("/br/com/poo/imagens/Design sem nome (1).png")));
 		buttonContinuar.setBounds(383, 411, 50, 50);
 		contentPane.add(buttonContinuar);

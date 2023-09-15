@@ -145,13 +145,13 @@ public class PaginaLogin extends JFrame {
 				        if (conta.getTipoConta().equalsIgnoreCase(ContaEnum.CORRENTE.getTipoConta())) {
 				        	ContaCorrente cc = ((ContaCorrente)conta );
 				        	dispose();
-				            MenuCorrente menuCorrente = new MenuCorrente(c.getNome(),conta.getNumAgencia(),conta.getNumConta(),conta.getSaldo(),cc.getChequeEspecial());
+				            MenuCorrente menuCorrente = new MenuCorrente(cc,c);
 				            menuCorrente.setLocationRelativeTo(menuCorrente);
 				            menuCorrente.setVisible(true);
 				            // Lógica para cliente com conta corrente
 				        } else if (conta.getTipoConta().equalsIgnoreCase(ContaEnum.POUPANCA.name())) {
 				        	 	dispose();
-					            MenuPoupanca menuPoupanca = new MenuPoupanca(c.getNome(),conta.getNumAgencia(),conta.getNumConta(),conta.getSaldo());
+					            MenuPoupanca menuPoupanca = new MenuPoupanca(conta,c);
 					            menuPoupanca.setLocationRelativeTo(menuPoupanca);
 					            menuPoupanca.setVisible(true);
 				        } else {
@@ -165,7 +165,7 @@ public class PaginaLogin extends JFrame {
 				        if (f.getTipoFuncionario().equals(PessoasEnum.GERENTE.getTipoPessoas())) {
 				            // Autenticado como gerente
 				            dispose();
-				            MenuGerente menuGerente = new MenuGerente(f.getNome());
+				            MenuGerente menuGerente = new MenuGerente(f);
 				            menuGerente.setLocationRelativeTo(menuGerente);
 				            menuGerente.setVisible(true);
 				        } 
@@ -173,7 +173,7 @@ public class PaginaLogin extends JFrame {
 				        if (f.getTipoFuncionario().equals(PessoasEnum.DIRETOR.getTipoPessoas())) {
 				            // Autenticado como diretor
 				            dispose();
-				            JMenuDiretor jMenuDiretor = new JMenuDiretor(f.getNome());
+				            JMenuDiretor jMenuDiretor = new JMenuDiretor(f);
 				            jMenuDiretor.setLocationRelativeTo(jMenuDiretor);
 				            jMenuDiretor.setVisible(true);
 				        } 
@@ -181,7 +181,7 @@ public class PaginaLogin extends JFrame {
 				        if (f.getTipoFuncionario().equals(PessoasEnum.PRESIDENTE.getTipoPessoas())) {
 				            // Autenticado como presidente
 				            dispose();
-				            MenuPresidente menuPresidente = new MenuPresidente(f.getNome());
+				            MenuPresidente menuPresidente = new MenuPresidente(f);
 				            menuPresidente.setLocationRelativeTo(menuPresidente);
 				            menuPresidente.setVisible(true);
 				        }
