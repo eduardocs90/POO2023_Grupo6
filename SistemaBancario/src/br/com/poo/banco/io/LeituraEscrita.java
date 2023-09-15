@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Map;
 import java.util.Scanner;
 
 import javax.swing.JButton;
@@ -152,6 +153,28 @@ public class LeituraEscrita {
 		buffWriter.append("------------------ FIM Transferência --------------------\n");
 		buffWriter.close();
 	}
+						//Relatório Gerente 
+	public static void gerarRelatorioGerente( Gerente gerente, Map<String, Conta> contas) throws IOException {
+	    String path = gerente.getTipoFuncionario() + "_" + gerente.getCpf();
+	    BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));
+	    LocalDateTime dataHora = LocalDateTime.now();
+	    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+	    // Calcular o total de contas e o total de saldo na agência do gerente
+	    int totalContas = 0;
+	    double totalSaldo = 0;
+	    for (Conta conta : contas.values()) {
+	        if (conta.getNumAgencia().equals(gerente.getAgencia())) {
+	            totalContas++;
+	            totalSaldo += conta.getSaldo();
+	        }
+	    }
+	    buffWriter.append("Relatório do total de contas e total de saldo da mesma agência: \n");
+	    buffWriter.append("Total de contas na agência " + gerente.getAgencia() + ": " + totalContas + "\n");
+	    buffWriter.append("Total de saldo na agência " + gerente.getAgencia() + ": " + totalSaldo + "\n\n");
+	    buffWriter.close();
+	}             
+
 
 //	public static void HistoricoTransacoes(Conta conta) throws IOException {
 //	    String path = conta.getTipoConta() + "_" + conta.getCpf();
@@ -176,6 +199,7 @@ public class LeituraEscrita {
 //	        buffWriter.append(transacao + "\n");
 //	    }
 
+	
 	
 		
 		/* ou
