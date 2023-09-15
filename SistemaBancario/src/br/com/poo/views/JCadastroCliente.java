@@ -49,7 +49,7 @@ public class JCadastroCliente extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(JCadastroCliente.class.getResource("/br/com/poo/imagens/50x50.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 556, 527);
+		setBounds(100, 100, 556, 539);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setForeground(new Color(255, 255, 255));
@@ -85,7 +85,7 @@ public class JCadastroCliente extends JFrame {
 		contentPane.add(textEndereco);
 
 		textSenha = new JPasswordField();
-		textSenha.setBounds(182, 269, 224, 19);
+		textSenha.setBounds(182, 274, 224, 19);
 		contentPane.add(textSenha);
 
 		textConfSenha = new JPasswordField();
@@ -107,7 +107,7 @@ public class JCadastroCliente extends JFrame {
 		JLabel lblNewLabel_1_2 = new JLabel("SENHA:");
 		lblNewLabel_1_2.setForeground(Color.WHITE);
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_1_2.setBounds(65, 270, 59, 13);
+		lblNewLabel_1_2.setBounds(65, 275, 59, 13);
 		contentPane.add(lblNewLabel_1_2);
 
 		JLabel lblNewLabel_1_3 = new JLabel("CONFIRMAR SENHA:");
@@ -118,7 +118,7 @@ public class JCadastroCliente extends JFrame {
 
 		numAgencia = new JTextField();
 		numAgencia.setColumns(10);
-		numAgencia.setBounds(295, 435, 96, 19);
+		numAgencia.setBounds(182, 431, 224, 19);
 		contentPane.add(numAgencia);
 
 		JComboBox<String> comboBox = new JComboBox<>();
@@ -186,7 +186,7 @@ public class JCadastroCliente extends JFrame {
 			}
 		});
 		buttonContinuar.setBackground(UIManager.getColor("Button.shadow"));
-		buttonContinuar.setBounds(430, 346, 50, 50);
+		buttonContinuar.setBounds(461, 442, 50, 50);
 		contentPane.add(buttonContinuar);
 
 		JLabel lblNewLabel_2 = new JLabel("New label");
@@ -219,42 +219,46 @@ public class JCadastroCliente extends JFrame {
 			}
 		});
 		buttonVoltar.setIcon(new ImageIcon(JCadastroCliente.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
-		buttonVoltar.setBounds(23, 346, 50, 50);
+		buttonVoltar.setBounds(10, 442, 50, 50);
 		contentPane.add(buttonVoltar);
 
 		labelNumConta = new JTextField();
-		labelNumConta.setBounds(299, 343, 96, 19);
+		labelNumConta.setBounds(182, 339, 224, 19);
 		contentPane.add(labelNumConta);
 		labelNumConta.setColumns(10);
 
 		labelSaldo = new JTextField();
 		labelSaldo.setColumns(10);
-		labelSaldo.setBounds(299, 377, 96, 19);
+		labelSaldo.setBounds(182, 368, 224, 19);
 		contentPane.add(labelSaldo);
 
 		labelCheque = new JTextField();
 		labelCheque.setColumns(10);
-		labelCheque.setBounds(299, 406, 96, 19);
+		labelCheque.setBounds(182, 397, 224, 19);
 		contentPane.add(labelCheque);
 
-		JLabel lblNewLabel_4 = new JLabel("conta");
+		JLabel lblNewLabel_4 = new JLabel("Conta:");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_4.setForeground(new Color(255, 255, 255));
-		lblNewLabel_4.setBounds(230, 346, 45, 13);
+		lblNewLabel_4.setBounds(65, 342, 59, 13);
 		contentPane.add(lblNewLabel_4);
 
-		JLabel lblNewLabel_4_1 = new JLabel("saldo");
+		JLabel lblNewLabel_4_1 = new JLabel("Saldo:");
+		lblNewLabel_4_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_4_1.setForeground(Color.WHITE);
-		lblNewLabel_4_1.setBounds(230, 383, 45, 13);
+		lblNewLabel_4_1.setBounds(65, 374, 50, 13);
 		contentPane.add(lblNewLabel_4_1);
 
-		JLabel lblNewLabel_4_1_1 = new JLabel("cheque");
+		JLabel lblNewLabel_4_1_1 = new JLabel("Cheque:");
+		lblNewLabel_4_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_4_1_1.setForeground(Color.WHITE);
-		lblNewLabel_4_1_1.setBounds(230, 409, 45, 13);
+		lblNewLabel_4_1_1.setBounds(65, 405, 59, 13);
 		contentPane.add(lblNewLabel_4_1_1);
 
-		JLabel lblNewLabel_4_1_1_1 = new JLabel("agencia");
+		JLabel lblNewLabel_4_1_1_1 = new JLabel("Agência:");
+		lblNewLabel_4_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNewLabel_4_1_1_1.setForeground(Color.WHITE);
-		lblNewLabel_4_1_1_1.setBounds(230, 432, 45, 13);
+		lblNewLabel_4_1_1_1.setBounds(65, 432, 59, 18);
 		contentPane.add(lblNewLabel_4_1_1_1);
 	}
 }
