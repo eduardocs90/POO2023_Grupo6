@@ -1,21 +1,24 @@
 package br.com.poo.views;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import java.awt.Toolkit;
-import javax.swing.JScrollPane;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JTable;
-import javax.swing.JComboBox;
+import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JButton;
 
 public class JRelatorioDiretor extends JFrame {
 
@@ -93,6 +96,11 @@ public class JRelatorioDiretor extends JFrame {
 		contentPane.add(lblNewLabel_1_1);
 		
 		JButton buttonRelatorio = new JButton("Gerar Relatório");
+		buttonRelatorio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(buttonRelatorio, "Ainda não implementamos esse método :( Volte em outra versão");
+			}
+		});
 		buttonRelatorio.setFont(new Font("Tahoma", Font.BOLD, 12));
 		buttonRelatorio.setForeground(Color.WHITE);
 		buttonRelatorio.setBackground(Color.BLACK);
@@ -100,6 +108,14 @@ public class JRelatorioDiretor extends JFrame {
 		contentPane.add(buttonRelatorio);
 		
 		JButton buttonVoltar = new JButton("");
+		buttonVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				PaginaLogin pl = new PaginaLogin();
+				pl.setLocationRelativeTo(pl);
+				pl.setVisible(true);
+			}
+		});
 		buttonVoltar.setIcon(new ImageIcon(JRelatorioDiretor.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
 		buttonVoltar.setBounds(10, 415, 50, 50);
 		contentPane.add(buttonVoltar);

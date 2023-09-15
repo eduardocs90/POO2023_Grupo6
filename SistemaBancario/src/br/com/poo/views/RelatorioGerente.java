@@ -1,19 +1,23 @@
 package br.com.poo.views;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JScrollPane;
 import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import java.awt.Toolkit;
-import javax.swing.JTable;
-import javax.swing.ImageIcon;
-import javax.swing.table.DefaultTableModel;
 import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import br.com.poo.banco.pessoas.Funcionario;
 
 public class RelatorioGerente extends JFrame {
 
@@ -24,26 +28,7 @@ public class RelatorioGerente extends JFrame {
 	private JPanel contentPane;
 	private JTable table;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RelatorioGerente frame = new RelatorioGerente();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public RelatorioGerente() {
+	public RelatorioGerente(Funcionario f) {
 		setTitle("DéBank");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(RelatorioGerente.class.getResource("/br/com/poo/imagens/50x50.png")));
 		setForeground(new Color(255, 255, 255));
@@ -61,11 +46,16 @@ public class RelatorioGerente extends JFrame {
 		lblNewLabel_2.setIcon(new ImageIcon(RelatorioGerente.class.getResource("/br/com/poo/imagens/100x100.png")));
 		contentPane.add(lblNewLabel_2);
 		
-		JButton btnNewButton_1_1 = new JButton("Gerar Relatório");
-		btnNewButton_1_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1_1.setBackground(new Color(0, 0, 0));
-		btnNewButton_1_1.setBounds(157, 279, 123, 23);
-		contentPane.add(btnNewButton_1_1);
+		JButton buttonRelatorio = new JButton("Gerar Relatório");
+		buttonRelatorio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(buttonRelatorio, "Ainda não implementamos esse método :( Volte em outra versão");
+			}
+		});
+		buttonRelatorio.setForeground(new Color(255, 255, 255));
+		buttonRelatorio.setBackground(new Color(0, 0, 0));
+		buttonRelatorio.setBounds(157, 279, 123, 23);
+		contentPane.add(buttonRelatorio);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(36, 58, 327, 195);
@@ -89,6 +79,14 @@ public class RelatorioGerente extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				PaginaLogin pl = new PaginaLogin();
+				pl.setLocationRelativeTo(pl);
+				pl.setVisible(true);
+			}
+		});
 		btnNewButton.setIcon(new ImageIcon(RelatorioGerente.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
 		btnNewButton.setBounds(0, 287, 50, 50);
 		contentPane.add(btnNewButton);

@@ -10,6 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
+
+import br.com.poo.banco.pessoas.Funcionario;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -23,7 +26,7 @@ public class MenuPresidente extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	public MenuPresidente(String nome) {
+	public MenuPresidente(Funcionario f) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPresidente.class.getResource("/br/com/poo/imagens/100x100.png")));
 		setTitle("DÉ BANK");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -41,7 +44,7 @@ public class MenuPresidente extends JFrame {
 		logo.setBounds(10, 4, 111, 77);
 		contentPane.add(logo);
 		
-		JLabel ola = new JLabel("Olá Presidente " + nome);
+		JLabel ola = new JLabel("Olá Presidente " + f.getNome());
 		ola.setFont(new Font("Arial", Font.BOLD, 17));
 		ola.setForeground(Color.WHITE);
 		ola.setBounds(123, 31, 276, 31);
@@ -57,6 +60,9 @@ public class MenuPresidente extends JFrame {
 		JButton cadastroDiretor = new JButton("");
 		cadastroDiretor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				CadastroDiretores cd = new CadastroDiretores();
+				cd.setLocationRelativeTo(cd);
+				cd.setVisible(true);
 			}
 		});
 		cadastroDiretor.setIcon(new ImageIcon(MenuPresidente.class.getResource("/br/com/poo/imagens/relatorioDiretor.png")));
@@ -64,16 +70,38 @@ public class MenuPresidente extends JFrame {
 		panel.add(cadastroDiretor);
 		
 		JButton cadastroGerente = new JButton("");
+		cadastroGerente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CadastroGerente cg = new CadastroGerente();
+				cg.setLocationRelativeTo(cg);
+				cg.setVisible(true);
+			}
+		});
 		cadastroGerente.setIcon(new ImageIcon(MenuPresidente.class.getResource("/br/com/poo/imagens/cadastroGerente.png")));
 		cadastroGerente.setBounds(245, 206, 110, 109);
 		panel.add(cadastroGerente);
 		
 		JButton cadastroCliente = new JButton("");
+		cadastroCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JCadastroCliente jcc = new JCadastroCliente();
+				jcc.setLocationRelativeTo(jcc);
+				jcc.setVisible(true);
+			}
+		});
 		cadastroCliente.setIcon(new ImageIcon(MenuPresidente.class.getResource("/br/com/poo/imagens/cadastroCliente.png")));
 		cadastroCliente.setBounds(74, 206, 110, 109);
 		panel.add(cadastroCliente);
 		
 		JButton relatorioPresidente = new JButton("");
+		relatorioPresidente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				RelatorioPresidente rp = new RelatorioPresidente();
+				rp.setLocationRelativeTo(rp);
+				rp.setVisible(true);
+			}
+		});
 		relatorioPresidente.setBounds(74, 63, 110, 109);
 		panel.add(relatorioPresidente);
 		relatorioPresidente.setBackground(Color.WHITE);

@@ -10,6 +10,9 @@ import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
+
+import br.com.poo.banco.pessoas.Funcionario;
+
 import javax.swing.JSeparator;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -19,7 +22,7 @@ public class JMenuDiretor extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	public JMenuDiretor(String nome) {
+	public JMenuDiretor(Funcionario f) {
 		setTitle("DéBank");
 		setIconImage(
 				Toolkit.getDefaultToolkit().getImage(JMenuDiretor.class.getResource("/br/com/poo/imagens/50x50.png")));
@@ -40,6 +43,14 @@ public class JMenuDiretor extends JFrame {
 		panel.setLayout(null);
 
 		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				JCadastroCliente jcc = new JCadastroCliente();
+				jcc.setLocationRelativeTo(jcc);
+				jcc.setVisible(true);
+			}
+		});
 		btnNewButton.setIcon(new ImageIcon(JMenuDiretor.class.getResource("/br/com/poo/imagens/cliente100.png")));
 		btnNewButton.setBackground(Color.GRAY);
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -51,6 +62,10 @@ public class JMenuDiretor extends JFrame {
 				.setIcon(new ImageIcon(JMenuDiretor.class.getResource("/br/com/poo/imagens/GERENTE100.png")));
 		btnCadastrarGerente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				CadastroGerente cg = new CadastroGerente();
+				cg.setLocationRelativeTo(cg);
+				cg.setVisible(true);
 			}
 		});
 		btnCadastrarGerente.setBackground(Color.GRAY);
@@ -59,6 +74,14 @@ public class JMenuDiretor extends JFrame {
 		panel.add(btnCadastrarGerente);
 
 		JButton btnGerarRelatrio = new JButton("");
+		btnGerarRelatrio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				JRelatorioDiretor rd = new JRelatorioDiretor();
+				rd.setLocationRelativeTo(rd);
+				rd.setVisible(true);
+			}
+		});
 		btnGerarRelatrio
 				.setIcon(new ImageIcon(JMenuDiretor.class.getResource("/br/com/poo/imagens/Relatorio200x100.jpg")));
 		btnGerarRelatrio.setBackground(Color.GRAY);
@@ -102,7 +125,7 @@ public class JMenuDiretor extends JFrame {
 		separator.setBounds(10, 122, 416, 13);
 		contentPane.add(separator);
 
-		JLabel labelNome = new JLabel("Bem-vindo(a), " + nome);
+		JLabel labelNome = new JLabel("Bem-vindo(a), " + f.getNome());
 		labelNome.setBounds(128, 35, 259, 38);
 		contentPane.add(labelNome);
 		labelNome.setFont(new Font("Tahoma", Font.BOLD, 15));

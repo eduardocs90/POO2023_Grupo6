@@ -154,7 +154,7 @@ public class LeituraEscrita {
 		buffWriter.close();
 	}
 						//Relatório Gerente 
-	public static void gerarRelatorioGerente( Gerente gerente, Map<String, Conta> contas) throws IOException {
+	public static void gerarRelatorioGerente(Funcionario gerente, Map<String, Conta> contas) throws IOException {
 	    String path = gerente.getTipoFuncionario() + "_" + gerente.getCpf();
 	    BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));
 	    LocalDateTime dataHora = LocalDateTime.now();
@@ -171,7 +171,8 @@ public class LeituraEscrita {
 	    }
 	    buffWriter.append("Relatório do total de contas e total de saldo da mesma agência: \n");
 	    buffWriter.append("Total de contas na agência " + gerente.getAgencia() + ": " + totalContas + "\n");
-	    buffWriter.append("Total de saldo na agência " + gerente.getAgencia() + ": " + totalSaldo + "\n\n");
+	    buffWriter.append("Total de saldo na agência " + gerente.getAgencia() + ": " + totalSaldo + "\n");
+	    buffWriter.append("Horário do Relatório: " + dtf.format(dataHora));
 	    buffWriter.close();
 	}             
 

@@ -1,22 +1,23 @@
 package br.com.poo.views;
 
-import java.awt.EventQueue;
+import java.awt.Color;
 
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import java.awt.Color;
-import java.awt.Toolkit;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import java.awt.Font;
-import javax.swing.JButton;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JComboBox;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 
 public class RelatorioPresidente extends JFrame {
@@ -28,25 +29,6 @@ public class RelatorioPresidente extends JFrame {
 	private JPanel contentPane;
 	private JTable table;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RelatorioPresidente frame = new RelatorioPresidente();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
 	public RelatorioPresidente() {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(RelatorioPresidente.class.getResource("/br/com/poo/imagens/50x50.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -86,17 +68,26 @@ public class RelatorioPresidente extends JFrame {
 		JButton btnNewButton = new JButton("");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				PaginaLogin pl = new PaginaLogin();
+				pl.setLocationRelativeTo(pl);
+				pl.setVisible(true);
 			}
 		});
 		btnNewButton.setIcon(new ImageIcon(RelatorioPresidente.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
 		btnNewButton.setBounds(-2, 346, 46, 35);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Gerar Relatório");
-		btnNewButton_1.setBackground(new Color(0, 0, 0));
-		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBounds(157, 343, 116, 23);
-		contentPane.add(btnNewButton_1);
+		JButton buttonRelatorio = new JButton("Gerar Relatório");
+		buttonRelatorio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(buttonRelatorio, "Ainda não implementamos esse método :( Volte em outra versão");
+			}
+		});
+		buttonRelatorio.setBackground(new Color(0, 0, 0));
+		buttonRelatorio.setForeground(new Color(255, 255, 255));
+		buttonRelatorio.setBounds(157, 343, 116, 23);
+		contentPane.add(buttonRelatorio);
 		
 		JComboBox<?> comboBox = new JComboBox<Object>();
 		comboBox.setBackground(new Color(0, 0, 0));

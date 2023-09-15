@@ -1,19 +1,23 @@
 package br.com.poo.views;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import java.awt.Font;
-import javax.swing.JButton;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.DecimalFormat;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
+import br.com.poo.banco.contas.ContaCorrente;
+import br.com.poo.banco.pessoas.Cliente;
 
 public class MenuCorrente extends JFrame {
 
@@ -26,7 +30,7 @@ public class MenuCorrente extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MenuCorrente(String nome, String agencia, String conta, Double saldo, Double chequeEspecial) {
+	public MenuCorrente(ContaCorrente cc, Cliente c) {
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(MenuCorrente.class.getResource("/br/com/poo/imagens/100x100.png")));
 		setTitle("DéBank");
@@ -44,13 +48,13 @@ public class MenuCorrente extends JFrame {
 		lblNewLabel_1.setBounds(167, 9, 82, 71);
 		contentPane.add(lblNewLabel_1);
 
-		JLabel labelUsuario = new JLabel("Olá, " + nome);
+		JLabel labelUsuario = new JLabel("Olá, " + c.getNome());
 		labelUsuario.setFont(new Font("Tahoma", Font.BOLD, 13));
 		labelUsuario.setForeground(new Color(255, 255, 255));
 		labelUsuario.setBounds(22, 9, 95, 29);
 		contentPane.add(labelUsuario);
 
-		JLabel labelAgencia = new JLabel("Ag " + agencia + " Conta " + conta);
+		JLabel labelAgencia = new JLabel("Ag " + cc.getNumAgencia() + " Conta " + cc.getNumConta());
 		labelAgencia.setFont(new Font("Tahoma", Font.BOLD, 11));
 		labelAgencia.setForeground(new Color(255, 255, 255));
 		labelAgencia.setBounds(284, 17, 161, 14);
@@ -79,8 +83,7 @@ public class MenuCorrente extends JFrame {
 		JButton buttonPoupanca = new JButton("Poupança");
 		buttonPoupanca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				// MenuPoupanca menu = new MenuPoupanca();
+				JOptionPane.showMessageDialog(buttonPoupanca, "Ainda não implementamos esse método :( Volte em outra versão");
 			}
 		});
 		buttonPoupanca.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Poupanca118x88.jpg")));
@@ -90,6 +93,7 @@ public class MenuCorrente extends JFrame {
 		JButton buttonSegVida = new JButton("Seguro de Vida");
 		buttonSegVida.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(buttonPoupanca, "Ainda não implementamos esse método :( Volte em outra versão");
 			}
 		});
 		buttonSegVida
@@ -101,7 +105,7 @@ public class MenuCorrente extends JFrame {
 		buttonTransacoes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				TransacoesBancarias tb = new TransacoesBancarias();
+				TransacoesBancarias tb = new TransacoesBancarias(cc,c);
 				tb.setLocationRelativeTo(tb);
 				tb.setVisible(true);
 			}
@@ -124,8 +128,8 @@ public class MenuCorrente extends JFrame {
 		contentPane.add(lblNewLabel_4);
 
 		DecimalFormat formatoSaldo = new DecimalFormat("#,###.00");
-		Double total = saldo + chequeEspecial;
-		String saldoFormatado = formatoSaldo.format(saldo);
+		Double total = cc.getSaldo() + cc.getChequeEspecial();
+		String saldoFormatado = formatoSaldo.format(cc.getSaldo());
 		String saldoFormatadoCheque = formatoSaldo.format(total);
 
 		JLabel labelSaldo = new JLabel(saldoFormatado);

@@ -1,19 +1,22 @@
 package br.com.poo.views;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTable;
-import javax.swing.JScrollPane;
-import javax.swing.table.DefaultTableModel;
 import java.awt.Color;
-import javax.swing.JLabel;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.Toolkit;
-import java.awt.Font;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 public class JRelatorioCliente extends JFrame {
 
@@ -71,15 +74,34 @@ public class JRelatorioCliente extends JFrame {
 		lblNewLabel.setBounds(32, 10, 51, 29);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon(JRelatorioCliente.class.getResource("/br/com/poo/imagens/Extrato.jpg")));
-		btnNewButton.setBounds(159, 251, 118, 88);
-		contentPane.add(btnNewButton);
+		JButton buttonExtrato = new JButton("");
+		buttonExtrato.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JOptionPane.showMessageDialog(buttonExtrato, "Ainda não implementamos esse método :( Volte em outra versão");
+				
+			}
+		});
+		buttonExtrato.setIcon(new ImageIcon(JRelatorioCliente.class.getResource("/br/com/poo/imagens/Extrato.jpg")));
+		buttonExtrato.setBounds(159, 251, 118, 88);
+		contentPane.add(buttonExtrato);
 		
 		JLabel lblNewLabel_1 = new JLabel("Relatórios");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setBounds(178, 16, 91, 13);
 		contentPane.add(lblNewLabel_1);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				PaginaLogin pl = new PaginaLogin();
+				pl.setLocationRelativeTo(pl);
+				pl.setVisible(true);
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon(JRelatorioCliente.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
+		btnNewButton.setBounds(20, 281, 50, 50);
+		contentPane.add(btnNewButton);
 	}
 }
