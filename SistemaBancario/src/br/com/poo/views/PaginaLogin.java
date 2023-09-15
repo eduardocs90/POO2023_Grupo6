@@ -5,8 +5,9 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
+import java.util.List;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -120,8 +121,12 @@ public class PaginaLogin extends JFrame {
 		textCpf.setFont(new Font("Sitka Subheading", Font.PLAIN, 15));
 		textCpf.setColumns(10);
 
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] { "Cliente", "Gerente", "Diretor", "Presidente" }));
+		JComboBox<String> comboBox = new JComboBox<>();
+		List<PessoasEnum> listaPessoa = Arrays.asList(PessoasEnum.values());
+		comboBox.addItem("Selecione uma opção");
+		for (PessoasEnum p : listaPessoa) {
+			comboBox.addItem(p.getTipoPessoas());
+		}
 		comboBox.setBounds(160, 185, 133, 21);
 		panel.add(comboBox);
 		buttonLogin.addActionListener(new ActionListener() {
