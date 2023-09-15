@@ -7,6 +7,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -107,11 +110,19 @@ public class CadastroGerente extends JFrame {
 		btnNewButton.setBounds(272, 181, 38, 46);
 		panel.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setBackground(new Color(0, 0, 0));
-		btnNewButton_1.setBounds(0, 181, 44, 46);
-		panel.add(btnNewButton_1);
-		btnNewButton_1.setIcon(new ImageIcon(CadastroGerente.class.getResource("/br/com/poo/imagens/SAIR.png")));
+		JButton sair = new JButton("");
+		sair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		                dispose();
+		                PaginaLogin pl = new PaginaLogin();
+		                pl.setLocationRelativeTo(pl);
+		                pl.setVisible(true); 
+		            }
+		        });
+		sair.setBackground(new Color(0, 0, 0));
+		sair.setBounds(0, 181, 44, 46);
+		panel.add(sair);
+		sair.setIcon(new ImageIcon(CadastroGerente.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
 		
 		passwordField = new JPasswordField();
 		passwordField.setBounds(110, 125, 86, 20);

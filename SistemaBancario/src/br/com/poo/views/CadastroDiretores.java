@@ -14,6 +14,8 @@ import javax.swing.border.LineBorder;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CadastroDiretores extends JFrame {
 
@@ -124,9 +126,20 @@ public class CadastroDiretores extends JFrame {
 		contentPane.add(seguir);
 		
 		JButton sair = new JButton("");
+		sair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		                dispose();
+		                PaginaLogin pl = new PaginaLogin();
+		                pl.setLocationRelativeTo(pl);
+		                pl.setVisible(true); 
+		            }
+		        });
 		sair.setIcon(new ImageIcon(CadastroDiretores.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
 		sair.setBounds(10, 436, 45, 46);
 		contentPane.add(sair);
+		
+		
+		
 		
 		JLabel logo = new JLabel("");
 		logo.setIcon(new ImageIcon(CadastroDiretores.class.getResource("/br/com/poo/imagens/100x100.png")));

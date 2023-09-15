@@ -1,6 +1,5 @@
 package br.com.poo.views;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -24,26 +23,7 @@ public class MenuPresidente extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MenuPresidente frame = new MenuPresidente();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public MenuPresidente() {
+	public MenuPresidente(String nome) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuPresidente.class.getResource("/br/com/poo/imagens/100x100.png")));
 		setTitle("DÉ BANK");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,17 +41,11 @@ public class MenuPresidente extends JFrame {
 		logo.setBounds(10, 4, 111, 77);
 		contentPane.add(logo);
 		
-		JLabel ola = new JLabel("Olá Presidente");
-		ola.setFont(new Font("Arial", Font.BOLD, 20));
+		JLabel ola = new JLabel("Olá Presidente " + nome);
+		ola.setFont(new Font("Arial", Font.BOLD, 17));
 		ola.setForeground(Color.WHITE);
-		ola.setBounds(131, 32, 150, 31);
+		ola.setBounds(123, 31, 276, 31);
 		contentPane.add(ola);
-		
-		JLabel nome = new JLabel("nome!");
-		nome.setForeground(Color.WHITE);
-		nome.setFont(new Font("Arial", Font.BOLD, 20));
-		nome.setBounds(276, 36, 69, 23);
-		contentPane.add(nome);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(SystemColor.inactiveCaptionText);
@@ -113,6 +87,14 @@ public class MenuPresidente extends JFrame {
 		lblNewLabel.setForeground(SystemColor.inactiveCaptionBorder);
 		
 		JButton sair = new JButton("");
+		sair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				PaginaLogin pl = new PaginaLogin();
+				pl.setLocationRelativeTo(pl);
+				pl.setVisible(true);
+			}
+		});
 		sair.setIcon(new ImageIcon(MenuPresidente.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
 		sair.setBounds(10, 441, 43, 46);
 		contentPane.add(sair);
