@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MenuPoupanca extends JFrame {
 
@@ -77,30 +79,62 @@ public class MenuPoupanca extends JFrame {
 		contentPane.add(panel);
 		
 		JButton buttonExtrato = new JButton("Extrato");
+		buttonExtrato.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				JRelatorioCliente re = new JRelatorioCliente();
+				re.setLocationRelativeTo(re);
+				re.setVisible(true);
+			}
+		});
 		buttonExtrato.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Extrato.jpg")));
 		buttonExtrato.setBounds(42, 184, 95, 88);
 		panel.add(buttonExtrato);
 		
 		JButton buttonContaC = new JButton("Conta Corrente");
+		buttonContaC.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+//				MenuCorrente co = new MenuCorrente();
+//				co.setLocationRelativeTo(co);
+//				co.setVisible(true);
+			}
+		});
 		buttonContaC.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/ContaCorrente.jpg")));
 		buttonContaC.setBounds(230, 184, 95, 88);
 		panel.add(buttonContaC);
 		
 		JButton buttonTransacoes = new JButton("Transações Bancárias");
+		buttonTransacoes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TransacoesBancarias tb = new TransacoesBancarias();
+				tb.setLocationRelativeTo(tb);
+				tb.setVisible(true);
+			}
+		});
 		buttonTransacoes.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Transações Bancárias.png")));
 		buttonTransacoes.setBounds(42, 46, 91, 88);
 		panel.add(buttonTransacoes);
 		
 		JButton buttonRendimentos = new JButton("Rendimentos");
+		buttonRendimentos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				JRendimentos jr = new JRendimentos();
+				jr.setLocationRelativeTo(jr);
+				jr.setVisible(true);
+			}
+		});
 		buttonRendimentos.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/Rendimentos.png")));
 		buttonRendimentos.setBounds(224, 46, 95, 83);
 		panel.add(buttonRendimentos);
 		
-		JLabel lblNewLabel_2 = new JLabel("Ag " + agencia + " Conta " + conta);
-		lblNewLabel_2.setForeground(Color.WHITE);
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblNewLabel_2.setBounds(284, 19, 161, 14);
-		contentPane.add(lblNewLabel_2);
+		JLabel labelAgConta = new JLabel("Ag " + agencia + " Conta " + conta);
+		labelAgConta.setForeground(Color.WHITE);
+		labelAgConta.setFont(new Font("Tahoma", Font.BOLD, 11));
+		labelAgConta.setBounds(284, 19, 161, 14);
+		contentPane.add(labelAgConta);
 		
 		JLabel lblNewLabel_4 = new JLabel("New label");
 		lblNewLabel_4.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/100x100.png")));
