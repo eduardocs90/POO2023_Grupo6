@@ -31,6 +31,10 @@
   <li><b><i>Funcionario</i></b> deve conter atributos de CPF, senha e um atributo "cargo" para identificar o tipo de funcionário.</li>
   <li><b><i>Gerente, Diretor e Presidente</i></b> que herda de Funcionario.</li>
 
+<h2>Diagrama de Classes UML</h2>
+<img src="https://github.com/eduardocs90/POO2023_Grupo6/assets/141193350/c1910980-ce2a-4665-b294-ac1785136e39"alt="Diagrama de Classes">
+
+
 <h2>Funcionalidades por Tipo de Usuário</h2>
   <li>Cliente</li>
   1.1 Movimentações da Conta: Saque, Depósito e Transferência.
