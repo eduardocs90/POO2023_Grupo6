@@ -1,8 +1,5 @@
 package br.com.poo.views;
 
-import java.awt.EventQueue;
-
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -15,6 +12,8 @@ import java.awt.Toolkit;
 import java.text.DecimalFormat;
 
 import javax.swing.border.LineBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MenuCorrente extends JFrame {
 
@@ -64,21 +63,47 @@ public class MenuCorrente extends JFrame {
 		panel.setLayout(null);
 		
 		JButton buttonExtrato = new JButton("Extrato");
+		buttonExtrato.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				JRelatorioCliente rc = new JRelatorioCliente();
+				rc.setLocationRelativeTo(rc);
+				rc.setVisible(true);
+			}
+		});
 		buttonExtrato.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Extrato.jpg")));
 		buttonExtrato.setBounds(235, 27, 91, 88);
 		panel.add(buttonExtrato);
 		
 		JButton buttonPoupanca = new JButton("Poupança");
+		buttonPoupanca.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				//MenuPoupanca menu = new MenuPoupanca();
+			}
+		});
 		buttonPoupanca.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Poupanca118x88.jpg")));
 		buttonPoupanca.setBounds(43, 177, 100, 88);
 		panel.add(buttonPoupanca);
 		
 		JButton buttonSegVida = new JButton("Seguro de Vida");
+		buttonSegVida.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		buttonSegVida.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/SeguroVida118x88.jpg")));
 		buttonSegVida.setBounds(226, 177, 100, 88);
 		panel.add(buttonSegVida);
 		
 		JButton buttonTransacoes = new JButton("Transações Bancárias");
+		buttonTransacoes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				TransacoesBancarias tb = new TransacoesBancarias();
+				tb.setLocationRelativeTo(tb);
+				tb.setVisible(true);
+			}
+		});
 		buttonTransacoes.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Transações Bancárias.png")));
 		buttonTransacoes.setBounds(43, 27, 91, 88);
 		panel.add(buttonTransacoes);
@@ -117,9 +142,9 @@ public class MenuCorrente extends JFrame {
 		lblNewLabel_6.setBounds(294, 42, 118, 70);
 		contentPane.add(lblNewLabel_6);
 		
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
-		btnNewButton_1.setBounds(10, 430, 42, 35);
-		contentPane.add(btnNewButton_1);
+		JButton buttonVoltar = new JButton("");
+		buttonVoltar.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
+		buttonVoltar.setBounds(10, 430, 42, 35);
+		contentPane.add(buttonVoltar);
 	}
 }
