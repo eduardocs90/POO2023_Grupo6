@@ -33,7 +33,7 @@ public class RelatorioGerente extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(RelatorioGerente.class.getResource("/br/com/poo/imagens/50x50.png")));
 		setForeground(new Color(255, 255, 255));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 376);
+		setBounds(100, 100, 450, 384);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -90,5 +90,19 @@ public class RelatorioGerente extends JFrame {
 		btnNewButton.setIcon(new ImageIcon(RelatorioGerente.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
 		btnNewButton.setBounds(0, 287, 50, 50);
 		contentPane.add(btnNewButton);
+		
+		JButton btnRetorneMenu = new JButton("Retorne Menu");
+		btnRetorneMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				MenuGerente menu = new MenuGerente(f);
+				menu.setLocationRelativeTo(menu);
+				menu.setVisible(true);
+			}
+		});
+		btnRetorneMenu.setForeground(Color.WHITE);
+		btnRetorneMenu.setBackground(Color.BLACK);
+		btnRetorneMenu.setBounds(157, 314, 123, 23);
+		contentPane.add(btnRetorneMenu);
 	}
 }

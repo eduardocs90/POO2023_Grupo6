@@ -77,7 +77,7 @@ public class JMenuDiretor extends JFrame {
 		btnGerarRelatrio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				JRelatorioDiretor rd = new JRelatorioDiretor();
+				JRelatorioDiretor rd = new JRelatorioDiretor(f);
 				rd.setLocationRelativeTo(rd);
 				rd.setVisible(true);
 			}

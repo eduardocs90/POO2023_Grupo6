@@ -1,7 +1,6 @@
 package br.com.poo.views;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -20,32 +19,16 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.table.DefaultTableModel;
 
+import br.com.poo.banco.pessoas.Funcionario;
+
 public class JRelatorioDiretor extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					JRelatorioDiretor frame = new JRelatorioDiretor();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public JRelatorioDiretor() {
+	
+	public JRelatorioDiretor(Funcionario f) {
 		setTitle("DéBank");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(JRelatorioDiretor.class.getResource("/br/com/poo/imagens/100x100.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -104,7 +87,7 @@ public class JRelatorioDiretor extends JFrame {
 		buttonRelatorio.setFont(new Font("Tahoma", Font.BOLD, 12));
 		buttonRelatorio.setForeground(Color.WHITE);
 		buttonRelatorio.setBackground(Color.BLACK);
-		buttonRelatorio.setBounds(138, 425, 144, 21);
+		buttonRelatorio.setBounds(138, 414, 144, 21);
 		contentPane.add(buttonRelatorio);
 		
 		JButton buttonVoltar = new JButton("");
@@ -119,5 +102,20 @@ public class JRelatorioDiretor extends JFrame {
 		buttonVoltar.setIcon(new ImageIcon(JRelatorioDiretor.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
 		buttonVoltar.setBounds(10, 415, 50, 50);
 		contentPane.add(buttonVoltar);
+		
+		JButton buttonRelatorio_1 = new JButton("Voltar ao Menu");
+		buttonRelatorio_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				JMenuDiretor menu = new JMenuDiretor(f);
+				menu.setLocationRelativeTo(menu);
+				menu.setVisible(true);
+			}
+		});
+		buttonRelatorio_1.setForeground(Color.WHITE);
+		buttonRelatorio_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		buttonRelatorio_1.setBackground(Color.BLACK);
+		buttonRelatorio_1.setBounds(138, 444, 144, 21);
+		contentPane.add(buttonRelatorio_1);
 	}
 }
