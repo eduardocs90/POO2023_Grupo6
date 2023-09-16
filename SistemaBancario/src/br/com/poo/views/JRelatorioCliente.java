@@ -6,6 +6,7 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,12 +17,13 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
 
 import br.com.poo.banco.contas.Conta;
 import br.com.poo.banco.contas.ContaCorrente;
 import br.com.poo.banco.contas.ContaPoupanca;
+import br.com.poo.banco.io.LeituraEscrita;
 import br.com.poo.banco.pessoas.Cliente;
+import br.com.poo.extrato.ExtratoCliente;
 
 public class JRelatorioCliente extends JFrame {
 
@@ -47,14 +49,10 @@ public class JRelatorioCliente extends JFrame {
 		scrollPane.setBounds(32, 49, 377, 192);
 		contentPane.add(scrollPane);
 		
+		ExtratoCliente ec = new ExtratoCliente();
+		
 		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Titular","Agência","Conta","Saldo", "Saque", "Depósito", "Transferência", "Taxa de Mov."
-			}
-		));
+		table.setModel(ec);
 		scrollPane.setViewportView(table);
 		
 		JLabel lblNewLabel = new JLabel("New label");
@@ -65,8 +63,12 @@ public class JRelatorioCliente extends JFrame {
 		JButton buttonExtrato = new JButton("");
 		buttonExtrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(buttonExtrato, "Ainda não implementamos esse método :( Volte em outra versão");
-				
+				try {
+					LeituraEscrita.comprovanteSaldo(conta);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		buttonExtrato.setIcon(new ImageIcon(JRelatorioCliente.class.getResource("/br/com/poo/imagens/Extrato.jpg")));
