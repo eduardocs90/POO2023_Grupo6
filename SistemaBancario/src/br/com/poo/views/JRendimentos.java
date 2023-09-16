@@ -1,7 +1,6 @@
 package br.com.poo.views;
 
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -17,33 +16,19 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import br.com.poo.banco.contas.Conta;
+import br.com.poo.banco.pessoas.Cliente;
+
 public class JRendimentos extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textValor;
 	private JTextField textDias;
+	
+	
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					JRendimentos frame = new JRendimentos();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public JRendimentos() {
+	public JRendimentos(Conta conta, Cliente c) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(JRendimentos.class.getResource("/br/com/poo/imagens/100x100.png")));
 		setTitle("DéBank");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -129,5 +114,24 @@ public class JRendimentos extends JFrame {
 		textTotal.setForeground(Color.WHITE);
 		textTotal.setBounds(119, 140, 141, 13);
 		panel.add(textTotal);
+		
+		JButton BotaoContaPoupanca = new JButton("Conta Poupança");
+		BotaoContaPoupanca.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					dispose();
+					MenuPoupanca mp = new MenuPoupanca(conta, c);
+					mp.setLocationRelativeTo(mp);
+					mp.setVisible(true);
+				} catch (java.lang.ClassCastException exc) {
+					JOptionPane.showMessageDialog(BotaoContaPoupanca, "Você não possui conta poupança! ");
+					exc.printStackTrace();
+				}
+			}
+		});
+		BotaoContaPoupanca.setForeground(Color.WHITE);
+		BotaoContaPoupanca.setBackground(Color.BLACK);
+		BotaoContaPoupanca.setBounds(174, 420, 131, 23);
+		contentPane.add(BotaoContaPoupanca);
 	}
 }
