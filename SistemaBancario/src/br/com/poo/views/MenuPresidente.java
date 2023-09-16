@@ -60,7 +60,8 @@ public class MenuPresidente extends JFrame {
 		JButton cadastroDiretor = new JButton("");
 		cadastroDiretor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CadastroDiretores cd = new CadastroDiretores();
+				dispose();
+				CadastroDiretores cd = new CadastroDiretores(f);
 				cd.setLocationRelativeTo(cd);
 				cd.setVisible(true);
 			}
@@ -72,7 +73,8 @@ public class MenuPresidente extends JFrame {
 		JButton cadastroGerente = new JButton("");
 		cadastroGerente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CadastroGerente cg = new CadastroGerente();
+				dispose();
+				CadastroGerente cg = new CadastroGerente(f);
 				cg.setLocationRelativeTo(cg);
 				cg.setVisible(true);
 			}
@@ -84,6 +86,7 @@ public class MenuPresidente extends JFrame {
 		JButton cadastroCliente = new JButton("");
 		cadastroCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				JCadastroCliente jcc = new JCadastroCliente();
 				jcc.setLocationRelativeTo(jcc);
 				jcc.setVisible(true);

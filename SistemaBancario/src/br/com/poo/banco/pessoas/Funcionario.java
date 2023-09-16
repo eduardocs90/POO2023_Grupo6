@@ -12,7 +12,7 @@ public abstract class Funcionario {
 	private String nome;
 	private String senha;
 	
-	final public static Map<String, Funcionario> mapaFuncionario = new HashMap<>();
+	public static Map<String, Funcionario> mapaFuncionario = new HashMap<>();
 
 	public Funcionario() {
 	
