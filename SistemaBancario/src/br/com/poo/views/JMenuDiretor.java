@@ -63,7 +63,7 @@ public class JMenuDiretor extends JFrame {
 		btnCadastrarGerente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				CadastroGerente cg = new CadastroGerente();
+				CadastroGerente cg = new CadastroGerente(f);
 				cg.setLocationRelativeTo(cg);
 				cg.setVisible(true);
 			}
