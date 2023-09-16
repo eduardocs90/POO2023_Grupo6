@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
-import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -105,6 +104,21 @@ public class LeituraEscrita {
 			e.printStackTrace();
 		}
  	}
+	
+	public static void comprovanteSaldo(Conta conta) throws IOException {
+		String path = conta.getTipoConta() + "_" + conta.getCpf();
+		BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO,true));
+		
+		buffWriter.append("------------------ SALDO ------------------\n");
+		buffWriter.append("CPF: " + conta.getCpf() + "\n");
+		buffWriter.append("Conta: " + conta.getNumConta() + "\n");
+		buffWriter.append("Saldo atual: " + conta.getSaldo() + "\n");
+		LocalDateTime dataHora = LocalDateTime.now();
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+		buffWriter.append("Operação realizada em: "+ dtf.format(dataHora));
+		buffWriter.append("------------------ FIM SALDO ------------------\n");
+		buffWriter.close();
+	}
 	
 	public static void comprovanteSaque(Conta conta, Double valor) throws IOException {
 		String path = conta.getTipoConta() + "_" + conta.getCpf();
