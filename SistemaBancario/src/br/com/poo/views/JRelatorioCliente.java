@@ -20,7 +20,6 @@ import javax.swing.border.EmptyBorder;
 
 import br.com.poo.banco.contas.Conta;
 import br.com.poo.banco.contas.ContaCorrente;
-import br.com.poo.banco.contas.ContaPoupanca;
 import br.com.poo.banco.io.LeituraEscrita;
 import br.com.poo.banco.pessoas.Cliente;
 import br.com.poo.extrato.ExtratoCliente;
@@ -49,7 +48,7 @@ public class JRelatorioCliente extends JFrame {
 		scrollPane.setBounds(32, 49, 377, 192);
 		contentPane.add(scrollPane);
 		
-		ExtratoCliente ec = new ExtratoCliente();
+		ExtratoCliente ec = new ExtratoCliente(conta.getCpf());
 		
 		table = new JTable();
 		table.setModel(ec);
@@ -119,9 +118,8 @@ public class JRelatorioCliente extends JFrame {
 		ButtonPoupanca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					ContaPoupanca cc = ((ContaPoupanca) conta);
 					dispose();
-					MenuPoupanca mp = new MenuPoupanca(cc, c);
+					MenuPoupanca mp = new MenuPoupanca(conta, c);
 					mp.setLocationRelativeTo(mp);
 					mp.setVisible(true);
 				} catch (java.lang.ClassCastException exc) {
