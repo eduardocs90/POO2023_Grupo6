@@ -143,7 +143,7 @@ public class LeituraEscrita {
 		buffWriter.append("Saldo atual: " + conta.getSaldo() + "\n");
 		LocalDateTime dataHora = LocalDateTime.now();
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-		buffWriter.append("Operação realizada em: " + dtf.format(dataHora));
+		buffWriter.append("Operação realizada em: " + dtf.format(dataHora) + "\n");
 		buffWriter.append("------------------ FIM SALDO ------------------\n");
 		buffWriter.close();
 	}
