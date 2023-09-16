@@ -97,7 +97,7 @@ public class MenuPresidente extends JFrame {
 		relatorioPresidente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				RelatorioPresidente rp = new RelatorioPresidente();
+				RelatorioPresidente rp = new RelatorioPresidente(f);
 				rp.setLocationRelativeTo(rp);
 				rp.setVisible(true);
 			}

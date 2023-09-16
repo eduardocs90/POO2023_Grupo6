@@ -1,7 +1,6 @@
 package br.com.poo.views;
 
 import java.awt.Color;
-
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -19,6 +18,8 @@ import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import br.com.poo.banco.pessoas.Funcionario;
+
 
 public class RelatorioPresidente extends JFrame {
 
@@ -29,10 +30,10 @@ public class RelatorioPresidente extends JFrame {
 	private JPanel contentPane;
 	private JTable table;
 
-	public RelatorioPresidente() {
+	public RelatorioPresidente(Funcionario f) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(RelatorioPresidente.class.getResource("/br/com/poo/imagens/50x50.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 420);
+		setBounds(100, 100, 450, 440);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -86,7 +87,7 @@ public class RelatorioPresidente extends JFrame {
 		});
 		buttonRelatorio.setBackground(new Color(0, 0, 0));
 		buttonRelatorio.setForeground(new Color(255, 255, 255));
-		buttonRelatorio.setBounds(157, 343, 116, 23);
+		buttonRelatorio.setBounds(158, 335, 116, 23);
 		contentPane.add(buttonRelatorio);
 		
 		JComboBox<?> comboBox = new JComboBox<Object>();
@@ -100,5 +101,18 @@ public class RelatorioPresidente extends JFrame {
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setBounds(101, 54, 51, 14);
 		contentPane.add(lblNewLabel_1);
+		
+		JButton buttonRelatorio_1 = new JButton("Voltar ao Menu");
+		buttonRelatorio_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MenuPresidente menu = new MenuPresidente(f);
+				menu.setLocationRelativeTo(menu);
+				menu.setVisible(true);
+			}
+		});
+		buttonRelatorio_1.setForeground(Color.WHITE);
+		buttonRelatorio_1.setBackground(Color.BLACK);
+		buttonRelatorio_1.setBounds(158, 369, 116, 23);
+		contentPane.add(buttonRelatorio_1);
 	}
 }
