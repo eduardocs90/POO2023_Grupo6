@@ -20,6 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 import br.com.poo.banco.contas.Conta;
 import br.com.poo.banco.contas.ContaCorrente;
+import br.com.poo.banco.contas.ContaPoupanca;
 import br.com.poo.banco.pessoas.Cliente;
 
 public class JRelatorioCliente extends JFrame {
@@ -118,7 +119,7 @@ public class JRelatorioCliente extends JFrame {
 				try {
 					ContaPoupanca cc = ((ContaPoupanca) conta);
 					dispose();
-					MenuPoupanca mc = new MenuPoupanca(cc, c);
+					MenuPoupanca mp = new MenuPoupanca(cc, c);
 					mp.setLocationRelativeTo(mp);
 					mp.setVisible(true);
 				} catch (java.lang.ClassCastException exc) {
@@ -126,7 +127,6 @@ public class JRelatorioCliente extends JFrame {
 					JOptionPane.showMessageDialog(ButtonPoupanca, "Você não possui conta corrente! ");
 					exc.printStackTrace();
 				}
-			}
 			}
 		});
 		ButtonPoupanca.setForeground(Color.WHITE);
