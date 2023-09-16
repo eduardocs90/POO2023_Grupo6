@@ -21,6 +21,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import br.com.poo.banco.contas.Conta;
+import br.com.poo.banco.contas.ContaCorrente;
 import br.com.poo.banco.enums.TransacoesEnum;
 import br.com.poo.banco.pessoas.Cliente;
 
@@ -41,7 +42,7 @@ public class TransacoesBancarias extends JFrame {
 				.getImage(TransacoesBancarias.class.getResource("/br/com/poo/imagens/100x100.png")));
 		setTitle("DÉ BANK");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 534);
+		setBounds(100, 100, 450, 588);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.BLACK);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -176,6 +177,46 @@ public class TransacoesBancarias extends JFrame {
 		buttonContinuar.setIcon(new ImageIcon(TransacoesBancarias.class.getResource("/br/com/poo/imagens/1.png")));
 		buttonContinuar.setBounds(373, 445, 40, 34);
 		contentPane.add(buttonContinuar);
+
+		JButton BotaoContaCorrente = new JButton("Conta Corrente");
+		BotaoContaCorrente.setForeground(Color.WHITE);
+		BotaoContaCorrente.setBackground(Color.BLACK);
+		BotaoContaCorrente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					ContaCorrente cc = ((ContaCorrente) conta);
+					dispose();
+					MenuCorrente mc = new MenuCorrente(cc, c);
+					mc.setLocationRelativeTo(mc);
+					mc.setVisible(true);
+				} catch (java.lang.ClassCastException exc) {
+
+					JOptionPane.showMessageDialog(BotaoContaCorrente, "Você não possui conta corrente! ");
+					exc.printStackTrace();
+				}
+			}
+		});
+		BotaoContaCorrente.setBounds(143, 450, 126, 23);
+		contentPane.add(BotaoContaCorrente);
+
+		JButton BotaoContaPoupanca = new JButton("Conta Poupança");
+		BotaoContaPoupanca.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					dispose();
+					MenuPoupanca mp = new MenuPoupanca(conta, c);
+					mp.setLocationRelativeTo(mp);
+					mp.setVisible(true);
+				} catch (java.lang.ClassCastException exc) {
+					JOptionPane.showMessageDialog(BotaoContaPoupanca, "Você não possui conta poupança! ");
+					exc.printStackTrace();
+				}
+			}
+		});
+		BotaoContaPoupanca.setForeground(Color.WHITE);
+		BotaoContaPoupanca.setBackground(Color.BLACK);
+		BotaoContaPoupanca.setBounds(143, 502, 126, 23);
+		contentPane.add(BotaoContaPoupanca);
 	}
 
 }

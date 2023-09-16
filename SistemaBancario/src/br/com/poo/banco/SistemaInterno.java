@@ -3,20 +3,19 @@ package br.com.poo.banco;
 import java.io.IOException;
 
 import br.com.poo.banco.io.LeituraEscrita;
-
-import br.com.poo.views.TelaCarregamento;
+import br.com.poo.views.PaginaLogin;
 
 public class SistemaInterno {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		LeituraEscrita.leitor("banco");
-		TelaCarregamento tc = new TelaCarregamento();
-		tc.setLocationRelativeTo(tc);
-		tc.setVisible(true);
-//		PaginaLogin pl = new PaginaLogin();
-//		pl.setLocationRelativeTo(pl);
-//		pl.setVisible(true);
+		//TelaCarregamento tc = new TelaCarregamento();
+		//tc.setLocationRelativeTo(tc);
+		//tc.setVisible(true);
+		PaginaLogin pl = new PaginaLogin();
+		pl.setLocationRelativeTo(pl);
+		pl.setVisible(true);
 		
 		
 		

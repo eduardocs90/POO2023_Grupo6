@@ -17,6 +17,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import br.com.poo.banco.contas.Conta;
+import br.com.poo.banco.contas.ContaCorrente;
 import br.com.poo.banco.pessoas.Cliente;
 
 public class MenuPoupanca extends JFrame {
@@ -86,7 +87,7 @@ public class MenuPoupanca extends JFrame {
 		buttonExtrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				JRelatorioCliente re = new JRelatorioCliente();
+				JRelatorioCliente re = new JRelatorioCliente(conta, c);
 				re.setLocationRelativeTo(re);
 				re.setVisible(true);
 			}
@@ -98,8 +99,17 @@ public class MenuPoupanca extends JFrame {
 		JButton buttonContaC = new JButton("Conta Corrente");
 		buttonContaC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				JOptionPane.showMessageDialog(buttonContaC, "Ainda não implementamos esse método :( Volte em outra versão");
+				try {
+					ContaCorrente cc = ((ContaCorrente) conta);
+					dispose();
+					MenuCorrente mc = new MenuCorrente(cc, c);
+					mc.setLocationRelativeTo(mc);
+					mc.setVisible(true);
+				} catch (java.lang.ClassCastException exc) {
+
+					JOptionPane.showMessageDialog(buttonContaC, "Você não possui conta corrente! ");
+					exc.printStackTrace();
+				}
 			}
 		});
 		buttonContaC.setIcon(new ImageIcon(MenuPoupanca.class.getResource("/br/com/poo/imagens/ContaCorrente.jpg")));
@@ -124,7 +134,7 @@ public class MenuPoupanca extends JFrame {
 		buttonRendimentos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				JRendimentos jr = new JRendimentos();
+				JRendimentos jr = new JRendimentos(conta, c);
 				jr.setLocationRelativeTo(jr);
 				jr.setVisible(true);
 			}

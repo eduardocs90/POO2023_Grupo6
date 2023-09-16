@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
+import br.com.poo.banco.contas.Conta;
 import br.com.poo.banco.contas.ContaCorrente;
 import br.com.poo.banco.pessoas.Cliente;
 
@@ -30,7 +31,7 @@ public class MenuCorrente extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MenuCorrente(ContaCorrente cc, Cliente c) {
+	public MenuCorrente(Conta conta, Cliente c) {
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(MenuCorrente.class.getResource("/br/com/poo/imagens/100x100.png")));
 		setTitle("DéBank");
@@ -39,9 +40,9 @@ public class MenuCorrente extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		ContaCorrente cc = ((ContaCorrente) conta);
 
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		lblNewLabel_1.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/100x100.png")));
@@ -71,7 +72,7 @@ public class MenuCorrente extends JFrame {
 		buttonExtrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				JRelatorioCliente rc = new JRelatorioCliente();
+				JRelatorioCliente rc = new JRelatorioCliente(cc, c);
 				rc.setLocationRelativeTo(rc);
 				rc.setVisible(true);
 			}
@@ -83,7 +84,15 @@ public class MenuCorrente extends JFrame {
 		JButton buttonPoupanca = new JButton("Poupança");
 		buttonPoupanca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(buttonPoupanca, "Ainda não implementamos esse método :( Volte em outra versão");
+				try {
+					dispose();
+					MenuPoupanca mp = new MenuPoupanca(conta, c);
+					mp.setLocationRelativeTo(mp);
+					mp.setVisible(true);
+				} catch (java.lang.ClassCastException exc) {
+					JOptionPane.showMessageDialog(buttonPoupanca, "Você não possui conta poupança! ");
+					exc.printStackTrace();
+				}
 			}
 		});
 		buttonPoupanca.setIcon(new ImageIcon(MenuCorrente.class.getResource("/br/com/poo/imagens/Poupanca118x88.jpg")));
