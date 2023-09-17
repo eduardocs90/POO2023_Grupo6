@@ -104,7 +104,10 @@ public class MenuCorrente extends JFrame {
 		JButton buttonSegVida = new JButton("Seguro de Vida");
 		buttonSegVida.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(buttonPoupanca, "Ainda não implementamos esse método :( Volte em outra versão");
+				dispose();
+				SeguroVida sv = new SeguroVida(conta,c);
+				sv.setLocationRelativeTo(sv);
+				sv.setVisible(true);
 			}
 		});
 		buttonSegVida

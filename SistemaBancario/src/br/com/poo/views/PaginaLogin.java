@@ -24,6 +24,7 @@ import javax.swing.border.LineBorder;
 
 import br.com.poo.banco.contas.Conta;
 import br.com.poo.banco.contas.ContaCorrente;
+import br.com.poo.banco.contas.ContaPoupanca;
 import br.com.poo.banco.enums.ContaEnum;
 import br.com.poo.banco.enums.PessoasEnum;
 import br.com.poo.banco.pessoas.Cliente;
@@ -150,8 +151,9 @@ public class PaginaLogin extends JFrame {
 				            menuCorrente.setVisible(true);
 				            // Lógica para cliente com conta corrente
 				        } else if (conta.getTipoConta().equalsIgnoreCase(ContaEnum.POUPANCA.name())) {
-				        	 	dispose();
-					            MenuPoupanca menuPoupanca = new MenuPoupanca(conta,c);
+				        	 	ContaPoupanca cp = ((ContaPoupanca) conta);
+				        		dispose();
+					            MenuPoupanca menuPoupanca = new MenuPoupanca(cp,c);
 					            menuPoupanca.setLocationRelativeTo(menuPoupanca);
 					            menuPoupanca.setVisible(true);
 				        } else {

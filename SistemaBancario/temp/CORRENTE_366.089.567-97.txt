@@ -1,0 +1,51 @@
+------------------ SAQUE ------------------
+CPF: 366.089.567-97
+Conta: 1010013-1
+Valor do Saque: 500
+Operação realizada em: 17/09/2023 07:47:39
+------------------ FIM SAQUE ------------------
+------------------ SAQUE ------------------
+CPF: 366.089.567-97
+Conta: 1010013-1
+Valor do Saque: 100
+Operação realizada em: 17/09/2023 07:54:16
+------------------ FIM SAQUE ------------------
+------------------ Depósito ------------------
+CPF: 366.089.567-97
+Conta: 1010013-1
+Valor do Depósito: 12890
+Operação realizada em: 17/09/2023 07:54:29
+------------------ FIM Depósito ------------------
+------------------ Depósito ------------------
+CPF: 366.089.567-97
+Conta: 1010013-1
+Valor do Depósito: 100000
+Operação realizada em: 17/09/2023 07:58:30
+------------------ FIM Depósito ------------------
+------------------ SALDO ------------------
+CPF: 366.089.567-97
+Conta: 1010013-1
+Saldo atual: 102033.88
+Operação realizada em: 17/09/2023 07:58:40
+------------------ FIM SALDO ------------------
+------------------ SAQUE ------------------
+CPF: 366.089.567-97
+Conta: 1010013-1
+Valor do Saque: frame0
+Operação realizada em: 17/09/2023 07:58:40
+------------------ FIM SAQUE ------------------
+------------------ Depósito ------------------
+CPF: 366.089.567-97
+Conta: 1010013-1
+Valor do Depósito: frame0
+Operação realizada em: 17/09/2023 07:58:40
+------------------ FIM Depósito ------------------
+--------------------- Transferência ---------------------
+CPF do Remetente: 366.089.567-97
+Conta do Remetente: CORRENTE
+Valor Transferido: frame0
+CPF do Destinatário: 366.089.567-97
+Conta de Destino: CORRENTE
+Saldo do Remetente: 102033.88
+Operação realizada em: 17/09/2023 07:58:40
+------------------ FIM Transferência --------------------
