@@ -1,4 +1,4 @@
-package br.com.poo.extrato;
+package br.com.poo.relatorios;
 
 import javax.swing.table.AbstractTableModel;
 

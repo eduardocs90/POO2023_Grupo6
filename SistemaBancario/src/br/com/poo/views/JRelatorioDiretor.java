@@ -5,6 +5,9 @@ import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,10 +19,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
-import javax.swing.table.DefaultTableModel;
 
+import br.com.poo.banco.contas.Conta;
+import br.com.poo.banco.enums.AgenciaEnum;
+import br.com.poo.banco.io.LeituraEscrita;
 import br.com.poo.banco.pessoas.Funcionario;
+import br.com.poo.relatorios.RelatorioD;
 
 public class JRelatorioDiretor extends JFrame {
 
@@ -42,18 +47,12 @@ public class JRelatorioDiretor extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(28, 107, 374, 296);
-		contentPane.add(scrollPane);
+		contentPane.add (scrollPane);
 		
+		RelatorioD rd = new RelatorioD(f.getAgencia());
 		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Nome","CPF","Agência"
-			}
-		));
-		table.setBackground(Color.BLACK);
-		table.setBorder(new LineBorder(Color.GRAY, 5, true));
+		table.setModel(rd);
+	
 		scrollPane.setViewportView(table);
 		
 		JLabel lblNewLabel = new JLabel("New label");
@@ -61,7 +60,17 @@ public class JRelatorioDiretor extends JFrame {
 		lblNewLabel.setBounds(0, 10, 97, 55);
 		contentPane.add(lblNewLabel);
 		
-		JComboBox<?> comboBox = new JComboBox<Object>();
+		JComboBox<String> comboBox = new JComboBox<>();
+        List<AgenciaEnum> listaAgencia = Arrays.asList(AgenciaEnum.values());
+        comboBox.addItem("Selecione uma opção");
+        for (AgenciaEnum a : listaAgencia) {
+            comboBox.addItem(a.getTipoAgencia());
+        }
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		comboBox.setBackground(Color.WHITE);
 		comboBox.setBounds(218, 53, 87, 21);
 		contentPane.add(comboBox);
@@ -81,7 +90,13 @@ public class JRelatorioDiretor extends JFrame {
 		JButton buttonRelatorio = new JButton("Gerar Relatório");
 		buttonRelatorio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(buttonRelatorio, "Ainda não implementamos esse método :( Volte em outra versão");
+				JOptionPane.showMessageDialog(buttonRelatorio, "Relatório gerado com sucesso");
+				try {
+					LeituraEscrita.gerarRelatorioDiretor(f, Conta.mapaContas);
+				} catch (IOException e1) {
+					
+					e1.printStackTrace();
+				}
 			}
 		});
 		buttonRelatorio.setFont(new Font("Tahoma", Font.BOLD, 12));
