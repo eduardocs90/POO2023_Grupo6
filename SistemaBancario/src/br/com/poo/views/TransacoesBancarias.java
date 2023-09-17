@@ -70,6 +70,29 @@ public class TransacoesBancarias extends JFrame {
 		panel.setLayout(null);
 
 		JComboBox<String> comboBox = new JComboBox<>();
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String select = comboBox.getSelectedItem().toString();
+				if(select.equalsIgnoreCase(TransacoesEnum.SAQUE.getTipoTransferencia())) {
+					textSaque.setEnabled(true);
+				} else {
+					textSaque.setEnabled(false);
+				}
+				if(select.equalsIgnoreCase(TransacoesEnum.DEPOSITO.getTipoTransferencia())) {
+					textDeposito.setEnabled(true);
+					textNumConta.setEnabled(true);
+				} else {
+					textDeposito.setEnabled(false);
+					textNumConta.setEnabled(false);
+				}
+				if(select.equalsIgnoreCase(TransacoesEnum.TRANSFERENCIA.getTipoTransferencia())) {
+					textTransferencia.setEnabled(true);
+					
+				} else {
+					textTransferencia.setEnabled(false);
+				}
+			}
+		});
 		List<TransacoesEnum> listaTrans = Arrays.asList(TransacoesEnum.values());
 		comboBox.addItem("Selecione uma opção");
 		for (TransacoesEnum p : listaTrans) {
@@ -149,28 +172,56 @@ public class TransacoesBancarias extends JFrame {
 				String numConta = textNumConta.getText();
 
 				String selectedTransacao = comboBox.getSelectedItem().toString();
-
-				if (selectedTransacao.equals(TransacoesEnum.SAQUE.getTipoTransferencia())) {
-					if (conta.sacar(Double.parseDouble(saque))) {
-						JOptionPane.showMessageDialog(buttonContinuar, "Saque feito com sucesso!");
-					} else {
-						JOptionPane.showMessageDialog(buttonContinuar, "Não pôde ser feito o saque.");
-					}
-				} else if (selectedTransacao.equals(TransacoesEnum.DEPOSITO.getTipoTransferencia())) {
-					conta.depositar(Double.parseDouble(deposito));
-					JOptionPane.showMessageDialog(buttonContinuar, "Depósito feito com sucesso!");
-				} else if (selectedTransacao.equals(TransacoesEnum.TRANSFERENCIA.getTipoTransferencia())) {
-					String destinoConta = JOptionPane.showInputDialog("Informe o número da conta de destino:");
-					Conta contaDestino = Conta.mapaContas.get(destinoConta);
-					if (contaDestino == null) {
-						JOptionPane.showMessageDialog(buttonContinuar, "Conta de destino não encontrada.");
-					} else {
-						if (conta.transferir(Double.parseDouble(transferencia), contaDestino)) {
-							JOptionPane.showMessageDialog(buttonContinuar, "Transferência feita com sucesso!");
-						} else {
-							JOptionPane.showMessageDialog(buttonContinuar, "Não foi possível efetuar a Transferência.");
+				try {
+					ContaCorrente cc = ((ContaCorrente) conta);
+					if(cc.getNumConta() != null) {
+						if (selectedTransacao.equals(TransacoesEnum.SAQUE.getTipoTransferencia())) {
+							if (cc.sacar(Double.parseDouble(saque))) {
+								JOptionPane.showMessageDialog(buttonContinuar, "Saque feito com sucesso!");
+							} else {
+								JOptionPane.showMessageDialog(buttonContinuar, "Não pôde ser feito o saque.");
+							}
+						} else if (selectedTransacao.equals(TransacoesEnum.DEPOSITO.getTipoTransferencia())) {
+							cc.depositar(Double.parseDouble(deposito));
+							JOptionPane.showMessageDialog(buttonContinuar, "Depósito feito com sucesso!");
+						} else if (selectedTransacao.equals(TransacoesEnum.TRANSFERENCIA.getTipoTransferencia())) {
+							Conta contaDestino = Conta.mapaContas.get(conta.getCpf());
+							if (contaDestino.getCpf() == null || contaDestino.getCpf() != numConta) {
+								JOptionPane.showMessageDialog(buttonContinuar, "Conta de destino não encontrada.");
+							} else {
+								JOptionPane.showMessageDialog(buttonContinuar, "Transferência feita com sucesso!");
+								cc.transferir(Double.parseDouble(transferencia), contaDestino);
+							}
 						}
 					}
+				} catch(java.lang.ClassCastException exc) {
+					JOptionPane.showMessageDialog(buttonContinuar, "Você não possui conta corrente! ");
+					exc.printStackTrace();
+				}
+				try {
+					if(conta.getNumConta() != null) {
+						if (selectedTransacao.equals(TransacoesEnum.SAQUE.getTipoTransferencia())) {
+							if (conta.sacar(Double.parseDouble(saque))) {
+								JOptionPane.showMessageDialog(buttonContinuar, "Saque feito com sucesso!");
+							} else {
+								JOptionPane.showMessageDialog(buttonContinuar, "Não pôde ser feito o saque.");
+							}
+						} else if (selectedTransacao.equals(TransacoesEnum.DEPOSITO.getTipoTransferencia())) {
+							conta.depositar(Double.parseDouble(deposito));
+							JOptionPane.showMessageDialog(buttonContinuar, "Depósito feito com sucesso!");
+						} else if (selectedTransacao.equals(TransacoesEnum.TRANSFERENCIA.getTipoTransferencia())) {
+							Conta contaDestino = Conta.mapaContas.get(conta.getCpf());
+							if (contaDestino.getCpf() == null || contaDestino.getCpf() != numConta) {
+								JOptionPane.showMessageDialog(buttonContinuar, "Conta de destino não encontrada.");
+							} else {
+								JOptionPane.showMessageDialog(buttonContinuar, "Transferência feita com sucesso!");
+								conta.transferir(Double.parseDouble(transferencia), contaDestino);
+							}
+						}
+					}
+				} catch(java.lang.ClassCastException exc) {
+					JOptionPane.showMessageDialog(buttonContinuar, "Você não possui conta poupança! ");
+					exc.printStackTrace();
 				}
 			}
 		});
