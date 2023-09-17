@@ -176,22 +176,17 @@ public class CadastroGerente extends JFrame {
 		btnMenuDiretor.setForeground(Color.WHITE);
 		btnMenuDiretor.setBounds(144, 341, 142, 23);
 		contentPane.add(btnMenuDiretor);
-
+		
+		Funcionario func =  Funcionario.mapaFuncionario.get(f.getCpf());
+		if (func.getCpf().equals("454.211.157-00")) {
 		JButton btnMenuPresidente = new JButton("Menu Presidente");
 		btnMenuPresidente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String cpf = "454.211.157-00";
-				Funcionario func = Funcionario.mapaFuncionario.get(cpf);
-				if (func.getCpf().equals("454.211.157-00")) {
-					dispose();
-					MenuPresidente mp = new MenuPresidente(f);
-					mp.setLocationRelativeTo(mp);
-					mp.setVisible(true);
-
-				} else {
-					JOptionPane.showMessageDialog(btnMenuPresidente, "Você não é o Presidente! ", "Aviso!",
-							JOptionPane.WARNING_MESSAGE);
-				}
+				dispose();
+				MenuPresidente mp = new MenuPresidente(f);
+				mp.setLocationRelativeTo(mp);
+				mp.setVisible(true);
+				
 			}
 		});
 		btnMenuPresidente.setForeground(Color.WHITE);
@@ -199,5 +194,6 @@ public class CadastroGerente extends JFrame {
 		btnMenuPresidente.setBackground(Color.BLACK);
 		btnMenuPresidente.setBounds(144, 307, 142, 23);
 		contentPane.add(btnMenuPresidente);
+		}
 	}
 }
