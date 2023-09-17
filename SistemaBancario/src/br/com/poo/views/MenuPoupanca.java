@@ -18,6 +18,7 @@ import javax.swing.border.LineBorder;
 
 import br.com.poo.banco.contas.Conta;
 import br.com.poo.banco.contas.ContaCorrente;
+import br.com.poo.banco.contas.ContaPoupanca;
 import br.com.poo.banco.pessoas.Cliente;
 
 public class MenuPoupanca extends JFrame {
@@ -40,6 +41,7 @@ public class MenuPoupanca extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		ContaPoupanca cp = ((ContaPoupanca) conta);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -51,7 +53,7 @@ public class MenuPoupanca extends JFrame {
 		contentPane.add(lblNewLabel_3);
 
 		DecimalFormat formatoSaldo = new DecimalFormat("#,###.00");
-		String saldoFormatado = formatoSaldo.format(conta.getSaldo());
+		String saldoFormatado = formatoSaldo.format(cp.getSaldo());
 
 		JLabel labelSaldo = new JLabel(saldoFormatado);
 		labelSaldo.setForeground(Color.WHITE);
@@ -87,7 +89,7 @@ public class MenuPoupanca extends JFrame {
 		buttonExtrato.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				JRelatorioCliente re = new JRelatorioCliente(conta, c);
+				JRelatorioCliente re = new JRelatorioCliente(cp, c);
 				re.setLocationRelativeTo(re);
 				re.setVisible(true);
 			}
@@ -120,7 +122,7 @@ public class MenuPoupanca extends JFrame {
 		buttonTransacoes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				TransacoesBancarias tb = new TransacoesBancarias(conta,c);
+				TransacoesBancarias tb = new TransacoesBancarias(cp,c);
 				tb.setLocationRelativeTo(tb);
 				tb.setVisible(true);
 			}
@@ -134,7 +136,7 @@ public class MenuPoupanca extends JFrame {
 		buttonRendimentos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				JRendimentos jr = new JRendimentos(conta, c);
+				JRendimentos jr = new JRendimentos(cp, c);
 				jr.setLocationRelativeTo(jr);
 				jr.setVisible(true);
 			}
@@ -143,7 +145,7 @@ public class MenuPoupanca extends JFrame {
 		buttonRendimentos.setBounds(224, 46, 95, 83);
 		panel.add(buttonRendimentos);
 
-		JLabel labelAgConta = new JLabel("Ag " + conta.getNumAgencia() + " Conta " + conta.getNumConta());
+		JLabel labelAgConta = new JLabel("Ag " + cp.getNumAgencia() + " Conta " + cp.getNumConta());
 		labelAgConta.setForeground(Color.WHITE);
 		labelAgConta.setFont(new Font("Tahoma", Font.BOLD, 11));
 		labelAgConta.setBounds(284, 19, 161, 14);

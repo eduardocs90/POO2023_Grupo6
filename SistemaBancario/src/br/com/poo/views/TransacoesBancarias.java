@@ -22,6 +22,7 @@ import javax.swing.border.LineBorder;
 
 import br.com.poo.banco.contas.Conta;
 import br.com.poo.banco.contas.ContaCorrente;
+import br.com.poo.banco.contas.ContaPoupanca;
 import br.com.poo.banco.enums.TransacoesEnum;
 import br.com.poo.banco.pessoas.Cliente;
 
@@ -70,6 +71,12 @@ public class TransacoesBancarias extends JFrame {
 		panel.setLayout(null);
 
 		JComboBox<String> comboBox = new JComboBox<>();
+		List<TransacoesEnum> listaTrans = Arrays.asList(TransacoesEnum.values());
+		comboBox.addItem("Selecione uma opção");
+		for (TransacoesEnum p : listaTrans) {
+			comboBox.addItem(p.getTipoTransferencia());
+		}
+		
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String select = comboBox.getSelectedItem().toString();
@@ -80,24 +87,19 @@ public class TransacoesBancarias extends JFrame {
 				}
 				if(select.equalsIgnoreCase(TransacoesEnum.DEPOSITO.getTipoTransferencia())) {
 					textDeposito.setEnabled(true);
-					textNumConta.setEnabled(true);
 				} else {
 					textDeposito.setEnabled(false);
-					textNumConta.setEnabled(false);
 				}
 				if(select.equalsIgnoreCase(TransacoesEnum.TRANSFERENCIA.getTipoTransferencia())) {
 					textTransferencia.setEnabled(true);
+					textNumConta.setEnabled(true);
 					
 				} else {
 					textTransferencia.setEnabled(false);
+					textNumConta.setEnabled(false);
 				}
 			}
 		});
-		List<TransacoesEnum> listaTrans = Arrays.asList(TransacoesEnum.values());
-		comboBox.addItem("Selecione uma opção");
-		for (TransacoesEnum p : listaTrans) {
-			comboBox.addItem(p.getTipoTransferencia());
-		}
 		comboBox.setBackground(new Color(255, 255, 255));
 		comboBox.setForeground(SystemColor.controlText);
 		comboBox.setToolTipText("Opção");
@@ -170,57 +172,52 @@ public class TransacoesBancarias extends JFrame {
 				String deposito = textDeposito.getText();
 				String transferencia = textTransferencia.getText();
 				String numConta = textNumConta.getText();
-
 				String selectedTransacao = comboBox.getSelectedItem().toString();
+				
 				try {
-					ContaCorrente cc = ((ContaCorrente) conta);
-					if(cc.getNumConta() != null) {
+					if(conta instanceof ContaCorrente) {
+						ContaCorrente cc = ((ContaCorrente) conta);
 						if (selectedTransacao.equals(TransacoesEnum.SAQUE.getTipoTransferencia())) {
 							if (cc.sacar(Double.parseDouble(saque))) {
-								JOptionPane.showMessageDialog(buttonContinuar, "Saque feito com sucesso!");
+								JOptionPane.showMessageDialog(buttonContinuar, "Saque feito com sucesso!\nFoi cobrado uma taxa de 0.10 centavos");
 							} else {
 								JOptionPane.showMessageDialog(buttonContinuar, "Não pôde ser feito o saque.");
 							}
 						} else if (selectedTransacao.equals(TransacoesEnum.DEPOSITO.getTipoTransferencia())) {
 							cc.depositar(Double.parseDouble(deposito));
-							JOptionPane.showMessageDialog(buttonContinuar, "Depósito feito com sucesso!");
+							JOptionPane.showMessageDialog(buttonContinuar, "Depósito feito com sucesso!\nO Nosso banco é diferenciado! Sem taxas para déposito.");
 						} else if (selectedTransacao.equals(TransacoesEnum.TRANSFERENCIA.getTipoTransferencia())) {
 							Conta contaDestino = Conta.mapaContas.get(conta.getCpf());
-							if (contaDestino.getCpf() == null || contaDestino.getCpf() != numConta) {
+							if (contaDestino.getCpf() == null || !contaDestino.getCpf().equals(numConta)) {
 								JOptionPane.showMessageDialog(buttonContinuar, "Conta de destino não encontrada.");
 							} else {
-								JOptionPane.showMessageDialog(buttonContinuar, "Transferência feita com sucesso!");
+								JOptionPane.showMessageDialog(buttonContinuar, "Transferência feita com sucesso!\\nFoi cobrado uma taxa de 0.20 centavos");
 								cc.transferir(Double.parseDouble(transferencia), contaDestino);
 							}
 						}
-					}
-				} catch(java.lang.ClassCastException exc) {
-					JOptionPane.showMessageDialog(buttonContinuar, "Você não possui conta corrente! ");
-					exc.printStackTrace();
-				}
-				try {
-					if(conta.getNumConta() != null) {
+					} else if(conta instanceof ContaPoupanca) {
+						ContaPoupanca cp = ((ContaPoupanca) conta);
 						if (selectedTransacao.equals(TransacoesEnum.SAQUE.getTipoTransferencia())) {
-							if (conta.sacar(Double.parseDouble(saque))) {
+							if (cp.sacar(Double.parseDouble(saque))) {
 								JOptionPane.showMessageDialog(buttonContinuar, "Saque feito com sucesso!");
 							} else {
 								JOptionPane.showMessageDialog(buttonContinuar, "Não pôde ser feito o saque.");
 							}
 						} else if (selectedTransacao.equals(TransacoesEnum.DEPOSITO.getTipoTransferencia())) {
-							conta.depositar(Double.parseDouble(deposito));
+							cp.depositar(Double.parseDouble(deposito));
 							JOptionPane.showMessageDialog(buttonContinuar, "Depósito feito com sucesso!");
 						} else if (selectedTransacao.equals(TransacoesEnum.TRANSFERENCIA.getTipoTransferencia())) {
 							Conta contaDestino = Conta.mapaContas.get(conta.getCpf());
-							if (contaDestino.getCpf() == null || contaDestino.getCpf() != numConta) {
+							if (contaDestino.getCpf() == null || !contaDestino.getCpf().equals(numConta)) {
 								JOptionPane.showMessageDialog(buttonContinuar, "Conta de destino não encontrada.");
 							} else {
 								JOptionPane.showMessageDialog(buttonContinuar, "Transferência feita com sucesso!");
-								conta.transferir(Double.parseDouble(transferencia), contaDestino);
+								cp.transferir(Double.parseDouble(transferencia), contaDestino);
 							}
 						}
 					}
 				} catch(java.lang.ClassCastException exc) {
-					JOptionPane.showMessageDialog(buttonContinuar, "Você não possui conta poupança! ");
+					JOptionPane.showMessageDialog(buttonContinuar, "Você não possui esta conta :(");
 					exc.printStackTrace();
 				}
 			}
@@ -254,8 +251,9 @@ public class TransacoesBancarias extends JFrame {
 		BotaoContaPoupanca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					ContaPoupanca cp = ((ContaPoupanca) conta);
 					dispose();
-					MenuPoupanca mp = new MenuPoupanca(conta, c);
+					MenuPoupanca mp = new MenuPoupanca(cp, c);
 					mp.setLocationRelativeTo(mp);
 					mp.setVisible(true);
 				} catch (java.lang.ClassCastException exc) {

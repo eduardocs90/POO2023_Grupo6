@@ -18,6 +18,7 @@ import javax.swing.border.LineBorder;
 
 import br.com.poo.banco.contas.Conta;
 import br.com.poo.banco.contas.ContaCorrente;
+import br.com.poo.banco.contas.ContaPoupanca;
 import br.com.poo.banco.pessoas.Cliente;
 
 public class MenuCorrente extends JFrame {
@@ -85,8 +86,9 @@ public class MenuCorrente extends JFrame {
 		buttonPoupanca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					ContaPoupanca cp = ((ContaPoupanca) conta);
 					dispose();
-					MenuPoupanca mp = new MenuPoupanca(conta, c);
+					MenuPoupanca mp = new MenuPoupanca(cp, c);
 					mp.setLocationRelativeTo(mp);
 					mp.setVisible(true);
 				} catch (java.lang.ClassCastException exc) {

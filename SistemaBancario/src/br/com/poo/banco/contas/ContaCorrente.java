@@ -3,7 +3,7 @@ package br.com.poo.banco.contas;
 public class ContaCorrente extends Conta {
 
 	private Double chequeEspecial;
-	private Double tarifa;
+	private Double tarifa = 0.0;
 
 	@Override
 	public boolean sacar(double valor) {
@@ -22,6 +22,11 @@ public class ContaCorrente extends Conta {
 	}
 	
 	@Override
+	public double depositar(double valor) {
+		return getSaldo() + valor;
+	}
+	
+	@Override
     public boolean transferir(double valor, Conta conta) {
 		if(getSaldo() < valor) {
 			return false;
@@ -36,7 +41,21 @@ public class ContaCorrente extends Conta {
 			conta.depositar(valor);
 			return true;
 		}
-    } 
+    }
+	
+	public boolean seguroVida(double valor) {
+		double tributo = valor * 0.20;
+		double valorTotal = valor + tributo;
+		if(getSaldo() < valorTotal) {
+			return false;
+		} else if(valor <= 0.0) {
+			return false;
+		} else {
+			double result = getSaldo() - valorTotal;
+			setSaldo(result);
+			return true;
+		}
+	}
 	
 	public ContaCorrente() {
 		super();
@@ -70,7 +89,7 @@ public class ContaCorrente extends Conta {
 	
 	@Override
 	public String toString() {
-		return "Cheque Especial :" + chequeEspecial + "reais";
+		return "Cheque Especial: " + chequeEspecial;
 	}
 
 }
