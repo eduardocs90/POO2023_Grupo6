@@ -20,6 +20,7 @@ import javax.swing.border.EmptyBorder;
 
 import br.com.poo.banco.contas.Conta;
 import br.com.poo.banco.contas.ContaCorrente;
+import br.com.poo.banco.contas.ContaPoupanca;
 import br.com.poo.banco.io.LeituraEscrita;
 import br.com.poo.banco.pessoas.Cliente;
 import br.com.poo.extrato.ExtratoCliente;
@@ -118,8 +119,9 @@ public class JRelatorioCliente extends JFrame {
 		ButtonPoupanca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					ContaPoupanca cp = ((ContaPoupanca) conta);
 					dispose();
-					MenuPoupanca mp = new MenuPoupanca(conta, c);
+					MenuPoupanca mp = new MenuPoupanca(cp, c);
 					mp.setLocationRelativeTo(mp);
 					mp.setVisible(true);
 				} catch (java.lang.ClassCastException exc) {

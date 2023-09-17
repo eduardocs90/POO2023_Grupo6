@@ -46,7 +46,7 @@ public class Cliente {
 		return senha;
 	}
 	
-	public String getTIPO_PESSOA() {
+	public String getTipoPessoa() {
 		return TIPO_PESSOA;
 	}
 	
@@ -60,7 +60,7 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Nome do cliente: " + nome + "\ncpf: " + cpf + "\nendereco: " + endereco + "\ncontato: " + contato;
+		return "[" + TIPO_PESSOA + " Nome: " + nome + " CPF: " + cpf + "\nendereco: " + endereco + "\ncontato: " + contato;
 	}
 	
 	
