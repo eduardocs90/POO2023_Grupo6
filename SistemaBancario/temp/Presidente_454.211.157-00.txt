@@ -1,0 +1,17 @@
+
+Relatório da lista de diretores e suas respectivas agências de controle:
+Diretor: Eduardo Carneiro, Agência de Controle: 5678-0, Gerente da Agência: Daniel Mendes
+Diretor: Felipe Moura, Agência de Controle: 7890-0, Gerente da Agência: Beatriz Fernandes
+Diretor: Lucas Gonzaga, Agência de Controle: 9012-0, Gerente da Agência: Guilherme Torres
+Diretor: Felipe Sutter, Agência de Controle: 3456-0, Gerente da Agência: Fernanda Lima
+Diretor: Cristian Leignel, Agência de Controle: 1234-0, Gerente da Agência: Lúcia Carvalho
+Valor Total do Capital no Banco: 320225.90000000014
+Horário do Relatório: 17/09/2023 18:34:21
+Relatório da lista de diretores e suas respectivas agências de controle:
+Diretor: Eduardo Carneiro, Agência de Controle: 5678-0, Gerente da Agência: Daniel Mendes
+Diretor: Felipe Moura, Agência de Controle: 7890-0, Gerente da Agência: Beatriz Fernandes
+Diretor: Lucas Gonzaga, Agência de Controle: 9012-0, Gerente da Agência: Guilherme Torres
+Diretor: Felipe Sutter, Agência de Controle: 3456-0, Gerente da Agência: Fernanda Lima
+Diretor: Cristian Leignel, Agência de Controle: 1234-0, Gerente da Agência: Lúcia Carvalho
+Valor Total do Capital no Banco: 320225.90000000014
+Horário do Relatório: 17/09/2023 19:01:02

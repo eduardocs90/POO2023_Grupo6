@@ -252,6 +252,44 @@ public class LeituraEscrita {
 	    buffWriter.close();
 	}
 
+	private static String obterNomeGerente(Map<String, Funcionario> funcionarios, String agenciaControle) {
+        for (Funcionario funcionario : funcionarios.values()) {
+            if (funcionario.getAgencia().equals(agenciaControle)
+                    && funcionario.getTipoFuncionario().equals("Gerente")) {
+                return funcionario.getNome();
+            }
+        }
+        return "Não encontrado";
+    }
+    
+    public static void gerarRelatorioPresidente(Funcionario presidente,Map<String, Funcionario> funcionarios, Map<String, Conta> contas) throws IOException {
+        String path = presidente.getTipoFuncionario() + "_" + presidente.getCpf();
+        BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));
+        LocalDateTime dataHora = LocalDateTime.now();
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+        buffWriter.append("Relatório da lista de diretores e suas respectivas agências de controle:\n");
+
+        for (Funcionario func : funcionarios.values()) {
+            if (func.getTipoFuncionario().equals("Diretor")) {
+                String agenciaControle = func.getAgencia();
+                String gerenteAgencia = obterNomeGerente(funcionarios, agenciaControle);
+                buffWriter.append("Diretor: " + func.getNome() + ", Agência de Controle: " + agenciaControle);
+                buffWriter.append(", Gerente da Agência: " + gerenteAgencia + "\n");
+            }
+        }
+        
+        double totalCapital = 0;
+        for (Conta conta : contas.values()) {
+            totalCapital += conta.getSaldo();
+        }
+        
+        buffWriter.append("Valor Total do Capital no Banco: " + totalCapital + "\n");
+        buffWriter.append("Horário do Relatório: " + dtf.format(dataHora) + "\n");
+
+        buffWriter.close();
+    }
+
 	
 	public static void comprovanteSeguro(Conta conta, String valor) throws IOException {
 		String path = conta.getTipoConta() + "_" + conta.getCpf();
