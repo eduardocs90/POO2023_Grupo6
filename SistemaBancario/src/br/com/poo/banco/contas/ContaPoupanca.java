@@ -11,7 +11,8 @@ public class ContaPoupanca extends Conta {
 	}
 
 	public Double calcularRendimento(Double valor, int dias) {
-		return (valor + (0.00024 * dias));
+		Double result = valor + (valor * (0.00024 * dias));
+		return result;
 	}
 	
 	@Override

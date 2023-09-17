@@ -211,7 +211,7 @@ public class TransacoesBancarias extends JFrame {
 						} else if (selectedTransacao.equals(TransacoesEnum.DEPOSITO.getTipoTransferencia())) {
 							cp.depositar(Double.parseDouble(deposito));
 							JOptionPane.showMessageDialog(buttonContinuar, "Depósito feito com sucesso!");
-							LeituraEscrita.comprovanteDeposito(cp, saque);
+							LeituraEscrita.comprovanteDeposito(cp, deposito);
 						} else if (selectedTransacao.equals(TransacoesEnum.TRANSFERENCIA.getTipoTransferencia())) {
 							Conta contaDestino = Conta.mapaContas.get(conta.getCpf());
 							if (contaDestino.getCpf() == null || !contaDestino.getNumConta().equals(numConta)) {
