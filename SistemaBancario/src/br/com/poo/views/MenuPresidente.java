@@ -87,7 +87,7 @@ public class MenuPresidente extends JFrame {
 		cadastroCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				JCadastroCliente jcc = new JCadastroCliente();
+				JCadastroCliente jcc = new JCadastroCliente(f);
 				jcc.setLocationRelativeTo(jcc);
 				jcc.setVisible(true);
 			}
