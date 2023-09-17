@@ -17,6 +17,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import br.com.poo.banco.contas.Conta;
+import br.com.poo.banco.contas.ContaPoupanca;
 import br.com.poo.banco.pessoas.Cliente;
 
 public class JRendimentos extends JFrame {
@@ -32,7 +33,7 @@ public class JRendimentos extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage(JRendimentos.class.getResource("/br/com/poo/imagens/100x100.png")));
 		setTitle("DéBank");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 485, 523);
+		setBounds(100, 100, 485, 457);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -61,23 +62,30 @@ public class JRendimentos extends JFrame {
 			}
 		});
 		buttonVoltar.setIcon(new ImageIcon(JRendimentos.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
-		buttonVoltar.setBounds(30, 411, 50, 50);
+		buttonVoltar.setBounds(29, 353, 50, 50);
 		contentPane.add(buttonVoltar);
 		
 		JButton buttonContinuar = new JButton("");
 		buttonContinuar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(buttonContinuar, "Ainda não implementamos esse método :( Volte em outra versão");
+				String dias = textDias.getText();
+				String valor = textValor.getText();
+				if(dias.isEmpty() || valor.isEmpty()) {
+					JOptionPane.showMessageDialog(buttonContinuar, "Há campos inválidos!");
+				} else {
+					ContaPoupanca cp = ((ContaPoupanca) conta);
+					JOptionPane.showMessageDialog(buttonContinuar, "O valor da simulação é de: " + cp.calcularRendimento(Double.parseDouble(valor), Integer.parseInt(dias)));
+				}
 			}
 		});
 		buttonContinuar.setIcon(new ImageIcon(JRendimentos.class.getResource("/br/com/poo/imagens/Design sem nome (1).png")));
-		buttonContinuar.setBounds(383, 411, 50, 50);
+		buttonContinuar.setBounds(386, 353, 50, 50);
 		contentPane.add(buttonContinuar);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new LineBorder(Color.GRAY, 5, true));
 		panel.setBackground(new Color(0, 0, 0));
-		panel.setBounds(89, 187, 292, 198);
+		panel.setBounds(89, 187, 292, 143);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -103,18 +111,6 @@ public class JRendimentos extends JFrame {
 		panel.add(textValor);
 		textValor.setColumns(10);
 		
-		JLabel lblNewLabel_1_1_2 = new JLabel("Total:");
-		lblNewLabel_1_1_2.setForeground(Color.WHITE);
-		lblNewLabel_1_1_2.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblNewLabel_1_1_2.setBounds(31, 134, 55, 22);
-		panel.add(lblNewLabel_1_1_2);
-		
-		JLabel textTotal = new JLabel("0,000.00");
-		textTotal.setFont(new Font("Tahoma", Font.BOLD, 15));
-		textTotal.setForeground(Color.WHITE);
-		textTotal.setBounds(119, 140, 141, 13);
-		panel.add(textTotal);
-		
 		JButton BotaoContaPoupanca = new JButton("Conta Poupança");
 		BotaoContaPoupanca.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -131,7 +127,7 @@ public class JRendimentos extends JFrame {
 		});
 		BotaoContaPoupanca.setForeground(Color.WHITE);
 		BotaoContaPoupanca.setBackground(Color.BLACK);
-		BotaoContaPoupanca.setBounds(174, 420, 131, 23);
+		BotaoContaPoupanca.setBounds(174, 365, 131, 23);
 		contentPane.add(BotaoContaPoupanca);
 	}
 }
