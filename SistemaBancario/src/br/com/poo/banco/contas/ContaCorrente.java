@@ -23,7 +23,9 @@ public class ContaCorrente extends Conta {
 	
 	@Override
 	public double depositar(double valor) {
-		return getSaldo() + valor;
+		Double result = getSaldo() + valor;
+		setSaldo(result);
+		return result;
 	}
 	
 	@Override

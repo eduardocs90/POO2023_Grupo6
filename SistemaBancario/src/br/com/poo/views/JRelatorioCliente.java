@@ -65,6 +65,10 @@ public class JRelatorioCliente extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					LeituraEscrita.comprovanteSaldo(conta);
+					LeituraEscrita.comprovanteSaque(conta, getName());
+					LeituraEscrita.comprovanteDeposito(conta, getName());
+					LeituraEscrita.comprovanteTransferencia(conta, conta, getName());
+					LeituraEscrita.comprovanteSeguro(conta, getName());
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

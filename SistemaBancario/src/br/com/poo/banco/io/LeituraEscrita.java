@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
@@ -148,7 +149,7 @@ public class LeituraEscrita {
 		buffWriter.close();
 	}
 
-	public static void comprovanteSaque(Conta conta, Double valor) throws IOException {
+	public static void comprovanteSaque(Conta conta, String valor) throws IOException {
 		String path = conta.getTipoConta() + "_" + conta.getCpf();
 		BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));
 
@@ -158,12 +159,12 @@ public class LeituraEscrita {
 		buffWriter.append("Valor do Saque: " + valor + "\n");
 		LocalDateTime dataHora = LocalDateTime.now();
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-		buffWriter.append("Operação realizada em: " + dtf.format(dataHora));
+		buffWriter.append("Operação realizada em: " + dtf.format(dataHora) + "\n");
 		buffWriter.append("------------------ FIM SAQUE ------------------\n");
 		buffWriter.close();
 	}
 
-	public static void comprovanteDeposito(Conta conta, Double valor) throws IOException {
+	public static void comprovanteDeposito(Conta conta, String valor) throws IOException {
 		String path = conta.getTipoConta() + "_" + conta.getCpf();
 		BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));
 
@@ -173,12 +174,12 @@ public class LeituraEscrita {
 		buffWriter.append("Valor do Depósito: " + valor + "\n");
 		LocalDateTime dataHora = LocalDateTime.now();
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-		buffWriter.append("Operação realizada em: " + dtf.format(dataHora));
+		buffWriter.append("Operação realizada em: " + dtf.format(dataHora) + "\n");
 		buffWriter.append("------------------ FIM Depósito ------------------\n");
 		buffWriter.close();
 	}
 
-	public static void comprovanteTransferencia(Conta remetente, Conta destinatario, Double valor) throws IOException {
+	public static void comprovanteTransferencia(Conta remetente, Conta destinatario, String valor) throws IOException {
 		String path = remetente.getTipoConta() + "_" + remetente.getCpf();
 		BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));
 		LocalDateTime dataHora = LocalDateTime.now();
@@ -194,6 +195,13 @@ public class LeituraEscrita {
 		buffWriter.append("Operação realizada em: " + dtf.format(dataHora) + "\n");
 		buffWriter.append("------------------ FIM Transferência --------------------\n");
 		buffWriter.close();
+	}
+	
+	public static void historicoTransacoes(Conta conta) throws IOException {
+		comprovanteSaldo(conta);
+		//comprovanteSaque(conta,)
+		// como eu vou chamar as informações do parâmetro dos outros comprovantes se essas
+		// informações eu só coloco pelo jframe na hora da transação?
 	}
 
 	// Relatório Gerente
@@ -216,6 +224,25 @@ public class LeituraEscrita {
 		buffWriter.append("Total de contas na agência " + gerente.getAgencia() + ": " + totalContas + "\n");
 		buffWriter.append("Total de saldo na agência " + gerente.getAgencia() + ": " + totalSaldo + "\n");
 		buffWriter.append("Horário do Relatório: " + dtf.format(dataHora));
+		buffWriter.close();
+	}
+	
+	public static void comprovanteSeguro(Conta conta, String valor) throws IOException {
+		String path = conta.getTipoConta() + "_" + conta.getCpf();
+		BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));
+		
+		Double valorTotal = Double.parseDouble(valor) * 0.20;
+		DecimalFormat df = new DecimalFormat("#,###.00");
+		LocalDateTime dataHora = LocalDateTime.now();
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+		
+		buffWriter.append("------------------ Seguro de Vida ------------------\n");
+		buffWriter.append("CPF: " + conta.getCpf() + "\n");
+		buffWriter.append("Conta: " + conta.getNumConta() + "\n");
+		buffWriter.append("Valor do Seguro: " + df.format(valor) + "\n");
+		buffWriter.append("Valor Cobrado (20% do Valor): " + df.format(valorTotal) + "\n");
+		buffWriter.append("Operação realizada em: " + dtf.format(dataHora) + "\n");
+		buffWriter.append("---------------- FIM Seguro de Vida ----------------\n");
 		buffWriter.close();
 	}
 

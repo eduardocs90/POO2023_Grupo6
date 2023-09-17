@@ -6,6 +6,7 @@ import java.awt.SystemColor;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,6 +25,7 @@ import br.com.poo.banco.contas.Conta;
 import br.com.poo.banco.contas.ContaCorrente;
 import br.com.poo.banco.contas.ContaPoupanca;
 import br.com.poo.banco.enums.TransacoesEnum;
+import br.com.poo.banco.io.LeituraEscrita;
 import br.com.poo.banco.pessoas.Cliente;
 
 public class TransacoesBancarias extends JFrame {
@@ -180,19 +182,21 @@ public class TransacoesBancarias extends JFrame {
 						if (selectedTransacao.equals(TransacoesEnum.SAQUE.getTipoTransferencia())) {
 							if (cc.sacar(Double.parseDouble(saque))) {
 								JOptionPane.showMessageDialog(buttonContinuar, "Saque feito com sucesso!\nFoi cobrado uma taxa de 0.10 centavos");
+								LeituraEscrita.comprovanteSaque(cc, saque);
 							} else {
 								JOptionPane.showMessageDialog(buttonContinuar, "Não pôde ser feito o saque.");
 							}
 						} else if (selectedTransacao.equals(TransacoesEnum.DEPOSITO.getTipoTransferencia())) {
 							cc.depositar(Double.parseDouble(deposito));
 							JOptionPane.showMessageDialog(buttonContinuar, "Depósito feito com sucesso!\nO Nosso banco é diferenciado! Sem taxas para déposito.");
+							LeituraEscrita.comprovanteDeposito(cc, deposito);
 						} else if (selectedTransacao.equals(TransacoesEnum.TRANSFERENCIA.getTipoTransferencia())) {
 							Conta contaDestino = Conta.mapaContas.get(conta.getCpf());
-							if (contaDestino.getCpf() == null || !contaDestino.getCpf().equals(numConta)) {
+							if (contaDestino.getCpf() == null || !contaDestino.getNumConta().equals(numConta)) {
 								JOptionPane.showMessageDialog(buttonContinuar, "Conta de destino não encontrada.");
-							} else {
+							} else if(cc.transferir(Double.parseDouble(transferencia), contaDestino)){
 								JOptionPane.showMessageDialog(buttonContinuar, "Transferência feita com sucesso!\\nFoi cobrado uma taxa de 0.20 centavos");
-								cc.transferir(Double.parseDouble(transferencia), contaDestino);
+								LeituraEscrita.comprovanteTransferencia(cc, contaDestino,transferencia);
 							}
 						}
 					} else if(conta instanceof ContaPoupanca) {
@@ -200,25 +204,29 @@ public class TransacoesBancarias extends JFrame {
 						if (selectedTransacao.equals(TransacoesEnum.SAQUE.getTipoTransferencia())) {
 							if (cp.sacar(Double.parseDouble(saque))) {
 								JOptionPane.showMessageDialog(buttonContinuar, "Saque feito com sucesso!");
+								LeituraEscrita.comprovanteSaque(cp, saque);
 							} else {
 								JOptionPane.showMessageDialog(buttonContinuar, "Não pôde ser feito o saque.");
 							}
 						} else if (selectedTransacao.equals(TransacoesEnum.DEPOSITO.getTipoTransferencia())) {
 							cp.depositar(Double.parseDouble(deposito));
 							JOptionPane.showMessageDialog(buttonContinuar, "Depósito feito com sucesso!");
+							LeituraEscrita.comprovanteDeposito(cp, saque);
 						} else if (selectedTransacao.equals(TransacoesEnum.TRANSFERENCIA.getTipoTransferencia())) {
 							Conta contaDestino = Conta.mapaContas.get(conta.getCpf());
-							if (contaDestino.getCpf() == null || !contaDestino.getCpf().equals(numConta)) {
+							if (contaDestino.getCpf() == null || !contaDestino.getNumConta().equals(numConta)) {
 								JOptionPane.showMessageDialog(buttonContinuar, "Conta de destino não encontrada.");
-							} else {
+							} else if(cp.transferir(Double.parseDouble(transferencia), contaDestino)){
 								JOptionPane.showMessageDialog(buttonContinuar, "Transferência feita com sucesso!");
-								cp.transferir(Double.parseDouble(transferencia), contaDestino);
+								LeituraEscrita.comprovanteTransferencia(cp, contaDestino,transferencia);
 							}
 						}
 					}
 				} catch(java.lang.ClassCastException exc) {
 					JOptionPane.showMessageDialog(buttonContinuar, "Você não possui esta conta :(");
 					exc.printStackTrace();
+				} catch (IOException e1) {
+					e1.printStackTrace();
 				}
 			}
 		});
