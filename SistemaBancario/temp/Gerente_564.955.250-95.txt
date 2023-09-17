@@ -1,0 +1,8 @@
+Relatório do total de contas e total de saldo da mesma agência: 
+Total de contas na agência 1234-0: 13
+Total de saldo na agência 1234-0: 71012.7
+Horário do Relatório: 17/09/2023 17:00:49
+Relatório do total de contas e total de saldo da mesma agência: 
+Total de contas na agência 1234-0: 13
+Total de saldo na agência 1234-0: 71012.7
+Horário do Relatório: 17/09/2023 17:07:52

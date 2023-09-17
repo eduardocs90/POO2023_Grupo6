@@ -1,0 +1,14 @@
+Relatório de clientes da agência 5678-0:
+Numero da Conta: 1010002-1, CPF: 861.584.617-09, Agência: 5678-0
+Numero da Conta: 1010007-1, CPF: 288.152.337-41, Agência: 5678-0
+Numero da Conta: 1010012-1, CPF: 726.467.117-86, Agência: 5678-0
+Numero da Conta: 1010017-1, CPF: 054.666.497-08, Agência: 5678-0
+Numero da Conta: 1010022-1, CPF: 360.669.867-40, Agência: 5678-0
+Numero da Conta: 5010001-1, CPF: 180.815.377-40, Agência: 5678-0
+Numero da Conta: 5010006-1, CPF: 187.239.127-31, Agência: 5678-0
+Numero da Conta: 5010011-1, CPF: 728.822.807-00, Agência: 5678-0
+Numero da Conta: 5010016-1, CPF: 913.298.397-22, Agência: 5678-0
+Numero da Conta: 5010021-1, CPF: 176.734.397-35, Agência: 5678-0
+Numero da Conta: 5010026-1, CPF: 794.636.627-23, Agência: 5678-0
+Numero da Conta: 5010031-1, CPF: 724.281.477-49, Agência: 5678-0
+Horário do Relatório: 17/09/2023 17:52:09

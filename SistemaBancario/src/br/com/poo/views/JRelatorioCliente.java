@@ -23,7 +23,7 @@ import br.com.poo.banco.contas.ContaCorrente;
 import br.com.poo.banco.contas.ContaPoupanca;
 import br.com.poo.banco.io.LeituraEscrita;
 import br.com.poo.banco.pessoas.Cliente;
-import br.com.poo.extrato.ExtratoCliente;
+import br.com.poo.relatorios.ExtratoCliente;
 
 public class JRelatorioCliente extends JFrame {
 

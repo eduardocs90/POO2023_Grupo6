@@ -8,7 +8,10 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -223,9 +226,32 @@ public class LeituraEscrita {
 		buffWriter.append("Relatório do total de contas e total de saldo da mesma agência: \n");
 		buffWriter.append("Total de contas na agência " + gerente.getAgencia() + ": " + totalContas + "\n");
 		buffWriter.append("Total de saldo na agência " + gerente.getAgencia() + ": " + totalSaldo + "\n");
-		buffWriter.append("Horário do Relatório: " + dtf.format(dataHora));
+		buffWriter.append("Horário do Relatório: " + dtf.format(dataHora)+"\n");
 		buffWriter.close();
 	}
+	
+	public static void gerarRelatorioDiretor(Funcionario diretor, Map<String, Conta> contas) throws IOException {
+	    String path = diretor.getTipoFuncionario() + "_" + diretor.getCpf();
+	    BufferedWriter buffWriter = new BufferedWriter(new FileWriter(PATH_BASICO + path + EXTENSAO, true));
+	    LocalDateTime dataHora = LocalDateTime.now();
+	    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
+	    // Filtrar contas pela agência do diretor e ordenar por nome
+	    List<Conta> contasDiretor = contas.values().stream()
+	            .filter(conta -> conta.getNumAgencia().equals(diretor.getAgencia()))
+	            .sorted(Comparator.comparing(Conta::getNumConta))
+	            .collect(Collectors.toList());
+
+	    buffWriter.append("Relatório de clientes da agência " + diretor.getAgencia() + ":\n");
+
+	    for (Conta conta : contasDiretor) {
+	        buffWriter.append("Numero da Conta: " + conta.getNumConta() + ", CPF: " + conta.getCpf() + ", Agência: " + conta.getNumAgencia() + "\n");
+	    }
+
+	    buffWriter.append("Horário do Relatório: " + dtf.format(dataHora) + "\n");
+	    buffWriter.close();
+	}
+
 	
 	public static void comprovanteSeguro(Conta conta, String valor) throws IOException {
 		String path = conta.getTipoConta() + "_" + conta.getCpf();

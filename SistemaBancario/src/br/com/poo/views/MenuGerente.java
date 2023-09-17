@@ -11,7 +11,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import br.com.poo.banco.pessoas.Funcionario;
 
 public class MenuGerente extends JFrame {
@@ -43,6 +42,7 @@ public class MenuGerente extends JFrame {
 		JButton btnNewButton = new JButton("Relatórios");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
 				RelatorioGerente rg = new RelatorioGerente(f);
 				rg.setLocationRelativeTo(rg);
 				rg.setVisible(true);
