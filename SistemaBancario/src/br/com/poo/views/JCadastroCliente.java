@@ -28,6 +28,10 @@ import br.com.poo.banco.enums.ContaEnum;
 import br.com.poo.banco.enums.PessoasEnum;
 import br.com.poo.banco.io.LeituraEscrita;
 import br.com.poo.banco.pessoas.Cliente;
+import br.com.poo.banco.pessoas.Diretor;
+import br.com.poo.banco.pessoas.Funcionario;
+import br.com.poo.banco.pessoas.Gerente;
+import br.com.poo.banco.pessoas.Presidente;
 
 public class JCadastroCliente extends JFrame {
 
@@ -44,12 +48,12 @@ public class JCadastroCliente extends JFrame {
 	private JTextField labelCheque;
 	private JTextField numAgencia;
 
-	public JCadastroCliente() {
+	public JCadastroCliente(Funcionario f) {
 		setTitle("DéBank");
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(JCadastroCliente.class.getResource("/br/com/poo/imagens/50x50.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 556, 539);
+		setBounds(100, 100, 556, 600);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setForeground(new Color(255, 255, 255));
@@ -182,7 +186,7 @@ public class JCadastroCliente extends JFrame {
 			}
 		});
 		buttonContinuar.setBackground(UIManager.getColor("Button.shadow"));
-		buttonContinuar.setBounds(461, 442, 50, 50);
+		buttonContinuar.setBounds(463, 503, 50, 50);
 		contentPane.add(buttonContinuar);
 
 		JLabel lblNewLabel_2 = new JLabel("New label");
@@ -218,7 +222,7 @@ public class JCadastroCliente extends JFrame {
 			}
 		});
 		buttonVoltar.setIcon(new ImageIcon(JCadastroCliente.class.getResource("/br/com/poo/imagens/Voltar50x50.png")));
-		buttonVoltar.setBounds(10, 442, 50, 50);
+		buttonVoltar.setBounds(10, 503, 50, 50);
 		contentPane.add(buttonVoltar);
 
 		labelNumConta = new JTextField();
@@ -259,5 +263,77 @@ public class JCadastroCliente extends JFrame {
 		lblNewLabel_4_1_1_1.setForeground(Color.WHITE);
 		lblNewLabel_4_1_1_1.setBounds(65, 432, 59, 18);
 		contentPane.add(lblNewLabel_4_1_1_1);
-	}
-}
+
+		JButton menuGerente = new JButton("Menu Gerente");
+		if(f instanceof Gerente) {
+			menuGerente.setEnabled(true);
+			menuGerente.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					try {
+						dispose();
+						MenuGerente mg = new MenuGerente(f);
+						mg.setLocationRelativeTo(mg);
+						mg.setVisible(true);
+					} catch (java.lang.ClassCastException exc) {
+						JOptionPane.showMessageDialog(buttonContinuar, "Ops, ocorreu um erro!");
+						exc.printStackTrace();
+					}
+				}
+			});
+		} else {
+			menuGerente.setEnabled(false);
+		}
+		menuGerente.setForeground(Color.WHITE);
+		menuGerente.setBackground(Color.BLACK);
+		menuGerente.setFont(new Font("Tahoma", Font.BOLD, 12));
+		menuGerente.setBounds(205, 466, 161, 21);
+		contentPane.add(menuGerente);
+		JButton menuDiretor = new JButton("Menu Diretor");
+			
+		if(f instanceof Diretor) {
+			menuDiretor.setEnabled(true);
+			menuDiretor.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					try {
+						dispose();
+						JMenuDiretor md = new JMenuDiretor(f);
+						md.setLocationRelativeTo(md);
+						md.setVisible(true);
+					} catch (java.lang.ClassCastException exc) {
+						JOptionPane.showMessageDialog(menuDiretor, "Ops, ocorreu um erro!");
+						exc.printStackTrace();
+					}
+				}
+			});
+		} else {
+			menuDiretor.setEnabled(false);
+		}
+		menuDiretor.setForeground(Color.WHITE);
+		menuDiretor.setBackground(Color.BLACK);
+		menuDiretor.setFont(new Font("Tahoma", Font.BOLD, 12));
+		menuDiretor.setBounds(205, 497, 161, 21);
+		contentPane.add(menuDiretor);
+			
+		JButton menuPresidente = new JButton("Menu Presidente");
+		if(f instanceof Presidente) {
+			menuPresidente.setEnabled(true);
+			menuPresidente.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					try {
+						dispose();
+						MenuPresidente mp = new MenuPresidente(f);
+						mp.setLocationRelativeTo(mp);
+						mp.setVisible(true);
+					} catch (java.lang.ClassCastException exc) {
+						JOptionPane.showMessageDialog(buttonContinuar, "Ops, ocorreu um erro!");
+						exc.printStackTrace();
+					}
+				}
+			});
+		}
+		else {
+			menuPresidente.setEnabled(false);
+		}
+		menuPresidente.setForeground(Color.WHITE);
+		menuPresidente.setBackground(Color.BLACK);menuPresidente.setFont(new Font("Tahoma",Font.BOLD,12));
+		menuPresidente.setBounds(205,528,161,21);contentPane.add(menuPresidente);}}
