@@ -5,7 +5,7 @@
 <body>
   <h1 align="center">DéBank - Sistema Bancário</h1>
   <div align="center">
-    <img src="https://github.com/eduardocs90/POO2023_Grupo6/assets/141193350/09923c5e-ba9e-4704-9e88-5c1d18568673"alt="DéBank">
+    <img src="https://github.com/eduardocs90/POO2023_Grupo6/assets/141193350/c7901992-2c76-41bb-a458-d61ddcdf4d0d"alt="DéBank">
   </div>
 
   <p>Este repositório contém a implementação do sistema bancário DéBank desenvolvido como atividade continuada na disciplina de Java. O DéBank é um sistema bancário simples que permite aos clientes realizar   operações bancárias, aos gerentes, diretores e presidentes gerenciar as agências e aos funcionários administrar os clientes e contas.</p>
@@ -32,7 +32,7 @@
   <li><b><i>Gerente, Diretor e Presidente</i></b> que herda de Funcionario.</li>
 
 <h2>Diagrama de Classes UML</h2>
-<img src="https://github.com/eduardocs90/POO2023_Grupo6/assets/141193350/fb4ea8c4-112b-4655-863a-2dfc0ba6db65"alt="Diagrama de Classes UML">
+<img src="https://github.com/eduardocs90/POO2023_Grupo6/assets/141193350/7835e8bc-5f46-44e8-b827-a0f7b636aba5"alt="Diagrama de Classes UML">
 
 
 
@@ -55,9 +55,9 @@
   1.2 Cadastro de Clientes, Cadastro de Gerentes e Cadastros de Diretores.
 
 <h2>Tecnologias Utilizadas</h2>
- <img src="https://github.com/eduardocs90/POO2023_Grupo6/assets/141193350/6d79ba45-3a11-4d34-9d5f-5f63bcce3abf" height="40" width="40"> <a href="https://www.oracle.com/br/java/technologies/javase/jdk11-archive-downloads.html">Java 11 e JFrame</a>
+ <img src="https://github.com/eduardocs90/POO2023_Grupo6/assets/141193350/da426343-ad69-4070-af0e-b81ac4303722" height="40" width="40"> <a href="https://www.oracle.com/br/java/technologies/javase/jdk11-archive-downloads.html">Java 11 e JFrame</a>
  <br>
- <img src="https://github.com/eduardocs90/POO2023_Grupo6/assets/141193350/3fd2972d-6bdd-4b4b-b6ed-ac5cc72f1071" height="30" width="30"> <a href="https://spring.io/tools">Spring Tools Suite 4</a>
+ <img src="https://github.com/eduardocs90/POO2023_Grupo6/assets/141193350/0ae95b40-0108-4e12-9b64-b1c8d75ce611" height="30" width="30"> <a href="https://spring.io/tools">Spring Tools Suite 4</a>
 
 <h2>Autores</h2>  
 <img src="https://cdn.discordapp.com/attachments/1135262336819679372/1140675577733464254/github-logo-git-hub-icon-with-text-on-white-and-black-background-free-vector_2-removebg-preview.png" height="60" width="60">  <a href="https://github.com/leignel">Cristian Leignel</a> | <a href="https://github.com/eduardocs90">Eduardo Carneiro</a> | <a href="https://github.com/LucasGonRo">Lucas Gonzaga</a> | <a href="https://github.com/FelipeSutter">Felipe Sutter</a> | <a href="https://github.com/sh9bba">Felipe Moura</a>
